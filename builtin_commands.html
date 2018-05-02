@@ -55,7 +55,7 @@
         data-chapter-title="Builtin Commands"
         data-filepath="builtin_commands.md"
         data-basepath="."
-        data-revision="Thu May 03 2018 06:08:27 GMT+0900 (KST)"
+        data-revision="Thu May 03 2018 07:09:26 GMT+0900 (KST)"
         data-innerlanguage="">
     
 
@@ -1914,11 +1914,11 @@ session required pam_limits.so
     [ $? <span class="hljs-operator">-ne</span> <span class="hljs-number">0</span> ] &amp;&amp; <span class="hljs-built_in">return</span> <span class="hljs-number">1</span>
     new_dir=$(<span class="hljs-built_in">pwd</span>)
 
-    <span class="hljs-comment"># 10 &#xAC1C;&#xC758; history &#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xAC83;&#xC774;&#xBBC0;&#xB85C; 11&#xBC88;&#xC9F8; &#xD56D;&#xBAA9;&#xC774; &#xC0DD;&#xAE38;&#xACBD;&#xC6B0; stack &#xC5D0;&#xC11C; &#xC0AD;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;.</span>
-    <span class="hljs-built_in">popd</span> -n +<span class="hljs-number">11</span> &amp;&gt; /dev/null
+    <span class="hljs-comment"># 15 &#xAC1C;&#xC758; history &#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xAC83;&#xC774;&#xBBC0;&#xB85C; 16&#xBC88;&#xC9F8; &#xD56D;&#xBAA9;&#xC774; &#xC0DD;&#xAE38;&#xACBD;&#xC6B0; stack &#xC5D0;&#xC11C; &#xC0AD;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;.</span>
+    <span class="hljs-built_in">popd</span> -n +<span class="hljs-number">16</span> &amp;&gt; /dev/null
 
     <span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; &#xAE30;&#xC874; history &#xB97C; &#xAC80;&#xC0C9;&#xD574; &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC640; &#xC911;&#xBCF5;&#xB418;&#xB294; &#xD56D;&#xBAA9;&#xC774; &#xC788;&#xC73C;&#xBA74; &#xC0AD;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;.</span>
-    <span class="hljs-keyword">for</span> ((cnt=<span class="hljs-number">1</span>; cnt &lt;= <span class="hljs-number">10</span>; cnt++)); <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">for</span> ((cnt=<span class="hljs-number">1</span>; cnt &lt;= <span class="hljs-number">15</span>; cnt++)); <span class="hljs-keyword">do</span>
         x2=$(<span class="hljs-built_in">dirs</span> +<span class="hljs-variable">$cnt</span> <span class="hljs-number">2</span>&gt;/dev/null)
         [ $? <span class="hljs-operator">-ne</span> <span class="hljs-number">0</span> ] &amp;&amp; <span class="hljs-built_in">return</span>
         [ <span class="hljs-string">&quot;<span class="hljs-variable">${x2:0:1}</span>&quot;</span> = <span class="hljs-string">&quot;~&quot;</span> ] &amp;&amp; x2=<span class="hljs-variable">$HOME</span><span class="hljs-variable">${x2:1}</span>
