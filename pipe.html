@@ -1473,7 +1473,7 @@ find: &#x2018;grep&#x2019; terminated by signal <span class="hljs-number">13</sp
 find: &#x2018;grep&#x2019; terminated by signal <span class="hljs-number">13</span>
 </code></pre>
 <p>&#xBA3C;&#xC800; find &#xBA85;&#xB839;&#xC758; -exec &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740;
-&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>\;</code> &#xC640; <code>+</code> &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; 2 &#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>\;</code> &#xC640; <code>{} +</code> &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; 2 &#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC774;&#xAC83;&#xC740; grep &#xBA85;&#xB839;&#xC774; &#xAC01;&#xAC01;&#xC758; {} &#xD30C;&#xC77C;&#xC5D0; &#xB300;&#xD574; 4 &#xBC88; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
 $ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <span class="hljs-string">&quot;{}&quot;</span> \;
 <span class="hljs-comment"># grep ABC k.c</span>
@@ -1485,7 +1485,7 @@ $ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <sp
 $ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <span class="hljs-string">&quot;{}&quot;</span> +
 <span class="hljs-comment"># grep ABC k.c l.c m.c n.c</span>
 
-<span class="hljs-comment"># -exec &#xC635;&#xC158;&#xC758; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &apos;\;&apos; &#xB098; &apos;+&apos; &#xBB38;&#xC790;&#xB97C; &#xBD99;&#xC774;&#xB294; &#xC774;&#xC720;&#xB294; &#xBA85;&#xB839;&#xC758; &#xB05D;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xC785;&#xB2C8;&#xB2E4;. </span>
+<span class="hljs-comment"># -exec &#xC635;&#xC158;&#xC758; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &apos;\;&apos; &#xBB38;&#xC790;&#xB97C; &#xBD99;&#xC774;&#xB294; &#xC774;&#xC720;&#xB294; &#xBA85;&#xB839;&#xC758; &#xB05D;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xC785;&#xB2C8;&#xB2E4;. </span>
 <span class="hljs-comment"># &#xADF8;&#xB798;&#xC57C; &#xB4A4;&#xC774;&#xC5B4;&#xC11C; &#xB610; -exec &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xACA0;&#xC8E0;</span>
 $ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <span class="hljs-string">&quot;{}&quot;</span> \; -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&apos;%n: %s&apos;</span> <span class="hljs-string">&quot;{}&quot;</span> \;
 </code></pre>
