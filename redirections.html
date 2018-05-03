@@ -1666,7 +1666,8 @@ lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
 <p>datafile &#xC5D0;&#xC11C; &#xC55E;&#xC758; 100 &#xB77C;&#xC778;&#xB9CC; &#xB0A8;&#xAE30;&#xACE0; &#xC0AD;&#xC81C;&#xD558;&#xB824;&#xACE0; &#xD558;&#xC9C0;&#xB9CC;
 &#xC2E4;&#xD589;&#xD574;&#xBCF4;&#xBA74; &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xAC00; <code>0</code> &#xC774; &#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 head &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xAE30; &#xC804;&#xC5D0; <code>&gt;</code> &#xC774; &#xCC98;&#xB9AC;&#xB418;&#xC5B4; &#xD30C;&#xC77C;&#xC758; &#xB0B4;&#xC6A9;&#xC774; &#xBAA8;&#xB450; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ head -n100 datafile &gt; datafile
+<pre><code class="lang-bash"><span class="hljs-comment"># datafile &#xC740; &#xAC19;&#xC740; &#xD30C;&#xC77C;&#xBA85;</span>
+$ head -n100 datafile &gt; datafile
 </code></pre>
 <p>/proc/sys/kernel/yama/ptrace_scope &#xBCC0;&#xC218;&#xB294; strace &#xBA85;&#xB839;&#xACFC; &#xAD00;&#xB828;&#xB41C; &#xCEE4;&#xB110; &#xC635;&#xC158;&#xC778;&#xB370;&#xC694;.
 &#xC544;&#xB798; &#xBCF4;&#xC2DC;&#xBA74; &#xD37C;&#xBBF8;&#xC158;&#xC774; <code>-rw-r--r--</code> &#xB85C; &#xB418;&#xC5B4;&#xC788;&#xC5B4; &#xC77C;&#xBC18; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xAC12;&#xC744; &#xC77D;&#xC744;&#xC218;&#xB294; &#xC788;&#xC5B4;&#xB3C4; &#xC4F8;&#xC218;&#xB294; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
@@ -1736,29 +1737,6 @@ $ cat file
 <span class="hljs-number">3</span>
 </code></pre>
 <h1 id="quiz">Quiz</h1>
-<p><code>fuser</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD2B9;&#xC815; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB098; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; &#xD30C;&#xC77C;&#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xC0AC;&#xC6A9; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC744;
-&#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xACE0; &#xB610;&#xB294; &#xD2B9;&#xC815; &#xD30C;&#xC77C;&#xC744; &#xC0AC;&#xC6A9; &#xC911;&#xC778;( &#xC2E4;&#xD589;&#xD558;&#xAC70;&#xB098; open &#xD55C; )  &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC744; &#xC54C;&#xC544;&#xBCFC; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xB2E4;&#xC74C;&#xC740; <code>/proc</code> &#xD30C;&#xC77C;&#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xC0AC;&#xC6A9; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC744; &#xCD9C;&#xB825;&#xD574; &#xBCF8; &#xAC83;&#xC778;&#xB370;&#xC694;.
-&#xC5EC;&#xAE30;&#xC5D0;&#xB294; &#xC2E4;&#xC81C; stdout &#xCD9C;&#xB825;&#xAC12;&#xACFC; stderr &#xCD9C;&#xB825;&#xAC12;&#xC774; &#xC11E;&#xC5EC;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC5B4;&#xB5A4; &#xAC12;&#xC774; stdout &#xB85C; &#xCD9C;&#xB825;&#xB41C; &#xAC12;&#xC774;&#xACE0;, &#xC5B4;&#xB5A4; &#xAC12;&#xC774; stderr &#xB85C; &#xCD9C;&#xB825;&#xB41C; &#xAC12;&#xC77C;&#xAE4C;&#xC694;?</p>
-<pre><code class="lang-bash">$ fuser -m /proc
-/proc:                 <span class="hljs-number">697</span>rc  <span class="hljs-number">1080</span>  <span class="hljs-number">2415</span>  <span class="hljs-number">2719</span>  <span class="hljs-number">2922</span>  <span class="hljs-number">3009</span>  <span class="hljs-number">3317</span>  <span class="hljs-number">4019</span>  <span class="hljs-number">4599</span>rc
-<span class="hljs-number">7596</span>rc  <span class="hljs-number">7597</span>rc  <span class="hljs-number">7600</span>rc  <span class="hljs-number">7673</span>  <span class="hljs-number">7741</span>rc  <span class="hljs-number">7771</span>rc  <span class="hljs-number">7861</span>rc  <span class="hljs-number">7922</span>rc  <span class="hljs-number">7941</span>rc  <span class="hljs-number">7953</span>rc  
-<span class="hljs-number">7971</span>rc  <span class="hljs-number">7979</span>rc  <span class="hljs-number">8170</span>rc  <span class="hljs-number">8189</span>rc  <span class="hljs-number">8396</span>rc  <span class="hljs-number">8417</span>rc  <span class="hljs-number">8447</span>rc  <span class="hljs-number">8461</span>rc  <span class="hljs-number">8477</span>rc  <span class="hljs-number">8503</span>rc
-</code></pre>
-<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD574;&#xBCF4;&#xBA74; stdout &#xCD9C;&#xB825;&#xAC12;&#xC73C;&#xB85C; pid &#xB9CC; &#xB0A8;&#xAC8C; &#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xB530;&#xB77C;&#xC11C; &#xC704; fuser &#xBA85;&#xB839;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xB2E4;&#xB978; &#xBA85;&#xB839;&#xB4E4;&#xACFC; &#xC5F0;&#xACB0;&#xD558;&#xAC8C; &#xB418;&#xBA74;
-pid &#xB4A4;&#xC5D0; &#xBD99;&#xC740; <code>rc</code> &#xB098; <code>/proc:</code> &#xAC19;&#xC740; &#xBB38;&#xC790;&#xB4E4;&#xC740; &#xC804;&#xB2EC;&#xB418;&#xC9C0; &#xC54A;&#xACE0;
-pid &#xB4E4;&#xB9CC; &#xC804;&#xB2EC;&#xB418;&#xACA0;&#xC8E0;</p>
-<pre><code class="lang-bash">$ fuser -m /proc <span class="hljs-number">2</span>&gt; /dev/null
-   <span class="hljs-number">697</span>  <span class="hljs-number">1080</span>  <span class="hljs-number">2415</span>  <span class="hljs-number">2719</span>  <span class="hljs-number">2922</span>  <span class="hljs-number">3009</span>  <span class="hljs-number">3317</span>  <span class="hljs-number">4019</span>  <span class="hljs-number">4599</span>
-<span class="hljs-number">7596</span>  <span class="hljs-number">7597</span>  <span class="hljs-number">7600</span>  <span class="hljs-number">7673</span>  <span class="hljs-number">7741</span>  <span class="hljs-number">7771</span>  <span class="hljs-number">7861</span>  <span class="hljs-number">7922</span>  <span class="hljs-number">7941</span>  <span class="hljs-number">7953</span>
-<span class="hljs-number">7971</span>  <span class="hljs-number">7979</span>  <span class="hljs-number">8170</span>  <span class="hljs-number">8189</span>  <span class="hljs-number">8396</span>  <span class="hljs-number">8417</span>  <span class="hljs-number">8447</span>  <span class="hljs-number">8461</span>  <span class="hljs-number">8477</span>  <span class="hljs-number">8503</span>  
-
-<span class="hljs-comment"># pid &#xB9CC; xargs &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
-$ fuser -m /proc | xargs ps
-</code></pre>
-<hr>
 <p>FD 1&#xBC88; stdout &#xACFC; FD 2&#xBC88; stderr &#xB97C; &#xC11C;&#xB85C; &#xBC14;&#xAFB8;&#xAE30;</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xCD08;&#xAE30; FD &#xC0C1;&#xD0DC;</span>
 lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">07.06</span>.<span class="hljs-number">2015</span> <span class="hljs-number">15</span>:<span class="hljs-number">04</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">10</span>  <span class="hljs-comment"># stdin</span>
