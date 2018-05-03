@@ -1301,7 +1301,7 @@ $ awk <span class="hljs-string">&apos;BEGINFILE { print FILENAME; nextfile }&apo
 arr=( $(find . -type f) ) ...      <span class="hljs-comment"># Wrong!</span>
 
 -------------------------------------------
-<span class="hljs-comment"># &#xD30C;&#xC77C;&#xBA85;&#xC5D0; &#xACF5;&#xBC31;&#xC774;&#xB098; glob &#xBB38;&#xC790;&#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74; &#xC704;&#xC640; &#xAC19;&#xC774; &#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># C/C++ &#xC18C;&#xC2A4; &#xD30C;&#xC77C;&#xAC19;&#xC774; &#xD30C;&#xC77C;&#xBA85;&#xC5D0; &#xACF5;&#xBC31;&#xC774;&#xB098; glob &#xBB38;&#xC790;&#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74; &#xC704;&#xC640; &#xAC19;&#xC774; &#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &#xD558;&#xC9C0;&#xB9CC; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;, globbing &#xC5D0;&#xB300;&#xD55C; &#xCC98;&#xB9AC;&#xB97C; &#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
 
 <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
@@ -1356,9 +1356,10 @@ sh$ find -type f -exec \
 </code></pre>
 <p>&#xB2E4;&#xC74C;&#xC740; xargs &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># find &#xBA85;&#xB839;&#xC5D0;&#xC11C; -print0 &#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xCD9C;&#xB825;&#xD558;&#xC600;&#xC73C;&#xBBC0;&#xB85C; xargs &#xC5D0;&#xC11C; -0 &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-<span class="hljs-comment"># xargs &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; {} &#xC640; X &#xC758; &#xC758;&#xBBF8;&#xB294; &#xC704; &#xC608;&#xC81C;&#xC640; &#xAC19;&#xACE0; {} &#xB294; select &#xB41C; &#xD30C;&#xC77C;&#xBA85;&#xC744; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># xargs &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; {} &#xC640; X &#xC758; &#xC758;&#xBBF8;&#xB294; &#xC704; &#xC608;&#xC81C;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># -i &#xC635;&#xC158;&#xACFC; {} &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC740; find &#xBA85;&#xB839;&#xC5D0;&#xC11C; -exec ... \; &#xD615;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 sh$ find -type f -print0 | 
-    xargs -<span class="hljs-number">0</span>i sh -c <span class="hljs-string">&apos;mv &quot;$0&quot; &quot;${0%.*}&quot;.py&apos;</span> {}
+    xargs -<span class="hljs-number">0</span> -i sh -c <span class="hljs-string">&apos;mv &quot;$0&quot; &quot;${0%.*}&quot;.py&apos;</span> {}
 <span class="hljs-comment"># 1. sh -c &apos;...&apos; &quot;file1&quot;</span>
 <span class="hljs-comment"># 2. sh -c &apos;...&apos; &quot;file2&quot;</span>
 <span class="hljs-comment"># 3. sh -c &apos;...&apos; &quot;file3&quot;</span>

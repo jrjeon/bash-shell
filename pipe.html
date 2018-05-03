@@ -1327,9 +1327,7 @@ PID TTY          TIME CMD
 </span>
 <span class="hljs-built_in">echo</span> t2.sh
 cat             <span class="hljs-comment"># t1.sh &#xC5D0;&#xC11C; &#xBC1B;&#xC740; &#xC815;&#xBCF4;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xAE30; &#xC704;&#xD55C; cat</span>
-
 <span class="hljs-built_in">read</span> -r var &lt; /dev/tty
-
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
 
 --------- t3.sh ----------
@@ -1463,6 +1461,38 @@ pid &#xB4E4;&#xB9CC; &#xC804;&#xB2EC;&#xB418;&#xACA0;&#xC8E0;</p>
 <span class="hljs-comment"># pid &#xB9CC; xargs &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
 $ fuser -m /proc | xargs ps
 </code></pre>
+<h1 id="2">2.</h1>
+<p>&#xAC00;&#xB839; &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; <code>k.c</code> <code>l.c</code> <code>m.c</code> <code>n.c</code> 4 &#xAC1C;&#xC758; &#xD30C;&#xC77C;&#xC774; &#xC788;&#xACE0; &#xAC01;&#xAC01; ABC &#xC2A4;&#xD2B8;&#xB9C1;&#xACFC; &#xB9E4;&#xCE6D; &#xB418;&#xB294; 
+&#xB77C;&#xC778;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB2E4;&#xACE0; &#xD560; &#xACBD;&#xC6B0; &#xC544;&#xB798;&#xC758; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD574; &#xBCF4;&#xBA74; &#xCC98;&#xC74C; &#xD55C; &#xB77C;&#xC778;&#xB9CC; &#xCD9C;&#xB825;&#xC774; &#xB418;&#xACE0;
+&#xB098;&#xBA38;&#xC9C0; grep &#xBA85;&#xB839;&#xC740; signal &#xC5D0;&#xC758;&#xD574; terminated &#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC65C; &#xC774;&#xB7F0; &#xD604;&#xC0C1;&#xC774; &#xBC1C;&#xC0DD;&#xD560;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-bash">$ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <span class="hljs-string">&quot;{}&quot;</span> \; | head -<span class="hljs-number">1</span>
+line ABC .....
+find: &#x2018;grep&#x2019; terminated by signal <span class="hljs-number">13</span>
+find: &#x2018;grep&#x2019; terminated by signal <span class="hljs-number">13</span>
+find: &#x2018;grep&#x2019; terminated by signal <span class="hljs-number">13</span>
+</code></pre>
+<p>&#xBA3C;&#xC800; find &#xBA85;&#xB839;&#xC758; -exec &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740;
+&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>\;</code> &#xC640; <code>+</code> &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; 2 &#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xC774;&#xAC83;&#xC740; grep &#xBA85;&#xB839;&#xC774; &#xAC01;&#xAC01;&#xC758; {} &#xD30C;&#xC77C;&#xC5D0; &#xB300;&#xD574; 4 &#xBC88; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <span class="hljs-string">&quot;{}&quot;</span> \;
+<span class="hljs-comment"># grep ABC k.c</span>
+<span class="hljs-comment"># grep ABC l.c</span>
+<span class="hljs-comment"># grep ABC m.c</span>
+<span class="hljs-comment"># grep ABC n.c</span>
+
+<span class="hljs-comment"># &#xC774;&#xAC83;&#xC740; grep &#xBA85;&#xB839;&#xC774; 4 &#xAC1C;&#xC758; &#xD30C;&#xC77C;&#xC744; &#xC778;&#xC218;&#xB85C; &#xAC16;&#xACE0; &#xD55C;&#xBC88; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <span class="hljs-string">&quot;{}&quot;</span> +
+<span class="hljs-comment"># grep ABC k.c l.c m.c n.c</span>
+
+<span class="hljs-comment"># -exec &#xC635;&#xC158;&#xC758; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &apos;\;&apos; &#xB098; &apos;+&apos; &#xBB38;&#xC790;&#xB97C; &#xBD99;&#xC774;&#xB294; &#xC774;&#xC720;&#xB294; &#xBA85;&#xB839;&#xC758; &#xB05D;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xC785;&#xB2C8;&#xB2E4;. </span>
+<span class="hljs-comment"># &#xADF8;&#xB798;&#xC57C; &#xB4A4;&#xC774;&#xC5B4;&#xC11C; &#xB610; -exec &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xACA0;&#xC8E0;</span>
+$ find -name <span class="hljs-string">&apos;*.c&apos;</span> -exec grep ABC <span class="hljs-string">&quot;{}&quot;</span> \; -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&apos;%n: %s&apos;</span> <span class="hljs-string">&quot;{}&quot;</span> \;
+</code></pre>
+<p>&#xC9C8;&#xBB38;&#xC758; &#xC608;&#xC81C; &#xBA85;&#xB839;&#xC5D0;&#xC11C; -exec &#xBA85;&#xB839;&#xC744; <code>\;</code> &#xB85C; &#xC2E4;&#xD589;&#xC2DC;&#xCF30;&#xC73C;&#xBBC0;&#xB85C; grep &#xBA85;&#xB839;&#xC774; find &#xC5D0;&#xC758;&#xD574; 4 &#xBC88; &#xC2E4;&#xD589;
+&#xB429;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; <code>head -1</code> &#xBA85;&#xB839;&#xC740; &#xCCAB; &#xB77C;&#xC778;&#xC744; &#xCD9C;&#xB825;&#xD558;&#xACE0; &#xC885;&#xB8CC;&#xB418;&#xBBC0;&#xB85C;
+&#xC774;&#xD6C4;&#xC5D0;&#xB294; &#xD30C;&#xC774;&#xD504;&#xAC00; close &#xB418;&#xC5B4;&#xC11C; signal 13 ( SIGPIPE ) &#xC5D0; &#xC758;&#xD574; &#xB098;&#xBA38;&#xC9C0; grep &#xBA85;&#xB839;&#xB4E4;&#xC774; terminated 
+&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 
                     
                     </section>
