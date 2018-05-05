@@ -1245,7 +1245,7 @@ $ AA=`pgrep <span class="hljs-operator">-d</span>, -x ibus`
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">17516</span>,<span class="hljs-number">17529</span>,<span class="hljs-number">17530</span>,<span class="hljs-number">17538</span>,<span class="hljs-number">17541</span>
 
-$ cat /proc/`pgrep -x awk`/maps
+$ cat /proc/`pidof awk`/maps
 
 $ <span class="hljs-built_in">cd</span> /lib/modules/`uname -r`
 </code></pre>
