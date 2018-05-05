@@ -1438,9 +1438,9 @@ line ABC....              <span class="hljs-comment"># from mmm.c</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;*.c&apos;</span> | xargs -i sh -c <span class="hljs-string">&apos;grep ABC {} | sort | head -1&apos;</span>
 </code></pre>
-<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; sudo &#xBA85;&#xB839;&#xC744; &#xC0B4;&#xD3B4;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.
-<code>/proc/sys/kernel/yama/ptrace_scope</code> &#xB294; strace &#xBA85;&#xB839;&#xACFC; &#xAD00;&#xB828;&#xB41C; &#xCEE4;&#xB110; &#xC635;&#xC158;&#xC778;&#xB370;&#xC694;.
-&#xC544;&#xB798; &#xBCF4;&#xC2DC;&#xBA74; &#xD37C;&#xBBF8;&#xC158;&#xC774; <code>-rw-r--r--</code> &#xB85C; &#xB418;&#xC5B4;&#xC788;&#xC5B4; &#xC77C;&#xBC18; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xAC12;&#xC744; &#xC77D;&#xC744;&#xC218;&#xB294; &#xC788;&#xC5B4;&#xB3C4; &#xC4F8;&#xC218;&#xB294; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+<h5 id="&#xC774;&#xBC88;&#xC5D0;&#xB294;-sudo-&#xBA85;&#xB839;&#xC744;-&#xC0B4;&#xD3B4;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;">&#xC774;&#xBC88;&#xC5D0;&#xB294; sudo &#xBA85;&#xB839;&#xC744; &#xC0B4;&#xD3B4;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</h5>
+<p><code>/proc/sys/kernel/yama/ptrace_scope</code> &#xB294; strace &#xBA85;&#xB839;&#xACFC; &#xAD00;&#xB828;&#xB41C; &#xCEE4;&#xB110; &#xC635;&#xC158;&#xC778;&#xB370;&#xC694;.
+&#xC544;&#xB798; &#xBCF4;&#xC2DC;&#xBA74; &#xD37C;&#xBBF8;&#xC158;&#xC774; <code>-rw-r--r--</code> &#xB85C; &#xB418;&#xC5B4;&#xC788;&#xC5B4;&#xC11C; &#xC77C;&#xBC18; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xAC12;&#xC744; &#xC77D;&#xC744;&#xC218;&#xB294; &#xC788;&#xC5B4;&#xB3C4; &#xC4F8;&#xC218;&#xB294; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB798;&#xC11C; &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD558;&#xAE30; &#xC704;&#xD574; sudo &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB294;&#xB370; Perminssion denied &#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ ls <span class="hljs-operator">-l</span> /proc/sys/kernel/yama/ptrace_scope
 -rw-r--r-- <span class="hljs-number">1</span> root root <span class="hljs-number">0</span> <span class="hljs-number">2017</span>-<span class="hljs-number">01</span>-<span class="hljs-number">25</span> <span class="hljs-number">02</span>:<span class="hljs-number">34</span> /proc/sys/kernel/yama/ptrace_scope
@@ -1458,20 +1458,20 @@ permission &#xC5D0;&#xB7EC;&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p
 <p>&#xB530;&#xB77C;&#xC11C; sudo &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD574; echo &#xBA85;&#xB839;&#xACFC; <code>&gt;</code> &#xAC00; root &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xB824;&#xBA74;
 &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>sh -c</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; echo &#xBA85;&#xB839;&#xC758; command line &#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ sudo sh -c <span class="hljs-string">&apos;echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope&apos;</span>
-
-<span class="hljs-comment"># &#xB610;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> | sudo tee /proc/sys/kernel/yama/ptrace_scope
-<span class="hljs-number">0</span>
-$ cat /proc/sys/kernel/yama/ptrace_scope 
-<span class="hljs-number">0</span>
 </code></pre>
-<p>&#xB2E4;&#xC74C;&#xC744; &#xBCF4;&#xC2DC;&#xBA74; sudo &#xBA85;&#xB839;&#xC758; command line &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; <code>&gt; x2</code> &#xD30C;&#xC77C;&#xC740; &#xC77C;&#xBC18; &#xC720;&#xC800;&#xB85C; &#xB098;&#xC624;&#xACE0; 
-echo &#xBA85;&#xB839;&#xC758; command line &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; <code>&gt; x1</code> &#xD30C;&#xC77C;&#xC740; root &#xB85C; &#xB098;&#xC624;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xC744; &#xBCF4;&#xC2DC;&#xBA74; sudo &#xBA85;&#xB839;&#xC758; command line &#xC5D0; &#xD574;&#xB2F9;&#xB418;&#xB294; <code>&gt; x2</code> &#xD30C;&#xC77C;&#xC740; &#xC77C;&#xBC18; &#xC720;&#xC800;&#xB85C; &#xB098;&#xC624;&#xACE0; 
+echo &#xBA85;&#xB839;&#xC758; command line &#xC5D0; &#xD574;&#xB2F9;&#xB418;&#xB294; <code>&gt; x1</code> &#xD30C;&#xC77C;&#xC740; root &#xB85C; &#xB098;&#xC624;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ sudo sh -c <span class="hljs-string">&apos;echo &gt; x1&apos;</span> &gt; x2
 
 $ ls <span class="hljs-operator">-l</span> x1 x2
 -rw-r--r-- <span class="hljs-number">1</span> root   root     <span class="hljs-number">1</span> <span class="hljs-number">2017</span>-<span class="hljs-number">01</span>-<span class="hljs-number">25</span> <span class="hljs-number">02</span>:<span class="hljs-number">44</span> x1
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896   <span class="hljs-number">0</span> <span class="hljs-number">2017</span>-<span class="hljs-number">01</span>-<span class="hljs-number">25</span> <span class="hljs-number">02</span>:<span class="hljs-number">44</span> x2
+</code></pre>
+<p>&#xCC38;&#xACE0;&#xB85C; &#xC608;&#xC81C;&#xB85C;&#xB4E0; sudo &#xBA85;&#xB839;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-number">0</span> | sudo tee /proc/sys/kernel/yama/ptrace_scope
+<span class="hljs-number">0</span>
+$ cat /proc/sys/kernel/yama/ptrace_scope 
+<span class="hljs-number">0</span>
 </code></pre>
 <h2 id="quiz">Quiz</h2>
 <p><code>fuser</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD2B9;&#xC815; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB098; &#xB9C8;&#xC6B4;&#xD2B8;&#xB41C; &#xD30C;&#xC77C;&#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xC0AC;&#xC6A9; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC744;
