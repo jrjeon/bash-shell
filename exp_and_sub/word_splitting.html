@@ -1302,7 +1302,7 @@ sh$ IFS=<span class="hljs-variable">$oIFS</span>                <span class="hlj
 <p>&#xB2E4;&#xC74C;&#xC740; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xAC00; &#xC77C;&#xC5B4;&#xB098;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ dirname=<span class="hljs-string">&quot;&#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xAC15;&#xC88C;&quot;</span>
 
-<span class="hljs-comment"># $dirname &#xBCC0;&#xC218;&#xC5D0;&#xC11C; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xAC00; &#xC77C;&#xC5B4;&#xB098; &#xB9C8;&#xC9C0;&#xB9C9; &#xB2E8;&#xC5B4;&#xC778; &apos;&#xAC15;&#xC88C;&apos; &#xAC00; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xBA85;&#xC774; &#xB418;&#xC5C8;&#xB2E4;.</span>
+<span class="hljs-comment"># $dirname &#xBCC0;&#xC218;&#xC5D0;&#xC11C; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xAC00; &#xC77C;&#xC5B4;&#xB098; &#xB9C8;&#xC9C0;&#xB9C9; &#xB2E8;&#xC5B4;&#xC778; &apos;&#xAC15;&#xC88C;&apos; &#xAC00; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xBA85;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</span>
 $ cp *.txt <span class="hljs-variable">$dirname</span>                     
 cp: target <span class="hljs-string">&apos;&#xAC15;&#xC88C;&apos;</span> is not a directory
 
@@ -1314,18 +1314,18 @@ OK
 
 $ AA=<span class="hljs-string">&quot;one two three&quot;</span>
 
-<span class="hljs-comment"># $AA &#xD558;&#xB098;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC774;&#xC9C0;&#xB9CC; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xC5D0; &#xC758;&#xD574; 3&#xAC1C;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB418;&#xC5C8;&#xB2E4;.</span>
+<span class="hljs-comment"># $AA &#xD558;&#xB098;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC774;&#xC9C0;&#xB9CC; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xC5D0; &#xC758;&#xD574; 3&#xAC1C;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
 $ args.sh <span class="hljs-variable">$AA</span>
 <span class="hljs-variable">$1</span> : one
 <span class="hljs-variable">$2</span> : two
 <span class="hljs-variable">$3</span> : three
 
-<span class="hljs-comment"># $AA &#xD558;&#xB098;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC774;&#xC9C0;&#xB9CC; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xC5D0; &#xC758;&#xD574; ARR &#xC6D0;&#xC18C; &#xAC1C;&#xC218;&#xAC00; 3&#xAC1C;&#xAC00; &#xB418;&#xC5C8;&#xB2E4;.</span>
+<span class="hljs-comment"># $AA &#xD558;&#xB098;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC774;&#xC9C0;&#xB9CC; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xC5D0; &#xC758;&#xD574; ARR &#xC6D0;&#xC18C; &#xAC1C;&#xC218;&#xAC00; 3&#xAC1C;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
 $ ARR=( <span class="hljs-variable">$AA</span> )      
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#ARR[@]}</span>
 <span class="hljs-number">3</span>
 
-<span class="hljs-comment"># $AA &#xD558;&#xB098;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC774;&#xC9C0;&#xB9CC; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xC5D0; &#xC758;&#xD574; 3&#xAC1C;&#xC758; &#xAC12;&#xC774; &#xCD9C;&#xB825;&#xB418;&#xC5C8;&#xB2E4;.</span>
+<span class="hljs-comment"># $AA &#xD558;&#xB098;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC774;&#xC9C0;&#xB9CC; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xC5D0; &#xC758;&#xD574; 3&#xAC1C;&#xC758; &#xAC12;&#xC774; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-variable">$AA</span>; <span class="hljs-keyword">do</span> 
 &gt;    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$num</span>&quot;</span>
 &gt;<span class="hljs-keyword">done</span>
