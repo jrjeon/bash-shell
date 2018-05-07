@@ -1545,7 +1545,7 @@ $ sh -c <span class="hljs-string">&quot;AA=200; echo <span class="hljs-variable"
 $ sh -c <span class="hljs-string">&apos;AA=200; echo $AA&apos;</span>  <span class="hljs-comment"># single quotes &#xC0AC;&#xC6A9;</span>
 <span class="hljs-number">200</span>
 </code></pre>
-<p>&#xB2E4;&#xC74C;&#xC740; find &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; ~/.cache &#xB0B4;&#xC5D0; &#xC788;&#xB294; &#xAC01; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xBCC4;&#xB85C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xC870;&#xD68C;&#xD558;&#xB294; &#xAC83;&#xC778;&#xB370;&#xC694;
+<p>&#xB2E4;&#xC74C;&#xC740; find &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; ~/.cache &#xB0B4;&#xC5D0; &#xC788;&#xB294; &#xAC01; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xBCC4;&#xB85C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xC870;&#xD68C;&#xD558;&#xB294; &#xAC83;&#xC778;&#xB370;&#xC694;.
 -exec &#xC635;&#xC158;&#xC5D0;&#xB294; &#xC2E4;&#xD589;&#xD560; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD558;&#xACE0; <code>\;</code> &#xB85C; &#xB05D;&#xC744; &#xD45C;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC774;&#xB54C; &#xBA85;&#xB839; &#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; <code>{}</code> &#xAC00; &#xB9E4;&#xCE6D; &#xB41C; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xBA85;&#xC73C;&#xB85C; &#xCE58;&#xD658;&#xB418;&#xC5B4; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ find ~/.cache -maxdepth <span class="hljs-number">1</span> -type d -exec du -hs {} \; | sort -hr
@@ -1558,6 +1558,9 @@ $ sh -c <span class="hljs-string">&apos;AA=200; echo $AA&apos;</span>  <span cla
 </code></pre>
 <p>&#xC704;&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xC5ED;&#xD560;&#xC744; &#xD558;&#xB294; &#xBA85;&#xB839;&#xC744; single, double quotes &#xC744; &#xBE44;&#xAD50;&#xD574;&#xBCF4;&#xAE30; &#xC704;&#xD574;
 <code>sh -c</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC791;&#xC131;&#xD55C; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xBA85;&#xB839;&#xBB38;&#xC5D0; <code>sh -c</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC740; <a href="pipe.html#command_line">command line &#xAC1C;&#xB150;</a>&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
+</blockquote>
 <pre><code class="lang-bash"><span class="hljs-comment"># double quotes &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0;</span>
 <span class="hljs-comment"># {} &#xAC00; find &#xBA85;&#xB839;&#xC5D0; &#xC804;&#xB2EC;&#xB418;&#xC5B4; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xBA85;&#xC73C;&#xB85C; &#xBC14;&#xB00C;&#xAE30; &#xC804;&#xC5D0; $( du ... ) &#xAC00; &#xCC98;&#xB9AC;&#xB418;&#xBBC0;&#xB85C; &#xC624;&#xB958; &#xBC1C;&#xC0DD;</span>
 $ find ~/.cache -maxdepth <span class="hljs-number">1</span> -exec \
