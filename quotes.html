@@ -1603,16 +1603,16 @@ sed -r <span class="hljs-string">&apos;s/foo/bar/g&apos;</span>
 sed -r <span class="hljs-string">&apos;s/&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$var1</span>/<span class="hljs-variable">$var2</span>&quot;</span><span class="hljs-string">&apos;/g&apos;</span>
 </code></pre>
 <p>awk &#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB0B4;&#xC5D0;&#xC11C; <code>$</code> &#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; single quotes &#xC744; &#xC774;&#xC6A9;&#xD574; &#xC791;&#xC131;&#xD558;&#xB294;&#xB370;&#xC694;.
-&#xB2E4;&#xC74C;&#xC758; &#xACBD;&#xC6B0;&#xB97C; &#xBCF4;&#xBA74; xargs &#xC5D0; &#xC758;&#xD574; &#xC2E4;&#xD589;&#xB418;&#xB294; <code>sh -c</code> &#xBA85;&#xB839;&#xC774; single quotes &#xC5D0;&#xC758;&#xD574; &#xC791;&#xC131;&#xB418;&#xACE0; &#xC788;&#xB294;&#xB370;
+&#xB2E4;&#xC74C;&#xC758; &#xACBD;&#xC6B0;&#xB97C; &#xBCF4;&#xBA74; -exec &#xC635;&#xC158;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; <code>sh -c</code> &#xBA85;&#xB839;&#xC774; single quotes &#xC5D0;&#xC758;&#xD574; &#xC791;&#xC131;&#xB418;&#xACE0; &#xC788;&#xB294;&#xB370;
 &#xADF8; &#xC548;&#xC5D0; &#xC788;&#xB294; awk &#xBA85;&#xB839;&#xC5D0;&#xC11C;&#xB3C4; single quotes &#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC774;&#xC640; &#xAC19;&#xC740; &#xACBD;&#xC6B0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC77C;&#xB2E8; quotes &#xC744; &#xBD84;&#xB9AC;&#xD55C;&#xD6C4; <code>\&apos;</code> &#xB098; <code>&quot;&apos;&quot;</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD574; &#xC5F0;&#xACB0;&#xD558;&#xBA74; 
 <code>sh -c &apos;...&apos;</code> &#xB0B4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; awk &#xBA85;&#xB839;&#xC5D0;&#xC11C;&#xB3C4; single quotes &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><a name="example"></a></p>
-<pre><code class="lang-bash">$ find -name <span class="hljs-string">&apos;Packages*&apos;</span> -printf <span class="hljs-string">&apos;%P\n&apos;</span> | xargs -I FILE \
-         sh -c <span class="hljs-string">&apos;echo $(md5sum -b &quot;FILE&quot; | awk &apos;</span>\<span class="hljs-string">&apos;&apos;</span>{<span class="hljs-built_in">print</span> <span class="hljs-variable">$1</span>}<span class="hljs-string">&apos;\&apos;</span><span class="hljs-string">&apos;) \
-         $(stat -c %s &quot;FILE&quot;) &quot;FILE&quot;&apos;</span> 
-e805c26ff46c6e138e3<span class="hljs-built_in">cd</span>198cff281ea <span class="hljs-number">301</span> Packages.bz2
+<pre><code class="lang-bash">$ find * -name <span class="hljs-string">&apos;Packages*&apos;</span> -type f -exec \
+    sh -c <span class="hljs-string">&apos;echo $(md5sum -b &quot;{}&quot; | awk &apos;</span>\<span class="hljs-string">&apos;&apos;</span>{<span class="hljs-built_in">print</span> <span class="hljs-variable">$1</span>}<span class="hljs-string">&apos;\&apos;</span><span class="hljs-string">&apos;) $(stat -c %s &quot;{}&quot;) &quot;{}&quot;&apos;</span> \;
+
 b49dd0f63bca9b3a139c5af3dd94c816 <span class="hljs-number">380</span> Packages
+e805c26ff46c6e138e3<span class="hljs-built_in">cd</span>198cff281ea <span class="hljs-number">301</span> Packages.bz2
 <span class="hljs-number">997</span>a7252f202566a1e5fdc5b50c2ffdf <span class="hljs-number">283</span> Packages.gz
 </code></pre>
 <h4 id="&#xBA85;&#xB839;&#xC758;-&#xC778;&#xC218;&#xB97C;-&#xB9CC;&#xB4E4;-&#xB54C;">&#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB97C; &#xB9CC;&#xB4E4; &#xB54C;</h4>
