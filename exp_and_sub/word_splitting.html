@@ -1487,6 +1487,37 @@ $ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span
 
 $ <span class="hljs-built_in">set</span> +f; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>
 </code></pre>
+<p>find &#xBA85;&#xB839;&#xC758; -exec &#xC635;&#xC158;&#xC774;&#xB098; xargs &#xBA85;&#xB839; &#xC0AC;&#xC6A9;&#xC2DC; <code>{}</code> &#xC5D0;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; quote &#xC744; &#xD560; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xD558;&#xC9C0;&#xB9CC; <code>sh -c</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0;&#xB294; shell &#xD658;&#xACBD;&#xC774; &#xB418;&#xBBC0;&#xB85C; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xC640; globbing &#xC774; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; <code>&quot;{}&quot;</code> &#xC640; &#xAC19;&#xC774; quote &#xC744; &#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234</span> &gt; <span class="hljs-string">&apos;foo bar&apos;</span>
+
+$ cat <span class="hljs-string">&apos;foo bar&apos;</span>
+<span class="hljs-number">1234</span>
+
+$ find foo* -exec cat {} \;
+<span class="hljs-number">1234</span>
+
+<span class="hljs-comment"># sh -c &#xB294; shell &#xD658;&#xACBD;&#xC774; &#xB418;&#xBBC0;&#xB85C; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xAC00; &#xC77C;&#xC5B4;&#xB09C;&#xB2E4;.</span>
+$ find foo* -exec sh -c <span class="hljs-string">&apos;cat {}&apos;</span> \;
+cat: foo: No such file or directory
+cat: bar: No such file or directory
+
+<span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; quote &#xC744; &#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ find foo* -exec sh -c <span class="hljs-string">&apos;cat &quot;{}&quot;&apos;</span> \;
+<span class="hljs-number">1234</span>
+................................................
+
+<span class="hljs-comment"># xargs &#xBA85;&#xB839; &#xC0AC;&#xC6A9;&#xC2DC;&#xB3C4; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;</span>
+$ find foo* | xargs -i cat {}
+<span class="hljs-number">1234</span>
+
+$ find foo* | xargs -i sh -c <span class="hljs-string">&apos;cat {}&apos;</span>
+cat: foo: No such file or directory
+cat: bar: No such file or directory
+
+$ find foo* | xargs -i sh -c <span class="hljs-string">&apos;cat &quot;{}&quot;&apos;</span>
+<span class="hljs-number">1234</span>
+</code></pre>
 
                     
                     </section>
