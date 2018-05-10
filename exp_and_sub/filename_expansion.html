@@ -1417,18 +1417,18 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 Arch Linux * Suse Linux Fedora Linux
 </code></pre>
 <p>&#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC774;&#xD558;&#xC5D0;&#xC11C; &#xD655;&#xC7A5;&#xC790;&#xAC00; <code>.c</code> &#xC778; &#xD30C;&#xC77C;&#xC744; &#xBAA8;&#xB450; &#xCC3E;&#xC73C;&#xB824;&#xACE0; &#xD558;&#xC9C0;&#xB9CC;
-glob &#xBB38;&#xC790;&#xC5D0; &#xC758;&#xD574; aaa.c &#xD30C;&#xC77C;&#xACFC; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xC5B4; &#xC2E4;&#xC9C8;&#xC801;&#xC73C;&#xB85C; <code>find * -name aaa.c</code> &#xC640; &#xAC19;&#xC740; &#xBA85;&#xB839;&#xC774; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+glob &#xBB38;&#xC790;&#xC5D0; &#xC758;&#xD574; aaa.c &#xD30C;&#xC77C;&#xACFC; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xC5B4; &#xC2E4;&#xC9C8;&#xC801;&#xC73C;&#xB85C; <code>find -name aaa.c</code> &#xC640; &#xAC19;&#xC740; &#xBA85;&#xB839;&#xC774; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ touch aaa.c
 
-$ find * -name *.c
-aaa.c
+$ find -name *.c
+./aaa.c
 
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; quote &#xD569;&#xB2C8;&#xB2E4;.</span>
-$ find * -name <span class="hljs-string">&apos;*.c&apos;</span>
-aaa.c
-fork/fork.c
-write/write.c
-<span class="hljs-built_in">read</span>/read.c
+$ find -name <span class="hljs-string">&apos;*.c&apos;</span>
+./aaa.c
+./fork/fork.c
+./write/write.c
+./<span class="hljs-built_in">read</span>/read.c
 ...
 </code></pre>
 <p>&#xC704;&#xC758; &#xC608;&#xB97C; &#xD1B5;&#xD574;&#xC11C; &#xC54C; &#xC218; &#xC788;&#xB4EF;&#xC774; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0; glob &#xBB38;&#xC790;&#xAC00; &#xC788;&#xC744;&#xACBD;&#xC6B0; &#xD56D;&#xC0C1; quote &#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; escape &#xD574;&#xC57C; &#xD558;&#xBA70; &#xD544;&#xC694;&#xD560; &#xACBD;&#xC6B0; <code>set -o noglob</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
