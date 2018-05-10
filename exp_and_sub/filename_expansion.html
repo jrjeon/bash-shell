@@ -1339,7 +1339,7 @@ find . -type f -print0 | <span class="hljs-keyword">while</span> <span class="hl
 <p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; globstar &#xC635;&#xC158;&#xB3C4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xACE0; read &#xBA85;&#xB839;&#xC758; -d &#xC635;&#xC158;&#xB3C4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xD558;&#xC9C0;&#xB9CC; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; find &#xBA85;&#xB839;&#xACFC; for &#xBB38;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74;  &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;, globbing, newline &#xBB38;&#xC81C;&#xC5C6;&#xC774; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC2E4;&#xD589;&#xD560; &#xACBD;&#xC6B0; select &#xB41C; &#xD30C;&#xC77C;&#xC774; 3&#xAC1C;&#xB77C;&#xBA74; &#xAC01;&#xAC01; 3 &#xBC88;&#xC758; sh -c &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-sh$ find -type f -exec sh -c <span class="hljs-string">&apos;mv &quot;$0&quot; &quot;${0%.*}.png&quot;&apos;</span> {} \;
+sh$ find *.gif -exec sh -c <span class="hljs-string">&apos;mv &quot;$0&quot; &quot;${0%.*}.png&quot;&apos;</span> {} \;
 <span class="hljs-comment"># 1. sh -c &apos;...&apos; &quot;file1&quot;</span>
 <span class="hljs-comment"># 2. sh -c &apos;...&apos; &quot;file2&quot;</span>
 <span class="hljs-comment"># 3. sh -c &apos;...&apos; &quot;file3&quot;</span>
@@ -1350,7 +1350,7 @@ sh$ find -type f -exec sh -c <span class="hljs-string">&apos;mv &quot;$0&quot; &
 <span class="hljs-comment"># select &#xB41C; &#xD30C;&#xC77C;&#xBA85;&#xC774; &quot;$1&quot; &#xC790;&#xB9AC;&#xC5D0; &#xC624;&#xAC8C; &#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &#xC880; &#xB354; &#xD6A8;&#xC728;&#xC801;&#xC73C;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574; find &#xBA85;&#xB839;&#xC758; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &apos;{} +&apos; &#xAE30;&#xD638;&#xB97C; &#xC0AC;&#xC6A9;&#xD568;&#xC73C;&#xB85C;&#xC368;</span>
 <span class="hljs-comment"># &#xD55C;&#xBC88;&#xC758; sh -c &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xC744; &#xC644;&#xB8CC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-sh$ find -type f -exec \
+sh$ find *.gif -exec \
     sh -c <span class="hljs-string">&apos;for file; do mv &quot;$file&quot; &quot;${file%.*}.png&quot;; done&apos;</span> X {} +
 <span class="hljs-comment"># 1. sh -c &apos;...&apos;  X &quot;file1&quot; &quot;file2&quot; &quot;file3&quot;</span>
 </code></pre>
@@ -1358,13 +1358,13 @@ sh$ find -type f -exec \
 <pre><code class="lang-bash"><span class="hljs-comment"># find &#xBA85;&#xB839;&#xC5D0;&#xC11C; -print0 &#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xCD9C;&#xB825;&#xD558;&#xC600;&#xC73C;&#xBBC0;&#xB85C; xargs &#xC5D0;&#xC11C; -0 &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># xargs &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; {} &#xC640; X &#xC758; &#xC758;&#xBBF8;&#xB294; &#xC704; &#xC608;&#xC81C;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># -i &#xC635;&#xC158;&#xACFC; {} &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC740; find &#xBA85;&#xB839;&#xC5D0;&#xC11C; -exec ... \; &#xD615;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-sh$ find -type f -print0 | 
+sh$ find *.gif -print0 | 
     xargs -<span class="hljs-number">0</span> -i sh -c <span class="hljs-string">&apos;mv &quot;$0&quot; &quot;${0%.*}&quot;.png&apos;</span> {}
 <span class="hljs-comment"># 1. sh -c &apos;...&apos; &quot;file1&quot;</span>
 <span class="hljs-comment"># 2. sh -c &apos;...&apos; &quot;file2&quot;</span>
 <span class="hljs-comment"># 3. sh -c &apos;...&apos; &quot;file3&quot;</span>
 
-sh$ find -type f -print0 | 
+sh$ find *.gif -print0 | 
     xargs -<span class="hljs-number">0</span> sh -c <span class="hljs-string">&apos;for file; do mv &quot;$file&quot; &quot;${file%.*}&quot;.png; done&apos;</span> X
 <span class="hljs-comment"># 1. sh -c &apos;...&apos;  X &quot;file1&quot; &quot;file2&quot; &quot;file3&quot;</span>
 </code></pre>
