@@ -1258,9 +1258,9 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-built_in">command</s
 ...
     <span class="hljs-number">3</span>  ps f
     <span class="hljs-number">4</span>  cat README.md
-    <span class="hljs-number">5</span>  find . -type f -name *.log -size +<span class="hljs-number">10</span>M -exec rm <span class="hljs-operator">-f</span> {} \;
+    <span class="hljs-number">5</span>  find * -name <span class="hljs-string">&apos;*.log&apos;</span> -size +<span class="hljs-number">10</span>M -exec rm <span class="hljs-operator">-f</span> {} \;
 $ !!
-find . -type f -name *.log -size +<span class="hljs-number">10</span>M -exec rm <span class="hljs-operator">-f</span> {} \;
+find * -name <span class="hljs-string">&apos;*.log&apos;</span> -size +<span class="hljs-number">10</span>M -exec rm <span class="hljs-operator">-f</span> {} \;
 </code></pre>
 <h3 id="n">!-n</h3>
 <p>&#xC774;&#xC804; n &#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xC744; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
@@ -1268,10 +1268,10 @@ find . -type f -name *.log -size +<span class="hljs-number">10</span>M -exec rm 
 ...
     <span class="hljs-number">3</span>  date
     <span class="hljs-number">4</span>  ps f
-    <span class="hljs-number">5</span>  find . -name <span class="hljs-string">&quot;*.log&quot;</span>
+    <span class="hljs-number">5</span>  find * -name <span class="hljs-string">&apos;*.log&apos;</span>
 
 $ !-<span class="hljs-number">1</span>
-find . -name <span class="hljs-string">&quot;*.log&quot;</span>
+find * -name <span class="hljs-string">&apos;*.log&apos;</span>
 
 $ !-<span class="hljs-number">2</span>
 ps f
@@ -1283,27 +1283,27 @@ date
 <p>&#xBA85;&#xB839; &#xC774;&#xB984;&#xC774; string &#xC73C;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xB294; &#xAC00;&#xC7A5; &#xCD5C;&#xADFC; &#xBA85;&#xB839;&#xC744; &#xCC3E;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">history</span>
 ...
-    <span class="hljs-number">3</span>  find . -type f -name *.log -size +<span class="hljs-number">10</span>M -exec rm <span class="hljs-operator">-f</span> {} \;
-    <span class="hljs-number">4</span>  find . -name <span class="hljs-string">&quot;*.log&quot;</span>
+    <span class="hljs-number">3</span>  find * -name <span class="hljs-string">&apos;*.log&apos;</span> -size +<span class="hljs-number">10</span>M -exec rm <span class="hljs-operator">-f</span> {} \;
+    <span class="hljs-number">4</span>  find * -name <span class="hljs-string">&apos;*.log&apos;</span>
     <span class="hljs-number">5</span>  ps f
 
 $ !<span class="hljs-keyword">fi</span>
-find . -name <span class="hljs-string">&quot;*.log&quot;</span>
+find * -name <span class="hljs-string">&apos;*.log&apos;</span>
 </code></pre>
 <h3 id="string">!?string[?]</h3>
 <p>&#xC774;&#xAC74; &#xBA85;&#xB839;&#xC774;&#xB984;&#xC744; &#xAC80;&#xC0C9;&#xD558;&#xB294;&#xAC8C; &#xC544;&#xB2C8;&#xACE0; &#xC804;&#xCCB4; &#xBA85;&#xB839;&#xB77C;&#xC778; &#xC911;&#xC5D0; string &#xC774; &#xD3EC;&#xD568;&#xB3FC; &#xC788;&#xB294;&#xC9C0;&#xB97C; &#xCC3E;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAC00;&#xC7A5; &#xCD5C;&#xADFC;&#xC5D0; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xB294; &#xB77C;&#xC778;&#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">history</span>
 ...
-    <span class="hljs-number">3</span>  find . -name <span class="hljs-string">&quot;*.tmp&quot;</span> -o -name <span class="hljs-string">&quot;*.old&quot;</span>
-    <span class="hljs-number">4</span>  find . -name <span class="hljs-string">&quot;*.tmp&quot;</span>
-    <span class="hljs-number">5</span>  find . -name <span class="hljs-string">&quot;*.log&quot;</span>
+    <span class="hljs-number">3</span>  find * -name <span class="hljs-string">&quot;*.tmp&quot;</span> -o -name <span class="hljs-string">&quot;*.old&quot;</span>
+    <span class="hljs-number">4</span>  find * -name <span class="hljs-string">&quot;*.tmp&quot;</span>
+    <span class="hljs-number">5</span>  find * -name <span class="hljs-string">&quot;*.log&quot;</span>
 
 $ !?tmp
-find . -name <span class="hljs-string">&quot;*.tmp&quot;</span>
+find * -name <span class="hljs-string">&quot;*.tmp&quot;</span>
 
 <span class="hljs-comment"># &#xB4A4;&#xC5D0; &apos;?&apos; &#xB97C; &#xBD99;&#xC774;&#xBA74; &#xC5F0;&#xC774;&#xC5B4; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
 $ !?tmp? -exec rm <span class="hljs-operator">-f</span> {} \;
-find . -name <span class="hljs-string">&quot;*.tmp&quot;</span> -exec rm <span class="hljs-operator">-f</span> {} \;
+find * -name <span class="hljs-string">&quot;*.tmp&quot;</span> -exec rm <span class="hljs-operator">-f</span> {} \;
 
 <span class="hljs-comment"># &#xB4A4;&#xC5D0; &apos;?&apos; &#xB97C; &#xC548;&#xBD99;&#xC77C; &#xACBD;&#xC6B0; &#xC624;&#xB958;</span>
 $ !?tmp -exec rm <span class="hljs-operator">-f</span> {} \;

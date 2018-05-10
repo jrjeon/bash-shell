@@ -1365,7 +1365,7 @@ bash: [[: <span class="hljs-built_in">command</span> not found
 <p><code>$a</code> &#xBCC0;&#xC218;&#xD655;&#xC7A5;&#xC774; &#xC77C;&#xC5B4;&#xB098;&#xACE0; <code>[[ -d /tmp ]]</code> &#xBA85;&#xB839;&#xBB38;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xC5C8;&#xC73C;&#xB098; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xACB0;&#xACFC;&#xB85C; &#xC54C; &#xC218; &#xC788;&#xB294; &#xAC83;&#xC740; &#xD0A4;&#xC6CC;&#xB4DC; &#xD574;&#xC11D; &#xC791;&#xC5C5;&#xC740; &#xBCC0;&#xC218;&#xD655;&#xC7A5; &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xD574;&#xC11C; &#xCC98;&#xB9AC;&#xB41C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xD0A4;&#xC6CC;&#xB4DC; &#xD574;&#xC11D; &#xC791;&#xC5C5;&#xC774; &#xC774;&#xBBF8; &#xB05D;&#xB09C; &#xC0C1;&#xD0DC;&#xC774;&#xBBC0;&#xB85C; <code>[[</code> &#xBA85;&#xB839;&#xC774; &#xC5C6;&#xB2E4;&#xB294; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <h4 id="&#xC608;&#xC81C;-3">&#xC608;&#xC81C; .3</h4>
 <p>time &#xBA85;&#xB839;&#xC740; shell &#xD0A4;&#xC6CC;&#xB4DC;&#xC774;&#xACE0; /usr/bin/time &#xBA85;&#xB839;&#xC774;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;. &#xBA3C;&#xC800; &#xD0A4;&#xC6CC;&#xB4DC;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xB2E4;&#xC74C; &#xBB38;&#xC7A5;&#xC744; &#xC2E4;&#xD589;&#xD574;&#xBCF4;&#xBA74; &#xC624;&#xB958; &#xC5C6;&#xC774; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ time { find . -name <span class="hljs-string">&apos;*.sh&apos;</span> | wc <span class="hljs-operator">-l</span> ;}
+<pre><code class="lang-bash">$ time { find * -name <span class="hljs-string">&apos;*.sh&apos;</span> | wc <span class="hljs-operator">-l</span> ;}
 <span class="hljs-number">24</span>
 
 real    <span class="hljs-number">0</span>m0.<span class="hljs-number">002</span>s
@@ -1374,7 +1374,7 @@ sys    <span class="hljs-number">0</span>m0.<span class="hljs-number">004</span>
 </code></pre>
 <p>&#xC774;&#xBC88;&#xC5D0;&#xB294; <code>\</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xD0A4;&#xC6CC;&#xB4DC;&#xB97C; escape &#xD574;&#xC11C; /usr/bin/time &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD574;&#xBCF4;&#xBA74; 
 &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC73C;&#xB85C;&#xB294; &#xAD6C;&#xBB38; &#xC5D0;&#xB7EC;&#xAC00; &#xB098;&#xB294; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ \time { find . -name <span class="hljs-string">&apos;*.sh&apos;</span> | wc <span class="hljs-operator">-l</span> ;}
+<pre><code class="lang-bash">$ \time { find * -name <span class="hljs-string">&apos;*.sh&apos;</span> | wc <span class="hljs-operator">-l</span> ;}
 bash: syntax error near unexpected token `}<span class="hljs-string">&apos;
 </span></code></pre>
 <h2 id="alias-function-and-script-file">Alias, function and script file</h2>

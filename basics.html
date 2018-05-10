@@ -1420,11 +1420,11 @@ $ <span class="hljs-built_in">test</span> a \&gt; b
 $ expr <span class="hljs-number">3</span> \&gt; <span class="hljs-number">4</span>    
 
 <span class="hljs-comment"># &apos;( )&apos; &apos;;&apos; &#xBB38;&#xC790;&#xB3C4; shell &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBA54;&#xD0C0;&#xBB38;&#xC790;</span>
-$ find . -type f  ( -name <span class="hljs-string">&quot;*.log&quot;</span> -or -name <span class="hljs-string">&quot;*.bak&quot;</span> )  -exec rm <span class="hljs-operator">-f</span> {} ;
+$ find * ( -name <span class="hljs-string">&quot;*.log&quot;</span> -or -name <span class="hljs-string">&quot;*.bak&quot;</span> ) -exec rm <span class="hljs-operator">-f</span> {} ;
 bash: syntax error near unexpected token <span class="hljs-string">&apos;(&apos;</span>
 
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBAA8;&#xB450; escape &#xD574;&#xC918;&#xC57C; &#xC624;&#xB958;&#xC5C6;&#xC774; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</span>
-$ find . -type f  \( -name <span class="hljs-string">&quot;*.log&quot;</span> -or -name <span class="hljs-string">&quot;*.bak&quot;</span> \)  -exec rm <span class="hljs-operator">-f</span> {} \;
+$ find * \( -name <span class="hljs-string">&quot;*.log&quot;</span> -or -name <span class="hljs-string">&quot;*.bak&quot;</span> \) -exec rm <span class="hljs-operator">-f</span> {} \;
 </code></pre>
 <p><a name="&#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;"></a></p>
 <h2 id="&#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;">&#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;</h2>

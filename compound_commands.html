@@ -1536,17 +1536,17 @@ curl -O <span class="hljs-string">&quot;<span class="hljs-variable">$hostname</s
 </ul>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
 
-$ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find -type f)
+$ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find * -type f)
 <span class="hljs-keyword">do</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>
 <span class="hljs-keyword">done</span>
-.
-./WriteObject.java
-./WriteObject.class
-./ReadObject.java
-./<span class="hljs-number">2013</span>-<span class="hljs-number">03</span>-<span class="hljs-number">19</span> <span class="hljs-number">154412</span>.csv
-./ReadObject.class
-./&#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD14C;&#xC2A4;&#xD305;.txt
+
+WriteObject.java
+WriteObject.class
+ReadObject.java
+<span class="hljs-number">2013</span>-<span class="hljs-number">03</span>-<span class="hljs-number">19</span> <span class="hljs-number">154412</span>.csv
+ReadObject.class
+&#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD14C;&#xC2A4;&#xD305;.txt
 
 $ <span class="hljs-built_in">set</span> +f; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>
 </code></pre>

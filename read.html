@@ -1327,7 +1327,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 ------------------------------------------------
 
 <span class="hljs-comment"># find &#xBA85;&#xB839;&#xC5D0;&#xC11C; -print0 &#xC744; &#xC774;&#xC6A9;&#xD574; &#xCD9C;&#xB825;&#xD588;&#xC73C;&#xBBC0;&#xB85C; -d &#xAC12;&#xC744; null &#xB85C; &#xC124;&#xC815;</span>
-find . -print0 | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;&apos;</span> file; <span class="hljs-keyword">do</span>
+find * -print0 | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;&apos;</span> file; <span class="hljs-keyword">do</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>
 <span class="hljs-keyword">done</span>
 </code></pre>

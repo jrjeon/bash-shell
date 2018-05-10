@@ -1325,15 +1325,17 @@ Thu Jul <span class="hljs-number">23</span> <span class="hljs-number">18</span>:
 <p>&#xBCC0;&#xC218;&#xAC12;&#xC73C;&#xB85C; NULL &#xBB38;&#xC790;&#xB97C; &#xC800;&#xC7A5;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xAC12;&#xC73C;&#xB85C; NULL &#xBB38;&#xC790;&#xB97C; &#xC804;&#xB2EC;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 pipe &#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; NULL &#xBB38;&#xC790;&#xB97C; &#xC804;&#xB2EC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ ls          <span class="hljs-comment"># a, b, c  3&#xAC1C;&#xC758; &#xD30C;&#xC77C;&#xC774; &#xC874;&#xC7AC;</span>
-a  b  c
+aaa  bbb  ccc
 
 <span class="hljs-comment"># &#xD30C;&#xC774;&#xD504;&#xB294; null &#xAC12;&#xC774; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
-$ find . -print0 | od <span class="hljs-operator">-a</span>
-<span class="hljs-number">0000000</span>   . nul   .   /   a nul   .   /   b nul   .   /   c nul
+$ find * -print0 | od <span class="hljs-operator">-a</span>
+<span class="hljs-number">0000000</span>   a   a   a nul   b   b   b nul   c   c   c nul
+<span class="hljs-number">0000014</span>
 
 <span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC740; null &#xAC12;&#xC774; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB418;&#xC5C8;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$(find . -print0)</span>&quot;</span> | od <span class="hljs-operator">-a</span>
-<span class="hljs-number">0000000</span>   .   .   /   a   .   /   b   .   /   c
+$ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$(find * -print0)</span>&quot;</span> | od <span class="hljs-operator">-a</span>
+<span class="hljs-number">0000000</span>   a   a   a   b   b   b   c   c   c
+<span class="hljs-number">0000011</span>
 </code></pre>
 <h3 id="&#xBCC0;&#xC218;&#xC5D0;-&#xAC12;&#xC744;-&#xB300;&#xC785;&#xD560;&#xB54C;-&#xB9C8;&#xC9C0;&#xB9C9;-newline-&#xC740;-&#xC81C;&#xAC70;&#xB41C;&#xB2E4;">&#xBCC0;&#xC218;&#xC5D0; &#xAC12;&#xC744; &#xB300;&#xC785;&#xD560;&#xB54C; &#xB9C8;&#xC9C0;&#xB9C9; newline &#xC740; &#xC81C;&#xAC70;&#xB41C;&#xB2E4;.</h3>
 <pre><code class="lang-bash">$ AA=$<span class="hljs-string">&apos;hello\n\n\n&apos;</span>

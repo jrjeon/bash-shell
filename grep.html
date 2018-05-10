@@ -1439,7 +1439,7 @@ main.c:<span class="hljs-number">9</span>:int <span class="hljs-function"><span 
 <code>-h</code> &#xAC00; &#xB514;&#xD3F4;&#xD2B8;&#xAC00; &#xB418;&#xC5B4; &#xD30C;&#xC77C;&#xBA85;&#xC774; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740; find &#xBA85;&#xB839;&#xC758; -exec &#xC5D0;&#xC11C; grep &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560;&#xB54C; &#xD558;&#xB098;&#xC758; &#xD30C;&#xC77C;&#xB85C; &#xC778;&#xC2DD;&#xB418;&#xC5B4;
 &#xD30C;&#xC77C;&#xBA85;&#xC774; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB370; &#xC774;&#xB54C; <code>-H</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xD30C;&#xC77C;&#xBA85;&#xC744; &#xD568;&#xAED8; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ find . -name Makefile -exec grep -Hne <span class="hljs-string">&apos;-include $(DEPS\.$d)&apos;</span> {} \;
+<pre><code class="lang-bash">$ find * -name Makefile -exec grep -Hne <span class="hljs-string">&apos;include&apos;</span> {} \;
 </code></pre>
 <h4 id="&#xB9E4;&#xCE6D;-&#xB77C;&#xC778;-&#xCE74;&#xC6B4;&#xD2B8;">&#xB9E4;&#xCE6D; &#xB77C;&#xC778; &#xCE74;&#xC6B4;&#xD2B8;</h4>
 <blockquote>
