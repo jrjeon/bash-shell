@@ -1248,10 +1248,11 @@ $ ./test.sh <span class="hljs-number">11</span> <span class="hljs-number">22</sp
 <span class="hljs-variable">$2</span> : <span class="hljs-number">22</span>
 -----------------
 
+<span class="hljs-comment"># shell &#xD568;&#xC218;&#xB294; $0 &#xAC12;&#xC774; /bin/bash &#xAC00; &#xB41C;&#xB2E4;.</span>
 $ <span class="hljs-function"><span class="hljs-title">testfunc</span></span>() { <span class="hljs-built_in">echo</span> \<span class="hljs-variable">$0</span> : <span class="hljs-variable">$0</span>; <span class="hljs-built_in">echo</span> \<span class="hljs-variable">$1</span> : <span class="hljs-variable">$1</span>; <span class="hljs-built_in">echo</span> \<span class="hljs-variable">$2</span> : <span class="hljs-variable">$2</span>; }
 
 $ testfunc <span class="hljs-number">11</span> <span class="hljs-number">22</span>
-<span class="hljs-variable">$0</span> : /bin/bash
+<span class="hljs-variable">$0</span> : /bin/bash       
 <span class="hljs-variable">$1</span> : <span class="hljs-number">11</span>
 <span class="hljs-variable">$2</span> : <span class="hljs-number">22</span>
 </code></pre>
