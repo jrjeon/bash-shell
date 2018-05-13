@@ -1226,7 +1226,7 @@
                     
                         <h1 id="exit-status">Exit Status</h1>
 <p>Shell &#xC740; &#xBA85;&#xB839;&#xC744; &#xB2E4;&#xB8F9;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xBAA8;&#xB4E0; &#xBA85;&#xB839;&#xC740; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.
- <code>if</code>, <code>while</code>, <code>until</code>, <code>||</code>, <code>&amp;&amp;</code>  &#xBAA8;&#xB450; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xCC38;, &#xAC70;&#xC9D3;&#xC744; &#xD310;&#xB2E8;&#xD569;&#xB2C8;&#xB2E4;.
+<code>if</code>, <code>while</code>, <code>until</code>, <code>&amp;&amp;</code>, <code>||</code>  &#xBAA8;&#xB450; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xCC38;, &#xAC70;&#xC9D3;&#xC744; &#xD310;&#xB2E8;&#xD569;&#xB2C8;&#xB2E4;.
  &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C; &#xCC98;&#xB7FC; &#xD2B9;&#xC815;&#xAC12; (&#xC22B;&#xC790;&#xB098; &#xC2A4;&#xD2B8;&#xB9C1; &#xB610;&#xB294; &#xC608;&#xC57D;&#xC5B4;) &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC885;&#xB8CC;&#xCF54;&#xB4DC; 0 &#xC774; &#xCC38;&#xC774;&#xB77C;&#xACE0; &#xD574;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-keyword">if</span> <span class="hljs-number">0</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">fi</span>
@@ -1290,6 +1290,15 @@ function &#xC774;&#xB098; source &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC77D;&#xC5B
 <blockquote>
 <p>&#xAC00;&#xB839; kill -9 PID &#xB85C; &#xC885;&#xB8CC; &#xB410;&#xB2E4;&#xBA74; <code>$?</code> &#xAC12;&#xC740; 128 + 9 = 137</p>
 </blockquote>
+<h3 id="&#xC55E;&#xC120;-&#xBA85;&#xB839;&#xC774;-&#xC815;&#xC0C1;-&#xC885;&#xB8CC;&#xB418;&#xC5B4;&#xC57C;-&#xD560;-&#xACBD;&#xC6B0;">&#xC55E;&#xC120; &#xBA85;&#xB839;&#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xB418;&#xC5B4;&#xC57C; &#xD560; &#xACBD;&#xC6B0;</h3>
+<p>&#xC5F0;&#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xBA85;&#xB839; &#xB9AC;&#xC2A4;&#xD2B8; &#xC911;&#xC5D0;&#xC11C; &#xC55E;&#xC120; &#xBA85;&#xB839;&#xC774; &#xBE44;&#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD558;&#xC600;&#xC744; &#xACBD;&#xC6B0;
+&#xB4A4;&#xC5D0; &#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xC548;&#xB420; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB7F4; &#xB54C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>&amp;&amp;</code> &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD574; &#xBA85;&#xB839;&#xC744; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">command</span>1 ... &amp;&amp; <span class="hljs-built_in">command</span>2 ... &amp;&amp; <span class="hljs-built_in">command</span>3 ...
+</code></pre>
+<p>&#xC55E;&#xC120; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xACFC; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; &#xC774;&#xD6C4; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xB824;&#xBA74;</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">command</span>1 ...; <span class="hljs-built_in">command</span>2 ...; <span class="hljs-built_in">command</span>3 ...
+</code></pre>
 <h3 id="&#xB300;&#xC785;-&#xC5F0;&#xC0B0;&#xC758;-&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;&#xC740;">&#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740;?</h3>
 <p><code>=</code> , <code>+=</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xC2DD;&#xC740; &#xBA85;&#xB839;&#xBB38;&#xC774; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; <code>;</code> &#xB85C; &#xAD6C;&#xBD84;&#xC5C6;&#xC774; &#xD55C;&#xC904;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xB97C; &#xC4F8; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD56D;&#xC0C1; <code>0</code> &#xC774;&#xC9C0;&#xB9CC; &#xBA85;&#xB839;&#xCE58;&#xD658;&#xACFC; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;&#xB294; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xB300;&#xC785;&#xC5F0;&#xC0B0;&#xC740; &#xBA85;&#xB839;&#xBB38;&#xC774; &#xC544;&#xB2C8;&#xBBC0;&#xB85C; &#xD55C;&#xC904;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xB97C; &#xC4F8;&#xC218;&#xB3C4; &#xC788;&#xB2E4;.</span>
