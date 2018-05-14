@@ -1233,8 +1233,8 @@ shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD574; &#xBCF4;&#xB3C4;&#xB85D; &#xD558
 <pre><code class="lang-c"><span class="hljs-comment">/* mycomm.c &#xD30C;&#xC77C; &#xB0B4;&#xC6A9; */</span>
 <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> args, <span class="hljs-keyword">char</span> *argv[])</span> </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; args; i++)
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; argc; i++)
         <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;arg %d : %s\n&quot;</span>, i, argv[i]);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
