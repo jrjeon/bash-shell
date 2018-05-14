@@ -1486,7 +1486,7 @@ $ <span class="hljs-keyword">if</span> [ x<span class="hljs-string">&quot;<span 
 </table>
 <h2 id="quiz">Quiz</h2>
 <p>&#xD30C;&#xC77C;&#xC774; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xD30C;&#xC77C;&#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xAD6C;&#xBD84;&#xD560;&#xAE4C;&#xC694;?</p>
-<pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$(file -b --mime-encoding &quot;$filename&quot;)</span>&quot;</span> = binary ]
+<pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ <span class="hljs-operator">-f</span> <span class="hljs-string">&quot;<span class="hljs-variable">$filename</span>&quot;</span> <span class="hljs-operator">-a</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(file -b --mime-encoding &quot;$filename&quot;)</span>&quot;</span> = binary ]
 <span class="hljs-keyword">then</span>
     <span class="hljs-built_in">echo</span> It\<span class="hljs-string">&apos;s a binary file
 fi
