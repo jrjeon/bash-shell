@@ -1736,7 +1736,7 @@ $ strace -o thread.strace -f -e process ./tls
 ./hello: ELF <span class="hljs-number">64</span>-bit LSB shared object, x86-<span class="hljs-number">64</span>, version <span class="hljs-number">1</span> (SYSV), dynamically linked,
 interpreter /lib64/ld-linux-x86-<span class="hljs-number">64</span>.so.<span class="hljs-number">2</span>, <span class="hljs-keyword">for</span> GNU/Linux <span class="hljs-number">3.2</span>.<span class="hljs-number">0</span>, BuildID[sha1]=<span class="hljs-number">1971</span>f93bf98c6e51994dcf0079aef9c37ad6a512, not stripped
 
-$ ltrace -n <span class="hljs-number">3</span> -x + ./hello
+$ ltrace -n3 -x+ ./hello
 __libc_start_main@libc.so.<span class="hljs-number">6</span>(<span class="hljs-number">0</span>x55575102377a, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>x7fffd832<span class="hljs-built_in">fc</span>28, <span class="hljs-number">0</span>x5557510237c0 &lt;unfinished ...&gt;
    __cxa_atexit@libc.so.<span class="hljs-number">6</span>(<span class="hljs-number">0</span>x7f6cc35e1ee0, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>x5557510237c0) = <span class="hljs-number">0</span>
    __libc_csu_init(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>x7fffd832<span class="hljs-built_in">fc</span>28, <span class="hljs-number">0</span>x7fffd832<span class="hljs-built_in">fc</span>38, <span class="hljs-number">0</span> &lt;unfinished ...&gt;
@@ -1759,7 +1759,7 @@ $ file ./hello_static
 ./hello_static: ELF <span class="hljs-number">64</span>-bit LSB executable, x86-<span class="hljs-number">64</span>, version <span class="hljs-number">1</span> (GNU/Linux), statically linked,
 <span class="hljs-keyword">for</span> GNU/Linux <span class="hljs-number">3.2</span>.<span class="hljs-number">0</span>, BuildID[sha1]=<span class="hljs-number">994</span>ac8a4bba02287fbc2f1eb8aa481d9aec35ade, not stripped
 
-$ ltrace -n <span class="hljs-number">3</span> -x + ./hello_static
+$ ltrace -n3 -x+ ./hello_static
 Couldn<span class="hljs-string">&apos;t find .dynsym or .dynstr in &quot;/proc/14338/exe&quot;
 hello world
 </span></code></pre>
