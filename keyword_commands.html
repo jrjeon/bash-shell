@@ -1402,13 +1402,13 @@ rkey=$( <span class="hljs-built_in">echo</span> -n <span class="hljs-variable">$
 
 <span class="hljs-comment"># while loop &#xB97C; &#xC774;&#xC6A9;&#xD574; ${d[0]} &#xB85C; &#xBD80;&#xD130; &#xC0AC;&#xC6A9;&#xC790; &#xC785;&#xB825;&#xC744; &#xBC1B;&#xC544; do_cmd() &#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span>
-    reclen=$(( `od -j1 -N1 -tdI -An` - <span class="hljs-number">128</span> ))
+    reclen=$(( `od -An -j1 -N1 -tdI` - <span class="hljs-number">128</span> ))
     <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq <span class="hljs-number">0</span> <span class="hljs-number">3</span>`; <span class="hljs-keyword">do</span> 
-        mk[i]=$( od -N1 -tdI -An )
+        mk[i]=$( od -An -N1 -tdI )
     <span class="hljs-keyword">done</span>
     cmd=<span class="hljs-string">&quot;&quot;</span>
     <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq <span class="hljs-number">0</span> $((reclen - <span class="hljs-number">1</span>))`; <span class="hljs-keyword">do</span>
-        bt=$( od -N1 -tdI -An )
+        bt=$( od -An -N1 -tdI )
         bt=$(( bt ^ <span class="hljs-variable">${mk[ $((i % 4)) ]}</span> ))
         cmd+=<span class="hljs-string">&apos;\x&apos;</span>$(<span class="hljs-built_in">printf</span> <span class="hljs-string">&apos;%02x&apos;</span> <span class="hljs-variable">$bt</span>)
     <span class="hljs-keyword">done</span>

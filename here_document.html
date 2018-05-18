@@ -1578,6 +1578,16 @@ $ cmp /bin/date &lt;(od -v -An -tx1 /bin/date | xxd -r -p)
 $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 </code></pre>
+<p>&#xD30C;&#xC77C;&#xC758; &#xD2B9;&#xC815; offset &#xC5D0;&#xC11C;&#xBD80;&#xD130; N &#xBC14;&#xC774;&#xD2B8; hex &#xCD94;&#xCD9C;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># offset 2 &#xC5D0;&#xC11C;&#xBD80;&#xD130; 6 &#xBC14;&#xC774;&#xD2B8; hex &#xCD94;&#xCD9C;</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | od -v -j2 -N6 -tx1z
+<span class="hljs-number">0000002</span> <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span> <span class="hljs-number">37</span> <span class="hljs-number">38</span>                                &gt;<span class="hljs-number">345678</span>&lt;
+<span class="hljs-number">0000010</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | hd <span class="hljs-operator">-s</span>2 -n6
+<span class="hljs-number">00000002</span>  <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span> <span class="hljs-number">37</span> <span class="hljs-number">38</span>                                 |<span class="hljs-number">345678</span>|
+<span class="hljs-number">00000008</span>
+</code></pre>
 
                     
                     </section>
