@@ -1405,7 +1405,7 @@ field <span class="hljs-number">2</span> = <span class="hljs-number">22</span>
 <h4 id="random">$RANDOM</h4>
 <pre><code class="lang-bash"><span class="hljs-comment"># $RANDOM &#xBCC0;&#xC218;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC774;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</span>
 
-$ random=$(expr `od -N1 -tu1 -An /dev/urandom` % <span class="hljs-number">100</span>)
+$ random=$(expr `od -An -N1 -tu1 /dev/urandom` % <span class="hljs-number">100</span>)
 
 $ awk <span class="hljs-string">&apos;BEGIN { srand(); for (i=0; i&lt;100; i++) print int(rand()*100) }&apos;</span> |
 xargs -n20 | column -t
