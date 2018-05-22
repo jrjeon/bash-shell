@@ -1367,6 +1367,32 @@ EOF
 
 HERE
 DOCUMENT
+.........................
+
+<span class="hljs-comment"># &#xB610;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &lt;&lt;END &#xB294; 0&lt;&lt;END &#xC640; &#xAC19;&#xC740; &#xAC83;&#xC784;</span>
+$ &lt;&lt;END tr a-z A-Z
+&gt; here
+&gt; document
+&gt; END
+HERE
+DOCUMENT
+..........................
+
+<span class="hljs-comment"># &#xBA85;&#xB839;&#xD589; &#xC0C1;&#xC5D0;&#xC11C; &#xCCAB;&#xBC88;&#xC9F8; &apos;-&apos; &#xB294; stdin &#xC744;, &#xB450;&#xBC88;&#xC9F8; &apos;-&apos; &#xB294; stdout &#xC744; &#xB098;&#xD0C0;&#xB0C4;</span>
+<span class="hljs-comment"># gcc &#xB294; &#xD30C;&#xC77C; &#xD655;&#xC7A5;&#xC790;&#xB97C; &#xD1B5;&#xD574; c, c++ &#xD30C;&#xC77C;&#xC744; &#xAD6C;&#xBD84;&#xD558;&#xB294;&#xB370; &#xC9C0;&#xAE08;&#xC740; stdin &#xC73C;&#xB85C;&#xBD80;&#xD130;</span>
+<span class="hljs-comment"># &#xC785;&#xB825;&#xC744; &#xBC1B;&#xC73C;&#xBBC0;&#xB85C; -x &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; c &#xD30C;&#xC77C;&#xC784;&#xC744; &#xBA85;&#xC2DC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. ( c++ &#xC758; &#xACBD;&#xC6B0;&#xB294; -xc++ )</span>
+
+$ gcc -S -masm=intel -xc - -o - &lt;&lt;\END 
+<span class="hljs-comment">#include &lt;stdio.h&gt;</span>
+int <span class="hljs-function"><span class="hljs-title">main</span></span>() { puts(<span class="hljs-string">&quot;hello&quot;</span>); }
+END
+        .file   <span class="hljs-string">&quot;&quot;</span>
+        .intel_syntax noprefix
+        .text
+        .section        .rodata
+        . . . .
+        . . . .
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xBCC0;&#xC218;&#xC5D0;-&#xB123;&#xAE30;">Here document &#xB97C; &#xBCC0;&#xC218;&#xC5D0; &#xB123;&#xAE30;</h4>
 <pre><code class="lang-bash">$ AA=$(cat &lt;&lt;END
@@ -1484,7 +1510,7 @@ here string <span class="hljs-built_in">test</span>
 
 tmpFile=`mktemp -p .`
 
-cat &lt;&lt;END | base64 <span class="hljs-operator">-d</span> &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span>
+base64 <span class="hljs-operator">-d</span> &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span> &lt;&lt;\END
 f0VMRgIBAQAAAAAAAAAAAAIAPgABAAAAsABAAAAAAABAAAAAAAAAAAABAAAAAAAAAAAAAEAAOAAC
 AEAABAADAAEAAAAFAAAAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAA2gAAAAAAAADaAAAAAAAAAAAA
 IAAAAAAAAQAAAAYAAADaAAAAAAAAANoAYAAAAAAA2gBgAAAAAAAOAAAAAAAAAA4AAAAAAAAAAAAg
