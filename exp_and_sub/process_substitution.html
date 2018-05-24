@@ -1374,10 +1374,13 @@ i=<span class="hljs-number">0</span>
 <span class="hljs-number">12</span> lines processed
 </code></pre>
 <p>&#xBA85;&#xB839; &#xC2E4;&#xD589; &#xACB0;&#xACFC; stderr &#xB9CC; &#xC804;&#xB2EC;&#xD558;&#xB824;&#xACE0; &#xD560; &#xB54C;  &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xCE58;&#xD658;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC27D;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">command</span>1 <span class="hljs-number">2</span>&gt; &gt;( <span class="hljs-built_in">command</span>2 ... )
+<pre><code class="lang-bash">$ <span class="hljs-built_in">command</span> <span class="hljs-number">2</span>&gt; &gt;( <span class="hljs-built_in">command</span> ... )
 
 <span class="hljs-comment"># &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC774;&#xC6A9;&#xD560; &#xACBD;&#xC6B0;</span>
-$ <span class="hljs-built_in">command</span>1 <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &gt; /dev/null | <span class="hljs-built_in">command</span>2 ...
+$ <span class="hljs-built_in">command</span> <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &gt; /dev/null | <span class="hljs-built_in">command</span> ...
+
+<span class="hljs-comment"># cmd1 &#xC740; stdout &#xC744; &#xCC98;&#xB9AC;, cmd2 &#xB294; stderr &#xB97C; &#xCC98;&#xB9AC;</span>
+$ <span class="hljs-built_in">command</span> &gt; &gt;( cmd1 ) <span class="hljs-number">2</span>&gt; &gt;( cmd2 )
 </code></pre>
 <h3 id="&#xD45C;&#xD604;&#xC2DD;-&#xB0B4;-&#xBA85;&#xB839;&#xC740;-background-&#xB85C;-&#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;">&#xD45C;&#xD604;&#xC2DD; &#xB0B4; &#xBA85;&#xB839;&#xC740; background &#xB85C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</h3>
 <p>&#xB2E4;&#xC74C;&#xC744; &#xBCF4;&#xC2DC;&#xBA74; exec &#xBA85;&#xB839; &#xC2E4;&#xD589; &#xD6C4;&#xC5D0; tr &#xBA85;&#xB839;&#xC774; subshell &#xC5D0;&#xC11C; background &#xB85C; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
