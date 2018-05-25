@@ -1273,7 +1273,7 @@ $ coproc  <span class="hljs-keyword">while</span> <span class="hljs-built_in">re
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;1 + 2&quot;</span> &gt;&amp; <span class="hljs-variable">${COPROC[1]}</span>
 
-$ <span class="hljs-built_in">read</span> -r res &lt;&amp; <span class="hljs-variable">${COPROC[0]}</span>    <span class="hljs-comment"># head -1 &lt;&amp; ${COPROC[0]} &#xB85C; &#xD574;&#xB3C4;&#xB428;</span>
+$ <span class="hljs-built_in">read</span> -r res &lt;&amp; <span class="hljs-variable">${COPROC[0]}</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$res</span>
 <span class="hljs-number">3</span>

@@ -1554,6 +1554,140 @@ i=<span class="hljs-number">1</span>
 <blockquote>
 <p><code>&gt; $mypipe</code> &#xC640; <code>&lt; $mypipe</code> &#xB300;&#xC2E0;&#xC5D0; <code>&gt;&amp; $FD</code> &#xC640; <code>&lt;&amp; $FD</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
+<h1 id="quiz">Quiz</h1>
+<p>named pipe &#xC5D0; FD &#xB97C; &#xC5F0;&#xACB0;&#xD55C; &#xD6C4; &#xD30C;&#xC77C;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xB420;&#xAE4C;&#xC694;?</p>
+<p>&#xC544;&#xB798; &#xD14C;&#xC2A4;&#xD2B8;&#xC5D0;&#xC11C; &#xBCF4;&#xBA74; &#xC54C; &#xC218; &#xC788;&#xB4EF;&#xC774; &#xD30C;&#xC77C;&#xC774; &#xC0AD;&#xC81C;&#xB418;&#xC5B4;&#xB3C4; FD &#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C;
+&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>1 . named pipe &#xC0DD;&#xC131; &#xD6C4; FD &#xC5F0;&#xACB0;</p>
+<pre><code class="lang-bash">$ pipe=$(mktemp -u)      
+
+$ mkfifo <span class="hljs-variable">$pipe</span>
+
+$ ls -al <span class="hljs-variable">$pipe</span>
+prw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">13</span> /tmp/tmp.dlgHS1PEgV|
+
+$ file <span class="hljs-variable">$pipe</span>
+/tmp/tmp.dlgHS1PEgV: fifo (named pipe)
+
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; <span class="hljs-variable">$pipe</span>
+
+$ ls <span class="hljs-operator">-l</span> /dev/fd/
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">14</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">14</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">14</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">14</span> <span class="hljs-number">3</span> -&gt; /tmp/tmp.dlgHS1PEgV|
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">14</span> <span class="hljs-number">4</span> -&gt; /proc/<span class="hljs-number">4910</span>/fd/
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt;&amp;<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">333</span> &gt;&amp;<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">111</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">222</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">333</span>
+</code></pre>
+<p>2 . &#xD30C;&#xC774;&#xD504; &#xC0AD;&#xC81C;</p>
+<p>&#xD30C;&#xC77C;&#xC774; &#xC0AD;&#xC81C;&#xB418;&#xC5B4;&#xB3C4; FD &#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.<br><code>ls -l /dev/fd</code> &#xCD9C;&#xB825;&#xC744; &#xBCF4;&#xBA74; here document &#xC640; &#xAC19;&#xC740; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ rm <span class="hljs-operator">-f</span> <span class="hljs-variable">$pipe</span>
+
+$ ls <span class="hljs-operator">-l</span> /dev/fd/
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">17</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">17</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">17</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">17</span> <span class="hljs-number">3</span> -&gt; /tmp/tmp.dlgHS1PEgV (deleted)
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">17</span> <span class="hljs-number">4</span> -&gt; /proc/<span class="hljs-number">5110</span>/fd/
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt;&amp;<span class="hljs-number">3</span>           
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">333</span> &gt;&amp;<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">111</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">222</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">333</span>
+</code></pre>
+<p>3 . FD &#xC0AD;&#xC81C;</p>
+<p><code>/tmp/tmp.dlgHS1PEgV (deleted)</code> &#xD56D;&#xBAA9;&#xC774; &#xC81C;&#xAC70; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;-
+
+$ ls <span class="hljs-operator">-l</span> /dev/fd/
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">18</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">18</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">18</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">07</span>:<span class="hljs-number">18</span> <span class="hljs-number">3</span> -&gt; /proc/<span class="hljs-number">5241</span>/fd/
+</code></pre>
+<h1 id="2">2.</h1>
+<p>anonymous pipe &#xB9CC;&#xB4E4;&#xC5B4; &#xBCF4;&#xAE30;</p>
+<pre><code class="lang-bash">$ cat | cat &amp;
+[<span class="hljs-number">1</span>] <span class="hljs-number">8703</span>
+
+[<span class="hljs-number">1</span>]+  Stopped                 cat | cat
+
+$ <span class="hljs-built_in">echo</span> $!       <span class="hljs-comment"># &#xB450;&#xBC88;&#xC9F8; cat pid</span>
+<span class="hljs-number">8703</span>
+
+$ <span class="hljs-built_in">jobs</span> -p       <span class="hljs-comment"># &#xCCAB;&#xBC88;&#xC9F8; cat pid</span>
+<span class="hljs-number">8702</span>
+
+<span class="hljs-comment"># &#xB450;&#xBC88;&#xC9F8; cat &#xBA85;&#xB839;&#xC758; stdin &#xC744; FD 3 &#xBC88;&#xC5D0; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;</span>
+<span class="hljs-comment"># &#xCCAB;&#xBC88;&#xC9F8; cat &#xBA85;&#xB839;&#xC758; stdout &#xC744; FD 4 &#xBC88;&#xC5D0; &#xCD9C;&#xB825;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;</span>
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt; /proc/<span class="hljs-number">8703</span>/fd/<span class="hljs-number">0</span> <span class="hljs-number">4</span>&gt; /proc/<span class="hljs-number">8702</span>/fd/<span class="hljs-number">1</span>
+
+<span class="hljs-comment"># cat &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xBAA8;&#xB450; &#xC885;&#xB8CC;</span>
+$ <span class="hljs-built_in">kill</span> %<span class="hljs-number">1</span>
+[<span class="hljs-number">1</span>]+  Terminated              cat | cat
+
+$ ls <span class="hljs-operator">-l</span> /dev/fd/      <span class="hljs-comment"># anonymouse pipe &#xAC00; &#xC0DD;&#xC131;&#xB418;&#xC5C8;&#xB2E4;!  :)</span>
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">52</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">52</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">52</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">52</span> <span class="hljs-number">3</span> -&gt; pipe:[<span class="hljs-number">1121731</span>]
+l-wx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">52</span> <span class="hljs-number">4</span> -&gt; pipe:[<span class="hljs-number">1121731</span>]
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">52</span> <span class="hljs-number">5</span> -&gt; /proc/<span class="hljs-number">8845</span>/fd/
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt;&amp;<span class="hljs-number">4</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">4</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">333</span> &gt;&amp;<span class="hljs-number">4</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">111</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">222</span>
+
+$ <span class="hljs-built_in">read</span> var &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">333</span>
+
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;- <span class="hljs-number">4</span>&gt;&amp;-
+
+$ ls -al /dev/fd/
+total <span class="hljs-number">0</span>
+dr-x------ <span class="hljs-number">2</span> mug896 mug896  <span class="hljs-number">0</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">55</span> ./
+dr-xr-xr-x <span class="hljs-number">9</span> mug896 mug896  <span class="hljs-number">0</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">55</span> ../
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">55</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">55</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">55</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">7</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">25</span> <span class="hljs-number">08</span>:<span class="hljs-number">55</span> <span class="hljs-number">3</span> -&gt; /proc/<span class="hljs-number">8990</span>/fd/
+</code></pre>
 
                     
                     </section>
