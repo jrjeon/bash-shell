@@ -1604,14 +1604,37 @@ $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 </code></pre>
 <p>&#xD30C;&#xC77C;&#xC758; &#xD2B9;&#xC815; offset &#xC5D0;&#xC11C;&#xBD80;&#xD130; N &#xBC14;&#xC774;&#xD2B8; hex &#xCD94;&#xCD9C;</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># offset 2 &#xC5D0;&#xC11C;&#xBD80;&#xD130; 6 &#xBC14;&#xC774;&#xD2B8; hex &#xCD94;&#xCD9C;</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | od -v -j2 -N6 -tx1z
-<span class="hljs-number">0000002</span> <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span> <span class="hljs-number">37</span> <span class="hljs-number">38</span>                                &gt;<span class="hljs-number">345678</span>&lt;
+<pre><code class="lang-bash"><span class="hljs-comment"># offset 2 &#xC5D0;&#xC11C;&#xBD80;&#xD130; 4 &#xBC14;&#xC774;&#xD2B8; hex &#xCD94;&#xCD9C;</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | od -v -j2 -N4 -tx1z
+<span class="hljs-number">0000002</span> <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span> <span class="hljs-number">37</span> <span class="hljs-number">38</span>                                &gt;<span class="hljs-number">3456</span>&lt;
 <span class="hljs-number">0000010</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | hd <span class="hljs-operator">-s</span>2 -n6
-<span class="hljs-number">00000002</span>  <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span> <span class="hljs-number">37</span> <span class="hljs-number">38</span>                                 |<span class="hljs-number">345678</span>|
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | hd <span class="hljs-operator">-s</span>2 -n4
+<span class="hljs-number">00000002</span>  <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span> <span class="hljs-number">37</span> <span class="hljs-number">38</span>                                 |<span class="hljs-number">3456</span>|
 <span class="hljs-number">00000008</span>
+</code></pre>
+<p>hex &#xAC12;&#xC774; &#xC544;&#xB2CC; &#xC815;&#xC218;&#xB098; float &#xAC12;&#xC73C;&#xB85C; &#xCD94;&#xCD9C;&#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xBA74;</p>
+<pre><code class="lang-bash">$ hd file
+<span class="hljs-number">00000000</span>  <span class="hljs-number">01</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">02</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>  <span class="hljs-number">03</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">04</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>  |................|
+<span class="hljs-number">00000010</span>  <span class="hljs-number">05</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>  <span class="hljs-number">06</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>  |................|
+<span class="hljs-number">00000020</span>  <span class="hljs-number">07</span> <span class="hljs-number">00</span> <span class="hljs-number">08</span> <span class="hljs-number">00</span> <span class="hljs-number">09</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>  <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>  |................|
+
+<span class="hljs-comment"># 8 &#xBC14;&#xC774;&#xD2B8; &#xAC74;&#xB108;&#xB6F0;&#xACE0;(-j8), 8 &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC77D;&#xC74C; (-N8), &#xAC01;&#xAC01; 4 &#xBC14;&#xC774;&#xD2B8;&#xC529;&#xC744; signed decimal &#xB85C; &#xCC98;&#xB9AC; (-td4) </span>
+<span class="hljs-comment"># x86 cpu &#xB294; little endian &#xC774;&#xBBC0;&#xB85C; 03 00 00 00 &#xAC12;&#xC774; &#xC815;&#xC218;&#xAC12;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xB420; &#xB54C;&#xB294;</span>
+<span class="hljs-comment"># &#xC791;&#xC740;&#xCABD;(little) &#xC8FC;&#xC18C;&#xC758; &#xBC14;&#xC774;&#xD2B8; &#xAC12;&#xC774; &#xC22B;&#xC790; &#xB05D;&#xC73C;&#xB85C;(endian) &#xC624;&#xAC8C; &#xB3FC;&#xC11C; 0x00000003 &#xC774; &#xB429;&#xB2C8;&#xB2E4;.</span>
+$ od -j8 -N8 -td4 file
+<span class="hljs-number">0000010</span>           <span class="hljs-number">3</span>           <span class="hljs-number">4</span>
+<span class="hljs-number">0000020</span>
+
+<span class="hljs-comment"># 16 &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xACE0; &#xAC01;&#xAC01; 8 &#xBC14;&#xC774;&#xD2B8;&#xB97C; unsinged deciaml &#xB85C; &#xCC98;&#xB9AC;</span>
+$ od -j16 -N16 -tu8 file
+<span class="hljs-number">0000020</span>                    <span class="hljs-number">5</span>                    <span class="hljs-number">6</span>
+<span class="hljs-number">0000040</span>
+
+<span class="hljs-comment"># 4 &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xACE0; &#xAC01;&#xAC01; 2 &#xBC14;&#xC774;&#xD2B8;&#xB97C; unsinged deciaml &#xB85C; &#xCC98;&#xB9AC;</span>
+$ od -j32 -N4 -tu2 file
+<span class="hljs-number">0000040</span>      <span class="hljs-number">7</span>      <span class="hljs-number">8</span>
+<span class="hljs-number">0000044</span>
 </code></pre>
 
                     
