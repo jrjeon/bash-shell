@@ -1426,6 +1426,13 @@ aaa.txt  bbb.txt  ccc.txt
 $ <span class="hljs-built_in">echo</span> *.txt
 aaa.txt bbb.txt ccc.txt
 
+$ ls *.txt | wc <span class="hljs-operator">-l</span>
+<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">echo</span> *.txt | wc <span class="hljs-operator">-l</span>
+<span class="hljs-number">1</span>
+----------------------------
+
 <span class="hljs-comment"># nl &#xC740; newline &#xC744; &#xC758;&#xBBF8;</span>
 $ ls *.txt | od <span class="hljs-operator">-a</span>
 <span class="hljs-number">0000000</span>   a   a   a   .   t   x   t  nl   b   b   b   .   t   x   t  nl
