@@ -1304,6 +1304,23 @@ sh$ <span class="hljs-built_in">unset</span> -v asdfgh
 sh$ ( <span class="hljs-built_in">set</span> -u; : <span class="hljs-variable">$asdfgh</span> ) <span class="hljs-number">2</span>&gt; /dev/null; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">2</span>
 </code></pre>
+<h3 id="--&#xB97C;-&#xC774;&#xC6A9;&#xD55C;-&#xBCC0;&#xC218;&#xAC12;-&#xC124;&#xC815;">&amp;&amp; , || &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBCC0;&#xC218;&#xAC12; &#xC124;&#xC815;</h3>
+<p><code>|</code> &#xD30C;&#xC774;&#xD504;&#xC640; &#xB2EC;&#xB9AC; <code>&amp;&amp;</code> , <code>||</code> &#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC740; &#xD604;&#xC7AC; shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
+ &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC124;&#xC815;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># command &#xBA85;&#xB839;&#xC774; &#xC131;&#xACF5;&#xD558;&#xBA74; myvar &#xBCC0;&#xC218;&#xAC12;&#xC744; 100 &#xC73C;&#xB85C; &#xC124;&#xC815;</span>
+$ <span class="hljs-built_in">command</span> ... &amp;&amp; myvar=<span class="hljs-number">100</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$myvar</span> 
+<span class="hljs-number">100</span>
+-----------------------------------------------------
+
+<span class="hljs-comment"># &apos;|&apos; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; </span>
+<span class="hljs-comment"># &#xC124;&#xC815;&#xD55C; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC774;&#xD6C4;&#xC758; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">command</span> ... | myvar=<span class="hljs-number">100</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$myvar</span>
+$                <span class="hljs-comment"># &#xAC12;&#xC774; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+</code></pre>
 <h3 id="&#xBCC0;&#xC218;&#xAC12;&#xC73C;&#xB85C;-nul-&#xBB38;&#xC790;&#xB97C;-&#xC800;&#xC7A5;&#xD560;-&#xC218;-&#xC5C6;&#xB2E4;">&#xBCC0;&#xC218;&#xAC12;&#xC73C;&#xB85C; NUL &#xBB38;&#xC790;&#xB97C; &#xC800;&#xC7A5;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</h3>
 <p>NUL &#xBB38;&#xC790;( \0 )&#xB294; &#xBCC0;&#xC218;&#xC758; &#xAC12;&#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; pipe &#xB85C; &#xC804;&#xB2EC;&#xD558;&#xAC70;&#xB098; file &#xB85C; &#xC800;&#xC7A5;&#xD560; &#xC218;&#xB294; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ var=$(<span class="hljs-built_in">echo</span> -en <span class="hljs-string">&quot;AA\x09\x0aBB&quot;</span>)
