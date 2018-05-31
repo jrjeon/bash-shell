@@ -1301,7 +1301,7 @@ lockfile=/var/lock/$(basename <span class="hljs-string">&quot;<span class="hljs-
 <span class="hljs-built_in">command</span>2 ...
 <span class="hljs-built_in">command</span>3 ...
 </code></pre>
-<h1 id="flock">flock</h1>
+<h2 id="flock">flock</h2>
 <p>&#xB450;&#xBC88;&#xC9F8; &#xC608;&#xB294; &#xC778;&#xD130;&#xB137;&#xC5D0;&#xC11C; &#xBCF4;&#xAC8C;&#xB41C; &#xB0B4;&#xC6A9;&#xC778;&#xB370; &#xC791;&#xC5C5; &#xCC98;&#xB9AC; &#xACFC;&#xC815;&#xC744; &#xAC04;&#xB2E8;&#xD788; &#xC815;&#xB9AC;&#xD574;&#xBCF4;&#xBA74; &#xC774;&#xB807;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <ol>
 <li>tasks.txt &#xD30C;&#xC77C;&#xC5D0;&#xB294; &#xCC98;&#xB9AC;&#xD574;&#xC57C; &#xB420; task id &#xB9AC;&#xC2A4;&#xD2B8;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
@@ -1351,7 +1351,7 @@ get_task_id ()  <span class="hljs-comment"># &#xD568;&#xC218; &#xC804;&#xCCB4;&#
     <span class="hljs-keyword">do</span>_task <span class="hljs-string">&quot;<span class="hljs-variable">$task_id</span>&quot;</span>           <span class="hljs-comment"># &#xC791;&#xC5C5;&#xC885;&#xB8CC; &#xB54C;&#xAE4C;&#xC9C0; &#xBC18;&#xBCF5;&#xD558;&#xC5EC; do_task &#xC2E4;&#xD589;</span>
 <span class="hljs-keyword">done</span>
 </code></pre>
-<p>&#xC704; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; core &#xAC00;  4 &#xAC1C;&#xC778; cpu &#xC5D0;&#xC11C; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC;&#xB85C; 4 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xC0DD;&#xC131;&#xD574;&#xC11C; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xC2DC;&#xD0A8;&#xB2E4;&#xACE0; &#xD558;&#xBA74;
+<p>&#xC704; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; core &#xAC00; 4 &#xAC1C;&#xC778; cpu &#xC5D0;&#xC11C; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC;&#xB85C; 4 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xC0DD;&#xC131;&#xD574;&#xC11C; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xC2DC;&#xD0A8;&#xB2E4;&#xACE0; &#xD558;&#xBA74;
 do_task &#xD568;&#xC218;&#xB294; &#xAC01;&#xC790;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xC774; &#xB418;&#xACA0;&#xC9C0;&#xB9CC;
 get_task_id &#xD568;&#xC218;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xB54C;&#xB9CC;&#xC740; &#xC624;&#xC9C1; &#xD558;&#xB098;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB9CC; &#xC9C4;&#xC785;&#xD574;&#xC11C; &#xC2E4;&#xD589;&#xC774; &#xB429;&#xB2C8;&#xB2E4;. 
 get_task_id &#xC640; &#xAC19;&#xC774; &#xC5EC;&#xB7EC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xC758;&#xD574; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB3FC;&#xC11C;&#xB294; &#xC548;&#xB418;&#xB294; &#xCF54;&#xB4DC;&#xAD6C;&#xAC04;&#xC744; critical section &#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
@@ -1393,7 +1393,7 @@ flock -n <span class="hljs-number">9</span> || { <span class="hljs-built_in">ech
 <span class="hljs-built_in">command</span>2 ...
 <span class="hljs-built_in">command</span>3 ...
 </code></pre>
-<h2 id="flock-&#xC758;-&#xC9C1;&#xC811;-&#xBA85;&#xB839;-&#xC2E4;&#xD589;">flock &#xC758; &#xC9C1;&#xC811; &#xBA85;&#xB839; &#xC2E4;&#xD589;</h2>
+<h3 id="flock-&#xC758;-&#xC9C1;&#xC811;-&#xBA85;&#xB839;-&#xC2E4;&#xD589;">flock &#xC758; &#xC9C1;&#xC811; &#xBA85;&#xB839; &#xC2E4;&#xD589;</h3>
 <p>&#xC9C0;&#xAE08; &#xAE4C;&#xC9C0;&#xB294; flock &#xC744; &#xC774;&#xC6A9;&#xD560;&#xB54C; file descriptor &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC18C;&#xC2A4;&#xB97C; &#xC9C1;&#xC811; &#xC218;&#xC815;&#xD558;&#xC600;&#xB294;&#xB370;&#xC694;.
 flock &#xC758; &#xC9C1;&#xC811; &#xBA85;&#xB839;&#xC2E4;&#xD589; &#xBC29;&#xBC95;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC18C;&#xC2A4;&#xC758; &#xC218;&#xC815;&#xC5C6;&#xC774; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC774;&#xB098; &#xD568;&#xC218; &#xC804;&#xCCB4;&#xB97C; lock &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC774;&#xB54C;&#xB294; lock &#xC744; &#xC704;&#xD574;&#xC11C; file descriptor &#xAC00; &#xC544;&#xB2CC; &#xC784;&#xC758;&#xC758; &#xD30C;&#xC77C;&#xC774;&#xB098; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
@@ -1417,7 +1417,7 @@ $ flock /var/lock/mylock -c <span class="hljs-string">&apos;func1 11 22 33&apos;
 &#xC55E;&#xC120; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589;&#xC774; &#xC911;&#xB2E8; &#xC0C1;&#xD0DC;&#xC5D0; &#xBE60;&#xC9C8; &#xACBD;&#xC6B0; &#xB2E4;&#xC74C;&#xBC88; &#xC2E4;&#xD589; &#xC2DC;&#xB3C4;&#xC2DC;&#xC5D0; <code>-n</code> &#xC635;&#xC158;&#xC5D0; &#xC758;&#xD574; &#xBC14;&#xB85C; fail return &#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">flock -n /var/lock/mylock ./script.sh
 </code></pre>
-<h2 id="lock-propagation">Lock propagation</h2>
+<h3 id="lock-propagation">Lock propagation</h3>
 <p>&#xC138;&#xBC88;&#xC9F8; &#xC608;&#xC81C;&#xB3C4; crontab &#xC5D0; server.sh &#xC744; &#xB4F1;&#xB85D;&#xD558;&#xC5EC; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC778;&#xB370;&#xC694;.
 &#xC774;&#xBC88;&#xC5D0; server.sh &#xC758; &#xC5ED;&#xD560;&#xC740; &#xB9E4;&#xBC88; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xB9C8;&#xB2E4; &#xD658;&#xACBD;&#xC124;&#xC815; &#xD30C;&#xC77C;&#xC744; &#xC0C8;&#xB85C; &#xC77D;&#xC5B4;&#xB4E4;&#xC778; &#xD6C4;&#xC5D0; 
 &#xC11C;&#xBC84; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xB2E4;&#xC2DC; &#xC2DC;&#xC791;&#xD558;&#xACE0; &#xC885;&#xB8CC;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
@@ -1428,7 +1428,7 @@ $ flock /var/lock/mylock -c <span class="hljs-string">&apos;func1 11 22 33&apos;
 <p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xACBD;&#xC6B0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; child process &#xAC00; &#xC2E4;&#xD589;&#xB420;&#xB54C; lock &#xC18C;&#xC720;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; flock &#xC635;&#xC158;&#xC778; <code>-o</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.  </p>
 <pre><code class="lang-bash">flock -n -o /var/lock/mylock ./server.sh
 </code></pre>
-<h2 id="lock-&#xC758;-&#xACF5;&#xC720;&#xC640;-lockfile">Lock &#xC758; &#xACF5;&#xC720;&#xC640; lockfile</h2>
+<h3 id="lock-&#xC758;-&#xACF5;&#xC720;&#xC640;-lockfile">Lock &#xC758; &#xACF5;&#xC720;&#xC640; lockfile</h3>
 <p>flock &#xBA85;&#xB839;&#xC740; file descriptor &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB4E0; &#xC9C1;&#xC811; &#xBA85;&#xB839; &#xC2E4;&#xD589;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xB4E0; lock &#xC0AC;&#xC6A9;&#xC744; &#xC704;&#xD574;
 &#xC678;&#xBD80; &#xD30C;&#xC77C;&#xC744; &#xC774;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC774; &#xC678;&#xBD80; &#xD30C;&#xC77C; (lockfile) &#xC740; &#xC2DC;&#xC2A4;&#xD15C; &#xB0B4;&#xC758; &#xBAA8;&#xB4E0; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00;  &#xACF5;&#xC720;&#xD558;&#xBBC0;&#xB85C;
