@@ -1230,19 +1230,19 @@
 &#xD14D;&#xC2A4;&#xD2B8; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xB3C4; &#xB9CE;&#xC774; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 shell builtin &#xBA85;&#xB839;&#xACFC; &#xC774;&#xB984;&#xC774; &#xC911;&#xBCF5;&#xB420; &#xACBD;&#xC6B0; &#xC9C1;&#xC811; &#xACBD;&#xB85C;&#xB97C; &#xC9C0;&#xC815;&#xD558;&#xC5EC; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xD14D;&#xC2A4;&#xD2B8; &#xD615;&#xD0DC;&#xC758; &#xC2E4;&#xD589;&#xD30C;&#xC77C; &#xAC1C;&#xC218;</span>
-$ file /bin/* /usr/bin/* | grep -c <span class="hljs-string">&quot;text executable&quot;</span>
-<span class="hljs-number">660</span>
+$ file /bin/* /usr/bin/* | grep -ic <span class="hljs-string">&quot;text executable&quot;</span>
+<span class="hljs-number">643</span>
 
-$ file /bin/* /usr/bin/* | grep -c <span class="hljs-string">&quot;shell script&quot;</span>
-<span class="hljs-number">289</span>
+$ file /bin/* /usr/bin/* | grep -ic <span class="hljs-string">&quot;shell script&quot;</span>
+<span class="hljs-number">324</span>
 
 $ file /bin/* /usr/bin/* | grep -ic <span class="hljs-string">&quot;perl script&quot;</span>
-<span class="hljs-number">219</span>
+<span class="hljs-number">214</span>
 
 $ file /bin/* /usr/bin/* | grep -ic <span class="hljs-string">&apos;python[0-9.]* script&apos;</span>
-<span class="hljs-number">141</span>
+<span class="hljs-number">97</span>
 
-$ file /bin/* /usr/bin/* | grep <span class="hljs-string">&quot;shell script&quot;</span>
+$ file /bin/* /usr/bin/* | grep -i <span class="hljs-string">&quot;shell script&quot;</span>
 /bin/bzdiff:                                  POSIX shell script, ASCII text executable
 /bin/bzexe:                                   POSIX shell script, ASCII text executable
 /bin/bzgrep:                                  POSIX shell script, ASCII text executable
