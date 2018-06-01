@@ -1237,27 +1237,34 @@ system call &#xC744; &#xD1B5;&#xD574; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xBC29;&
 &#xCEE4;&#xB110; &#xD30C;&#xB77C;&#xBBF8;&#xD130; &#xAC12;&#xC744; write &#xC744; &#xD1B5;&#xD574; &#xBCC0;&#xACBD;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># `ps` &#xBA85;&#xB839;&#xC740; &#xBAA8;&#xB4E0; &#xC815;&#xBCF4;&#xB97C; /proc &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xD45C;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;.</span>
 
-$ strace <span class="hljs-operator">-e</span> openat ps |&amp; grep <span class="hljs-string">&apos;/proc&apos;</span> 
-open(<span class="hljs-string">&quot;/proc/filesystems&quot;</span>, O_RDONLY)     = <span class="hljs-number">3</span>
-open(<span class="hljs-string">&quot;/proc/sys/kernel/osrelease&quot;</span>, O_RDONLY) = <span class="hljs-number">3</span>
-open(<span class="hljs-string">&quot;/proc/self/stat&quot;</span>, O_RDONLY)       = <span class="hljs-number">3</span>
-open(<span class="hljs-string">&quot;/proc/uptime&quot;</span>, O_RDONLY)          = <span class="hljs-number">3</span>
+$ strace <span class="hljs-operator">-e</span> openat ps |&amp; grep <span class="hljs-string">&apos;/proc/&apos;</span> 
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/sys/kernel/osrelease&quot;</span>, O_RDONLY) = <span class="hljs-number">3</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/self/stat&quot;</span>, O_RDONLY) = <span class="hljs-number">3</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/uptime&quot;</span>, O_RDONLY) = <span class="hljs-number">3</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/sys/kernel/pid_max&quot;</span>, O_RDONLY) = <span class="hljs-number">4</span>
 ...
 ...
-open(<span class="hljs-string">&quot;/proc/sys/kernel/pid_max&quot;</span>, O_RDONLY) = <span class="hljs-number">4</span>
-open(<span class="hljs-string">&quot;/proc/sys/kernel/osrelease&quot;</span>, O_RDONLY) = <span class="hljs-number">4</span>
-open(<span class="hljs-string">&quot;/proc/meminfo&quot;</span>, O_RDONLY)         = <span class="hljs-number">4</span>
-open(<span class="hljs-string">&quot;/proc&quot;</span>, O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC) = <span class="hljs-number">5</span>
-open(<span class="hljs-string">&quot;/proc/1/stat&quot;</span>, O_RDONLY)          = <span class="hljs-number">6</span>
-open(<span class="hljs-string">&quot;/proc/1/status&quot;</span>, O_RDONLY)        = <span class="hljs-number">6</span>
-open(<span class="hljs-string">&quot;/proc/2/stat&quot;</span>, O_RDONLY)          = <span class="hljs-number">6</span>
-open(<span class="hljs-string">&quot;/proc/2/status&quot;</span>, O_RDONLY)        = <span class="hljs-number">6</span>
-open(<span class="hljs-string">&quot;/proc/3/stat&quot;</span>, O_RDONLY)          = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/1/stat&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/1/status&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/2/stat&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/2/status&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/4/stat&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/4/status&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
 ...
 ...
-open(<span class="hljs-string">&quot;/proc/30920/status&quot;</span>, O_RDONLY)    = <span class="hljs-number">6</span>
-open(<span class="hljs-string">&quot;/proc/31750/stat&quot;</span>, O_RDONLY)      = <span class="hljs-number">6</span>
-open(<span class="hljs-string">&quot;/proc/31750/status&quot;</span>, O_RDONLY)    = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/30628/stat&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/30628/status&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/32616/stat&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/32616/status&quot;</span>, O_RDONLY) = <span class="hljs-number">6</span>
+----------------------------------------------------
+
+<span class="hljs-comment"># vmstat &#xBA85;&#xB839;</span>
+$ strace <span class="hljs-operator">-e</span> openat vmstat |&amp; grep <span class="hljs-string">&apos;/proc/&apos;</span> 
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/sys/kernel/osrelease&quot;</span>, O_RDONLY) = <span class="hljs-number">3</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/sys/kernel/osrelease&quot;</span>, O_RDONLY) = <span class="hljs-number">3</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/meminfo&quot;</span>, O_RDONLY) = <span class="hljs-number">3</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/stat&quot;</span>, O_RDONLY) = <span class="hljs-number">4</span>
+openat(AT_FDCWD, <span class="hljs-string">&quot;/proc/vmstat&quot;</span>, O_RDONLY) = <span class="hljs-number">5</span>
 </code></pre>
 <p>/proc &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; ls &#xD588;&#xC744;&#xB54C; &#xBCF4;&#xC774;&#xB294; &#xC22B;&#xC790;&#xB85C;&#xB41C; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; &#xD604;&#xC7AC; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294;
 &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.
