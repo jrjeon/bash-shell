@@ -1383,13 +1383,16 @@ Hello world, welcome to m4!
 <span class="hljs-comment"># &#xC785;&#xB825;&#xC744; &#xBC1B;&#xC73C;&#xBBC0;&#xB85C; -x &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; c &#xD30C;&#xC77C;&#xC784;&#xC744; &#xBA85;&#xC2DC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. ( c++ &#xC758; &#xACBD;&#xC6B0;&#xB294; -xc++ )</span>
 
 $ gcc -S -masm=intel -xc - -o - &lt;&lt;\@
-<span class="hljs-comment">#include &lt;stdio.h&gt;</span>
-int <span class="hljs-function"><span class="hljs-title">main</span></span>() { puts(<span class="hljs-string">&quot;hello&quot;</span>); }
+int a = <span class="hljs-number">1</span>;
+int <span class="hljs-function"><span class="hljs-title">main</span></span>() { 
+    int b = <span class="hljs-number">2</span>;
+    int c = a + b;
+}                     
 @
         .file   <span class="hljs-string">&quot;&quot;</span>
         .intel_syntax noprefix
         .text
-        .section        .rodata
+        .globl  a
         . . . .
         . . . .
 </code></pre>
