@@ -1306,6 +1306,40 @@ $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">010</spa
 $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">010</span> + <span class="hljs-number">0</span>x10 + <span class="hljs-number">10</span> ))    <span class="hljs-comment"># 8&#xC9C4;&#xC218; + 16&#xC9C4;&#xC218; + 10&#xC9C4;&#xC218;</span>
 <span class="hljs-number">34</span>
 </code></pre>
+<h4 id="bitwise-&#xC5F0;&#xC0B0;">Bitwise &#xC5F0;&#xC0B0;</h4>
+<ul>
+<li><strong>&gt;&gt;</strong>&#xA0;&#xA0;&#xA0;(Right Shift) - Shift bits to right and adds &apos;0&apos;s on left (Divide by 2 operation)</li>
+<li><strong>&lt;&lt;</strong>&#xA0;&#xA0;&#xA0;(Left Shift) - Shifts bits to left and add &apos;0&apos; on right (Multiply by 2 operation)</li>
+<li><strong>&amp;</strong>&#xA0;&#xA0;&#xA0;&#xA0;(Bitwise AND) - Performs AND operation on every bit and produces result</li>
+<li><strong>|</strong>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;(Bitwise OR) - Performs OR operation on every bit and produces result</li>
+<li><strong>^</strong>&#xA0;&#xA0;&#xA0;&#xA0;(Bitwise XOR) - Performs XOR operation on every bit and produces result</li>
+<li><strong>~</strong>&#xA0;&#xA0;&#xA0;&#xA0;(Bitwise NOT) - Inverts all the bits</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-comment"># Right Shift</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> &gt;&gt; <span class="hljs-number">3</span> ))         <span class="hljs-comment"># &apos;1111&apos; &gt;&gt; 3 = &apos;0001&apos;  ( Ans : 1 )</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> &gt;&gt; <span class="hljs-number">1</span> ))         <span class="hljs-comment"># &apos;1111&apos; &gt;&gt; 1 = &apos;0111&apos;  ( Ans : 7 )</span>
+
+<span class="hljs-comment"># Left Shift</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> &lt;&lt; <span class="hljs-number">3</span> ))         <span class="hljs-comment"># &apos;1111&apos; &lt;&lt; 3 = &apos;1111000&apos;  ( Ans : 120 )</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> &lt;&lt; <span class="hljs-number">1</span> ))         <span class="hljs-comment"># &apos;1111&apos; &lt;&lt; 1 = &apos;11110&apos;  ( Ans : 30 )</span>
+
+<span class="hljs-comment"># Bitwise AND</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> &amp; <span class="hljs-number">3</span> ))          <span class="hljs-comment"># &apos;1111&apos; &amp; &apos;0011&apos; = &apos;0011&apos;  ( Ans : 3 )</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> &amp; <span class="hljs-number">1</span> ))          <span class="hljs-comment"># &apos;1111&apos; &amp; &apos;0001&apos; = &apos;0001&apos;  ( Ans : 1 )</span>
+
+<span class="hljs-comment"># Bitwise OR</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> | <span class="hljs-number">3</span> ))          <span class="hljs-comment"># &apos;1111&apos; | &apos;0011&apos; = &apos;1111&apos;  ( Ans : 15 )</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> | <span class="hljs-number">1</span> ))          <span class="hljs-comment"># &apos;1111&apos; | &apos;0001&apos; = &apos;1111&apos;  ( Ans : 15 )</span>
+
+<span class="hljs-comment"># Bitwise XOR</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> ^ <span class="hljs-number">3</span> ))          <span class="hljs-comment"># &apos;1111&apos; ^ &apos;0011&apos; = &apos;1100&apos;  ( Ans : 12 )</span>
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">15</span> ^ <span class="hljs-number">1</span> ))          <span class="hljs-comment"># &apos;1111&apos; ^ &apos;0001&apos; = &apos;1110&apos;  ( Ans : 14 )</span>
+
+<span class="hljs-comment"># Bitwise NOT</span>
+<span class="hljs-built_in">echo</span> $(( ~<span class="hljs-number">15</span> ))             <span class="hljs-comment"># ~ &apos;0000 1111&apos; = &apos;1111 0000&apos;  ( Ans : -16 )</span>
+<span class="hljs-built_in">echo</span> $(( ~<span class="hljs-number">3</span> ))              <span class="hljs-comment"># ~ &apos;0000 0011&apos; = &apos;1111 1100&apos;  ( Ans : -4 )</span>
+<span class="hljs-built_in">echo</span> $(( ~<span class="hljs-number">1</span> ))              <span class="hljs-comment"># ~ &apos;0000 0001&apos; = &apos;1111 1110&apos;  ( Ans : -2 )</span>
+</code></pre>
 <h4 id="for--i--0-i--10-i--&#xB97C;-&#xD560;&#xC218;&#xC788;&#xB2E4;">for (( i = 0; i &lt; 10; i++ )) &#xB97C; &#xD560;&#xC218;&#xC788;&#xB2E4;!</h4>
 <p><code>(( ))</code> &#xB294; &#xD45C;&#xD604;&#xC2DD; &#xC774;&#xB77C; <code>;</code> &#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC5EC;&#xB7EC; &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB294; &#xC5C6;&#xB294;&#xB370;&#xC694;. &#xADF8;&#xB798;&#xC11C; (( i = 0; i &lt; 10; i++ )) &#xB9CC; &#xBCF4;&#xC790;&#xBA74; &#xC624;&#xB958;&#xC785;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xC55E;&#xC5D0; <code>for</code> &#xAC00; &#xC62C;&#xACBD;&#xC6B0; C &#xC5B8;&#xC5B4; &#xC5D0;&#xC11C;&#xCC98;&#xB7FC; for &#xBB38;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-keyword">for</span> (( i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ )) 
