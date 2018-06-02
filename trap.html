@@ -1446,26 +1446,80 @@ after interrupt : <span class="hljs-number">200</span>
 EXIT &#xC2E0;&#xD638;&#xB97C; &#xC81C;&#xACF5;&#xD558;&#xAE30;&#xB294; &#xD558;&#xC9C0;&#xB9CC; bash &#xC640; &#xAC19;&#xC740; &#xAE30;&#xB2A5;&#xC774; &#xC544;&#xB2C8;&#xACE0;
 exit &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC885;&#xB8CC;&#xD558;&#xAC70;&#xB098; &#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;&#xC5D0; &#xB9CC; &#xD638;&#xCD9C;&#xB429;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xB97C; &#xC2DC;&#xB3C4;&#xD560; &#xACBD;&#xC6B0; &#xD638;&#xCD9C;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># &#xC9C1;&#xC811; exit &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098;, &#xC815;&#xC0C1;&#xC885;&#xB8CC;&#xC2DC; &#xC5D0;&#xB9CC; &#xD638;&#xCD9C; &#xB41C;&#xB2E4;.</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xC9C1;&#xC811; exit &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098;, &#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;&#xC5D0;&#xB9CC; &#xD638;&#xCD9C;&#xB41C;&#xB2E4;.</span>
 <span class="hljs-shebang">#!/bin/sh</span>
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$tmpfile&quot;&apos;</span> EXIT 
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;echo trap handler...&apos;</span> EXIT 
 ...
 ...
 </code></pre>
-<p>&#xB9CC;&#xC57D;&#xC5D0; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xC124;&#xC815;&#xD55C;&#xB2E4;&#xBA74; &#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;&#xC5D0;&#xB294; &#xD55C; &#xBC88;&#xB9CC;  &#xD638;&#xCD9C;&#xB418;&#xC9C0;&#xB9CC;
-Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xB97C; &#xC2DC;&#xB3C4;&#xD560; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; INT &#xC2E0;&#xD638;&#xC5D0; &#xC758;&#xD574; &#xD55C;&#xBC88;, EXIT &#xC2E0;&#xD638;&#xC5D0; &#xC758;&#xD574; &#xD55C;&#xBC88;, &#xB450; &#xBC88; &#xD638;&#xCD9C;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC124;&#xC815;&#xD55C;&#xB2E4;&#xBA74; Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xB97C; &#xC2DC;&#xB3C4;&#xD560; &#xACBD;&#xC6B0;&#xB294; &#xD638;&#xCD9C;&#xB418;&#xC9C0;&#xB9CC;
+exit, &#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;&#xC5D0;&#xB294; &#xD638;&#xCD9C;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC5EC;&#xAE30;&#xC11C; &#xD55C;&#xAC00;&#xC9C0; &#xC8FC;&#xBAA9;&#xD574;&#xC57C; &#xB420; &#xC810;&#xC740; bash &#xC758; &#xACBD;&#xC6B0;&#xB294; Ctrl-c &#xC5D0; &#xC758;&#xD574; trap handler &#xAC00; &#xC2E4;&#xD589;&#xB41C; &#xD6C4;&#xC5D0;
+&#xBC14;&#xB85C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC804;&#xCCB4;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC9C0;&#xB9CC; sh &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC774;&#xC5B4;&#xC11C; &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh</span>
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$tmpfile&quot;; exit&apos;</span> EXIT HUP INT QUIT TERM
-...
-...
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;echo trap handler...&apos;</span> HUP INT QUIT TERM
+<span class="hljs-built_in">echo</span> start...
+cat 
+<span class="hljs-built_in">echo</span> end...
+
+$ ./test.sh 
+start...
+^C<span class="hljs-built_in">trap</span> handler...      <span class="hljs-comment"># &apos;^C&apos; &#xB294; cat &#xBA85;&#xB839;&#xC5D0;&#xC11C; Ctrl-c &#xC785;&#xB825;</span>
+end...                 <span class="hljs-comment"># bash &#xCC98;&#xB7FC; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+-----------------------------------------------------------------------------
+
+<span class="hljs-comment"># trap handler &#xC5D0; exit &#xC744; &#xCD94;&#xAC00;&#xD558;&#xBA74; &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
+<span class="hljs-shebang">#!/bin/sh</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;echo trap handler...; exit&apos;</span> HUP INT QUIT TERM     <span class="hljs-comment"># exit &#xCD94;&#xAC00;</span>
+<span class="hljs-built_in">echo</span> start...
+cat 
+<span class="hljs-built_in">echo</span> end...
+
+$ ./test.sh 
+start...
+^C<span class="hljs-built_in">trap</span> handler...       <span class="hljs-comment"># end... &#xAC00; &#xC81C;&#xAC70;&#xB428;</span>
 </code></pre>
-<p>&#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC124;&#xC815;&#xD574;&#xC57C; &#xD55C; &#xBC88;&#xB9CC; handler &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xACE0;
-&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xB3C4; &#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;&#xC640; Ctrl-c &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC; &#xC2DC; &#xAD6C;&#xBD84;&#xB418;&#xC5B4; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB9CC;&#xC57D;&#xC5D0; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; EXIT &#xACFC; INT &#xC2E0;&#xD638;&#xB97C; &#xD568;&#xAED8; &#xC124;&#xC815;&#xD55C;&#xB2E4;&#xBA74;
+&#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;&#xC5D0;&#xB294; &#xD55C; &#xBC88;&#xB9CC;  &#xD638;&#xCD9C;&#xB418;&#xC9C0;&#xB9CC;
+Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xB97C; &#xC2DC;&#xB3C4;&#xD560; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; INT &#xC2E0;&#xD638;&#xC5D0; &#xC758;&#xD574; &#xD55C;&#xBC88;,
+EXIT &#xC2E0;&#xD638;&#xC5D0; &#xC758;&#xD574; &#xD55C;&#xBC88;, &#xB450; &#xBC88; &#xD638;&#xCD9C;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat test.sh
+<span class="hljs-shebang">#!/bin/sh</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;echo trap handler...; exit&apos;</span> EXIT HUP INT QUIT TERM
+<span class="hljs-built_in">echo</span> start...
+cat 
+<span class="hljs-built_in">echo</span> end...
+
+$ ./test.sh 
+start...
+^C<span class="hljs-built_in">trap</span> handler...      <span class="hljs-comment"># INT &#xC2E0;&#xD638;&#xC5D0; &#xD55C;&#xBC88;</span>
+<span class="hljs-built_in">trap</span> handler...        <span class="hljs-comment"># EXIT &#xC2E0;&#xD638;&#xC5D0; &#xD55C;&#xBC88;</span>
+</code></pre>
+<p>&#xB530;&#xB77C;&#xC11C; bash &#xC5D0;&#xC11C; EXIT &#xC2E0;&#xD638;&#xB97C; &#xC124;&#xC815;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xC774; 
+&#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;, Ctrl-c &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC; &#xC2DC; &#xBAA8;&#xB450; &#xC2E4;&#xD589;&#xB418;&#xACE0;
+trap handler &#xB294; &#xD55C; &#xBC88;&#xB9CC; &#xC2E4;&#xD589;&#xB418;&#xAC8C; &#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB610;&#xD55C; &#xC774; &#xBC29;&#xBC95;&#xC740; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xB3C4; bash &#xC5D0;&#xC11C;&#xC640; &#xAC19;&#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC2DC;&#xC640;
+Ctrl-c &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC; &#xC2DC; &#xAD6C;&#xBD84;&#xB418;&#xC5B4; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh</span>
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exit&apos;</span> HUP INT QUIT TERM
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$tmpfile&quot;&apos;</span> EXIT
-...
-...
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;echo trap handler...&apos;</span> EXIT
+. . .
+. . .
+
+----------------------------------
+<span class="hljs-shebang">#!/bin/sh</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exit&apos;</span> HUP INT QUIT TERM
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;echo trap handler...&apos;</span> EXIT
+<span class="hljs-built_in">echo</span> start...
+cat 
+<span class="hljs-built_in">echo</span> end...
+
+$ ./test.sh             <span class="hljs-comment"># &#xD55C; &#xBC88;&#xB9CC; trap handler &#xAC00; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+start...
+^C<span class="hljs-built_in">trap</span> handler...
+
+$ <span class="hljs-built_in">echo</span> $?               <span class="hljs-comment"># &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xB3C4; &#xAD6C;&#xBD84;&#xB418;&#xC5B4; &#xC124;&#xC815;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-number">130</span>
 </code></pre>
 <h2 id="ctrlc">Ctrl-c</h2>
 <p>Ctrl-c &#xD0A4;&#xC758; SIGINT &#xC2E0;&#xD638;&#xB97C; &#xC774;&#xC6A9;&#xD55C; trap &#xC740; &#xB2E4;&#xC74C; &#xC138; &#xAC00;&#xC9C0;&#xB85C; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
