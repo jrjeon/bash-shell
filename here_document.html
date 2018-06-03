@@ -1360,7 +1360,20 @@ EOF
 &gt; END
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xD30C;&#xC774;&#xD504;&#xB85C;-&#xC804;&#xB2EC;&#xD558;&#xAE30;">Here document &#xB97C; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xAE30;</h4>
-<pre><code class="lang-bash">$ cat &lt;&lt;\END | m4
+<pre><code class="lang-bash">$ sqlite3 mydatabase &lt;&lt;\END | awk -v FS=<span class="hljs-string">&apos;\t&apos;</span> \
+<span class="hljs-string">&apos;{ printf &quot;&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n&quot;, $1, $2 }&apos;</span>
+.mode list
+.separator \t
+.header off
+SELECT name,phone from person;
+END
+&lt;tr&gt;&lt;td&gt;Bill&lt;/td&gt;&lt;td&gt;<span class="hljs-number">010</span>-<span class="hljs-number">8129</span>-<span class="hljs-number">4728</span>&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;<span class="hljs-number">010</span>-<span class="hljs-number">3512</span>-<span class="hljs-number">4623</span>&lt;/td&gt;&lt;/tr&gt;
+. . . 
+. . . 
+........................................
+
+$ cat &lt;&lt;\END | m4
 define( `hello<span class="hljs-string">&apos;, `Hello world&apos;</span>)
 hello, welcome to m4!
 END
