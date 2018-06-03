@@ -1473,8 +1473,8 @@ bash: AA: parameter null or not <span class="hljs-built_in">set</span>
 <p>offset &#xACFC; length &#xB97C; &#xC74C;&#xC218;&#xB85C; &#xC904;&#xC218; &#xC788;&#xB294;&#xB370; &#xC774;&#xACBD;&#xC6B0; &#xCE74;&#xC6B4;&#xD2B8;&#xB97C; &#xAC12;&#xC758; &#xC2DC;&#xC791;&#xC810;&#xC5D0;&#xC11C;&#xBD80;&#xD130; &#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xB05D;&#xC810;&#xC5D0;&#xC11C;&#xBD80;&#xD130; &#xC88C;&#xCE21; &#xBC29;&#xD5A5;&#xC73C;&#xB85C; &#xD558;&#xBA70; length &#xB9CC;&#xD07C; <code>&#xC81C;&#xC678;</code> &#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC774;&#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC74C;&#xC218;&#xC758; <code>-</code> &#xAE30;&#xD638;&#xB294;  &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xD655;&#xC7A5;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; <code>:-</code> &#xAE30;&#xD638;&#xC640; &#xACB9;&#xCE58;&#xBBC0;&#xB85C; <code>( )</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.    </p>
 <pre><code class="lang-bash">AA=<span class="hljs-string">&quot;Ubuntu Linux&quot;</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA:2}</span>&quot;</span>
-untu Linux
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA:1}</span>&quot;</span>
+buntu Linux
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA:2:4}</span>&quot;</span>
 untu
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA:(-5)}</span>&quot;</span>
@@ -1491,11 +1491,11 @@ foobar
 <p>Array &#xC758; &#xACBD;&#xC6B0;</p>
 <pre><code class="lang-bash">$ ARR=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>)
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${ARR[@]:2}</span>
-<span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>
-
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${ARR[@]:1:2}</span>
 <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${ARR[@]:2}</span>
+<span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>
 </code></pre>
 <p>Positional parameters &#xC758; &#xACBD;&#xC6B0;&#xB294; index &#xAC00; 1 &#xBD80;&#xD130; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">set</span> -- <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>
