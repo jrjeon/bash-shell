@@ -1597,6 +1597,7 @@ tail -c <span class="hljs-number">512</span> <span class="hljs-string">&quot;<sp
 &#xB9CC;&#xB4E4;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
 <p>/bin/date  &#xB97C; &#xB300;&#xC0C1;&#xC73C;&#xB85C; hex &#xBCC0;&#xD658;&#xC5D0; od &#xBA85;&#xB839;&#xC744;, &#xBCF5;&#xAD6C;&#xC5D0; xxd &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># binary &#xB97C; hex &#xB85C; &#xBCC0;&#xD658;</span>
+<span class="hljs-comment"># od &#xBA85;&#xB839;&#xC758; -v &#xC635;&#xC158;&#xC740; &#xAC19;&#xC740; &#xB0B4;&#xC6A9;&#xC758; &#xB77C;&#xC778;&#xC774; &#xC5F0;&#xC774;&#xC5B4; &#xCD9C;&#xB825;&#xB420; &#xACBD;&#xC6B0; &apos;*&apos; &#xB85C; &#xD45C;&#xC2DC;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD569;&#xB2C8;&#xB2E4;.</span>
 $ od -v -An -tx1 /bin/date &gt; date.hex
 <span class="hljs-comment"># &#xB610;&#xB294;</span>
 $ xxd -p /bin/date &gt; date.hex
@@ -1639,17 +1640,17 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</
 <span class="hljs-comment"># 8 &#xBC14;&#xC774;&#xD2B8; &#xAC74;&#xB108;&#xB6F0;&#xACE0;(-j8), 8 &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC77D;&#xC74C;(-N8), &#xAC01;&#xAC01; 4 &#xBC14;&#xC774;&#xD2B8;&#xC529;&#xC744; signed decimal &#xB85C; &#xCC98;&#xB9AC;(-td4) </span>
 <span class="hljs-comment"># x86 cpu &#xB294; little endian &#xC774;&#xBBC0;&#xB85C; 03 00 00 00 &#xAC12;&#xC774; &#xC815;&#xC218;&#xAC12;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xB420; &#xB54C;&#xB294;</span>
 <span class="hljs-comment"># &#xC791;&#xC740;&#xCABD;(little) &#xC8FC;&#xC18C;&#xC758; &#xBC14;&#xC774;&#xD2B8; &#xAC12;&#xC774; &#xC22B;&#xC790; &#xB05D;&#xC73C;&#xB85C;(endian) &#xC624;&#xAC8C; &#xB3FC;&#xC11C; 0x00000003 &#xC774; &#xB429;&#xB2C8;&#xB2E4;.</span>
-$ od -j8 -N8 -td4 file
+$ od -v -j8 -N8 -td4 file
 <span class="hljs-number">0000010</span>           <span class="hljs-number">3</span>           <span class="hljs-number">4</span>
 <span class="hljs-number">0000020</span>
 
 <span class="hljs-comment"># 16 &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xACE0;(-N16) &#xAC01;&#xAC01; 8 &#xBC14;&#xC774;&#xD2B8;&#xB97C; unsinged deciaml &#xB85C; &#xCC98;&#xB9AC;(-tu8)</span>
-$ od -j16 -N16 -tu8 file
+$ od -v -j16 -N16 -tu8 file
 <span class="hljs-number">0000020</span>                    <span class="hljs-number">5</span>                    <span class="hljs-number">6</span>
 <span class="hljs-number">0000040</span>
 
 <span class="hljs-comment"># 4 &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xACE0;(-N4) &#xAC01;&#xAC01; 2 &#xBC14;&#xC774;&#xD2B8;&#xB97C; unsinged deciaml &#xB85C; &#xCC98;&#xB9AC;(-tu2)</span>
-$ od -j32 -N4 -tu2 file
+$ od -v -j32 -N4 -tu2 file
 <span class="hljs-number">0000040</span>      <span class="hljs-number">7</span>      <span class="hljs-number">8</span>
 <span class="hljs-number">0000044</span>
 </code></pre>
