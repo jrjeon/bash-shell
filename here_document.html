@@ -1428,9 +1428,9 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 <span class="hljs-string">&quot;document&quot;</span>
 ............................................................
 
-<span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC774; &#xC77C;&#xC5B4;&#xB098;&#xC57C; &#xD558;&#xBBC0;&#xB85C; END &#xAD6C;&#xBD84;&#xC790;&#xB97C; escape &#xD558;&#xBA74; &#xC548;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC774; &#xC77C;&#xC5B4;&#xB098;&#xC57C; &#xD558;&#xBBC0;&#xB85C; END &#xAD6C;&#xBD84;&#xC790;&#xB97C; escape &#xD558;&#xBA74; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.</span>
 $ IFS=, <span class="hljs-built_in">read</span> AA BB CC &lt;&lt;END
-$( awk <span class="hljs-string">&apos;BEGIN{ print &quot;100,,*&quot; }&apos;</span> )
+$( awk <span class="hljs-string">&apos;BEGIN{ print &quot;100,,*&quot; }&apos;</span> )      <span class="hljs-comment"># &#xB450; &#xBC88;&#xC9F8; &#xAC12;&#xC740; empty</span>
 END
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span> : <span class="hljs-variable">$BB</span> : <span class="hljs-variable">$CC</span>&quot;</span>
@@ -1519,7 +1519,7 @@ $ <span class="hljs-built_in">read</span> v1 v2 v3 &lt;&lt;&lt; $( awk <span cla
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v1</span> : <span class="hljs-variable">$v2</span> : <span class="hljs-variable">$v3</span>&quot;</span>
 here : string : <span class="hljs-built_in">test</span>
 
-<span class="hljs-comment"># &#xBCC0;&#xC218;&#xAC12; &#xC911;&#xC5D0; null &#xAC12;&#xC774; &#xC788;&#xC744; &#xACBD;&#xC6B0;</span>
+<span class="hljs-comment"># &#xBCC0;&#xC218;&#xAC12; &#xC911;&#xC5D0; empty &#xAC12;&#xC774; &#xC788;&#xC744; &#xACBD;&#xC6B0;</span>
 $ IFS=, <span class="hljs-built_in">read</span> AA BB CC &lt;&lt;&lt; $( awk <span class="hljs-string">&apos;BEGIN{ print &quot;100,,*&quot; }&apos;</span> )
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span> : <span class="hljs-variable">$BB</span> : <span class="hljs-variable">$CC</span>&quot;</span>
 <span class="hljs-number">100</span> :  : *
