@@ -1752,11 +1752,16 @@ $ <span class="hljs-built_in">shopt</span> -q nullglob; <span class="hljs-built_
 </blockquote>
 <p><code>. (a period)</code> &#xBA85;&#xB839;&#xACFC; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.  </p>
 <p>bash &#xC5D0;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xACE0; filename &#xC744; &#xCC3E;&#xC744;&#xB54C; <code>$PATH</code> &#xC5D0;&#xC11C; &#xCC3E;&#xC9C0; &#xBABB;&#xD558;&#xBA74; &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC5D0;&#xC11C;&#xB3C4; &#xCC3E;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">source</span> &lt;( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;aaa=100; f1() { echo $aaa ;}&apos;</span> )
+<pre><code class="lang-bash">$ <span class="hljs-built_in">source</span> &lt;( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;AA=100; f1() { echo $AA ;}&apos;</span> )
 $ f1
 <span class="hljs-number">100</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$aaa</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">100</span>
+.................................................
+
+<span class="hljs-comment"># &#xC778;&#xC218;&#xB85C; 11 22 &#xB97C; &#xC804;&#xB2EC;&#xD558;&#xBA74; &#xAC01;&#xAC01; $1, $2 &#xC5D0; &#xD560;&#xB2F9;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">source</span> &lt;( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;echo &quot;XX, $1, $2, ZZ&quot;&apos;</span> ) <span class="hljs-number">11</span> <span class="hljs-number">22</span>
+XX, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>, ZZ
 </code></pre>
 <h3 id="suspend">suspend</h3>
 <blockquote>
