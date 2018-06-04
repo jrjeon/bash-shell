@@ -1228,7 +1228,10 @@
 <blockquote>
 <p>printf [-v var] format [arguments]</p>
 </blockquote>
-<p>printf &#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; <code>&quot; &quot;</code>, <code>&apos; &apos;</code> &#xBAA8;&#xB450;&#xC5D0;&#xC11C; escape &#xBB38;&#xC790;&#xAC00; &#xCC98;&#xB9AC;&#xB429;&#xB2C8;&#xB2E4;.<br>quotes &#xC758; &#xACE0;&#xC720; &#xAE30;&#xB2A5;&#xC740; &#xADF8;&#xB300;&#xB85C; &#xC720;&#xC9C0; &#xB418;&#xBBC0;&#xB85C; <code>&quot; &quot;</code> &#xC5D0;&#xC11C;&#xB294; &#xBCC0;&#xC218;&#xD655;&#xC7A5;, &#xBA85;&#xB839;&#xCE58;&#xD658; &#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>printf &#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; <code>&quot; &quot;</code>, <code>&apos; &apos;</code> &#xBAA8;&#xB450;&#xC5D0;&#xC11C; escape &#xBB38;&#xC790;&#xAC00; &#xCC98;&#xB9AC;&#xB429;&#xB2C8;&#xB2E4;.
+escape &#xBB38;&#xC790;&#xAC00; &#xCC98;&#xB9AC;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xD558;&#xB824;&#xBA74; &#xB530;&#xB85C; <a href="#escape"><code>%s</code> format</a> &#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+echo &#xBA85;&#xB839;&#xC758; &#xACBD;&#xC6B0; <code>sh</code> &#xACFC; <code>bash</code> &#xAC00; escape &#xBB38;&#xC790;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC774; &#xB2E4;&#xB978;&#xB370; printf &#xB294; &#xADF8;&#xB7F0; &#xCC28;&#xC774;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+quotes &#xC758; &#xACE0;&#xC720; &#xAE30;&#xB2A5;&#xC740; &#xADF8;&#xB300;&#xB85C; &#xC720;&#xC9C0; &#xB418;&#xBBC0;&#xB85C; <code>&quot; &quot;</code> &#xC5D0;&#xC11C;&#xB294; &#xBCC0;&#xC218;&#xD655;&#xC7A5;, &#xBA85;&#xB839;&#xCE58;&#xD658; &#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ AA=world
 
 <span class="hljs-comment"># double quotes</span>
@@ -1373,6 +1376,7 @@ $ <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%g\n
 $ <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%a\n&quot;</span> <span class="hljs-number">123.4567</span>       <span class="hljs-comment"># hexadecimal floating point number</span>
 <span class="hljs-number">0</span>xf.<span class="hljs-number">6</span>e9d495182a9931p+<span class="hljs-number">3</span>
 </code></pre>
+<p><a name="escape"></a></p>
 <ul>
 <li><code>%s</code> : &#xC778;&#xC218; &#xAC12;&#xC744; <a href="escape_sequences.html">escape &#xBB38;&#xC790;</a> &#xCC98;&#xB9AC; &#xC5C6;&#xC774; &#xADF8;&#xB300;&#xB85C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</li>
 <li><code>%b</code> : &#xC778;&#xC218; &#xAC12;&#xC744; escape &#xBB38;&#xC790; &#xCC98;&#xB9AC;&#xD558;&#xC5EC; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;. </li>
