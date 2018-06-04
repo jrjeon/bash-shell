@@ -1416,7 +1416,7 @@ int <span class="hljs-function"><span class="hljs-title">foo</span></span>() {
         . . . .
         . . . .
 </code></pre>
-<h4 id="here-document-&#xB97C;-&#xBCC0;&#xC218;&#xC5D0;-&#xB123;&#xAE30;">Here document &#xB97C; &#xBCC0;&#xC218;&#xC5D0; &#xB123;&#xAE30;</h4>
+<h4 id="here-document-&#xB97C;-&#xC774;&#xC6A9;&#xD55C;-&#xBCC0;&#xC218;&#xAC12;-&#xC124;&#xC815;">Here document &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBCC0;&#xC218;&#xAC12; &#xC124;&#xC815;</h4>
 <pre><code class="lang-bash">$ AA=$(cat &lt;&lt;@   <span class="hljs-comment"># &#xAD6C;&#xBD84;&#xC790; &apos;@&apos;</span>
 &gt; <span class="hljs-string">&apos;here&apos;</span>
 &gt; <span class="hljs-string">&quot;document&quot;</span>
@@ -1426,6 +1426,15 @@ int <span class="hljs-function"><span class="hljs-title">foo</span></span>() {
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>
 <span class="hljs-string">&apos;here&apos;</span>
 <span class="hljs-string">&quot;document&quot;</span>
+............................................................
+
+<span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC774; &#xC77C;&#xC5B4;&#xB098;&#xC57C; &#xD558;&#xBBC0;&#xB85C; END &#xAD6C;&#xBD84;&#xC790;&#xB97C; escape &#xD558;&#xBA74; &#xC548;&#xB41C;&#xB2E4;.</span>
+$ IFS=, <span class="hljs-built_in">read</span> AA BB CC &lt;&lt;END
+$( awk <span class="hljs-string">&apos;BEGIN{ print &quot;100,,*&quot; }&apos;</span> )
+END
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span> : <span class="hljs-variable">$BB</span> : <span class="hljs-variable">$CC</span>&quot;</span>
+<span class="hljs-number">100</span> :  : *
 </code></pre>
 <h4 id="while-&#xBB38;&#xC758;-&#xC785;&#xB825;&#xC73C;&#xB85C;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">while &#xBB38;&#xC758; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h4>
 <pre><code class="lang-bash">$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span>
@@ -1497,16 +1506,23 @@ here        string
 $ cat &lt;&lt;&lt; *
 *
 </code></pre>
-<p>&#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xBA85;&#xB839;&#xC758; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xACE0; &#xD560;&#xB54C; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; subshell &#xB85C; &#xC778;&#xD574; &#xC124;&#xC815;&#xB41C; &#xBCC0;&#xC218;&#xC758; &#xAC12;&#xC744; &#xC720;&#xC9C0;&#xD560; &#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB54C; here string &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD604;&#xC7AC; shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825;&#xC744; read &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xBCC0;&#xC218;&#xAC12;&#xC5D0; &#xC124;&#xC815;&#xD558;&#xB824;&#xACE0; &#xD560; &#xB54C;
+&#xD30C;&#xC774;&#xD504;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; subshell &#xB85C; &#xC778;&#xD574; &#xC124;&#xC815;&#xB41C; &#xBCC0;&#xC218;&#xC758; &#xAC12;&#xC744; &#xC720;&#xC9C0;&#xD560; &#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C; here string &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD604;&#xC7AC; shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># read &#xBA85;&#xB839;&#xC774; &apos;|&apos; &#xB85C;&#xC778;&#xD574; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xAC12;&#xC774; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;here string test&quot;</span> | <span class="hljs-built_in">read</span> var
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>    
-$ 
+$ awk <span class="hljs-string">&apos;BEGIN { print &quot;here string test&quot; }&apos;</span> | <span class="hljs-built_in">read</span> v1 v2 v3
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v1</span> : <span class="hljs-variable">$v2</span> : <span class="hljs-variable">$v3</span>&quot;</span>
+ :  : 
 
 <span class="hljs-comment"># &apos;&lt;&lt;&lt;&apos; &#xB294; &#xD604;&#xC7AC; shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xAC12;&#xC744;&#xCD9C;&#xB825;.</span>
-$ <span class="hljs-built_in">read</span> var &lt;&lt;&lt; <span class="hljs-string">&quot;here string test&quot;</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
-here string <span class="hljs-built_in">test</span>
+$ <span class="hljs-built_in">read</span> v1 v2 v3 &lt;&lt;&lt; $( awk <span class="hljs-string">&apos;BEGIN{ print &quot;here string test&quot; }&apos;</span> )
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v1</span> : <span class="hljs-variable">$v2</span> : <span class="hljs-variable">$v3</span>&quot;</span>
+here : string : <span class="hljs-built_in">test</span>
+
+<span class="hljs-comment"># &#xBCC0;&#xC218;&#xAC12; &#xC911;&#xC5D0; null &#xAC12;&#xC774; &#xC788;&#xC744; &#xACBD;&#xC6B0;</span>
+$ IFS=, <span class="hljs-built_in">read</span> AA BB CC &lt;&lt;&lt; $( awk <span class="hljs-string">&apos;BEGIN{ print &quot;100,,*&quot; }&apos;</span> )
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span> : <span class="hljs-variable">$BB</span> : <span class="hljs-variable">$CC</span>&quot;</span>
+<span class="hljs-number">100</span> :  : *
 </code></pre>
 <p>here string &#xC740; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; newline &#xC744; &#xBD99;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ od <span class="hljs-operator">-a</span> &lt;&lt;&lt; <span class="hljs-string">&apos;123&apos;</span>

@@ -1257,9 +1257,9 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$v4</span>
 <span class="hljs-number">4</span>
 </code></pre>
 <p>read &#xBA85;&#xB839;&#xC740; IFS &#xAC12;&#xC5D0; &#xB530;&#xB77C; &#xB2E8;&#xC5B4;&#xB97C; &#xBD84;&#xB9AC; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ IFS=<span class="hljs-string">&apos;:|@&apos;</span> <span class="hljs-built_in">read</span> -r col1 col2 col3 col4 &lt;&lt;&lt; <span class="hljs-string">&quot;red:green|blue@white&quot;</span>
-$ <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;col1: %s col2: %s col3: %s col4: %s\n&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col2</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col3</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col4</span>&quot;</span>
-col1: red col2: green col3: blue col4: white
+<pre><code class="lang-bash">$ IFS=<span class="hljs-string">&apos;:|@&apos;</span> <span class="hljs-built_in">read</span> -r c1 c2 c3 c4 &lt;&lt;&lt; <span class="hljs-string">&quot;red:green|blue@white&quot;</span>
+$ <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;c1: %s, c2: %s, c3: %s, c4: %s\n&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col2</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col3</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$col4</span>&quot;</span>
+c1: red, c2: green, c3: blue, c4: white
 
 ---------------------------------------------------------------------------
 
@@ -1270,10 +1270,19 @@ IFS=<span class="hljs-string">&apos;: &apos;</span> <span class="hljs-built_in">
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> | <span class="hljs-built_in">read</span> v1 v2 v3
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$v1</span> <span class="hljs-variable">$v2</span> <span class="hljs-variable">$v3</span>
 $
---------------------------------
+................................
 
-<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBA85;&#xB839; group &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xAC12;&#xC744; &#xD45C;&#xC2DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xBA85;&#xB839; group &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xAC12;&#xC744; &#xD45C;&#xC2DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> | { <span class="hljs-built_in">read</span> v1 v2 v3; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$v1</span> <span class="hljs-variable">$v2</span> <span class="hljs-variable">$v3</span> ;}
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>
+-----------------------------------------------------------
+
+<span class="hljs-comment"># here document &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;</span>
+$ <span class="hljs-built_in">read</span> v1 v2 v3 &lt;&lt;END
+$( <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> )
+END
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$v1</span> <span class="hljs-variable">$v2</span> <span class="hljs-variable">$v3</span>
 <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>
 </code></pre>
 <p>&#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB77C;&#xC778;&#xC744; &#xC77D;&#xC5B4; &#xB4E4;&#xC77C;&#xB54C; &#xB77C;&#xC778;&#xC758; &#xC55E;,&#xB4A4; &#xACF5;&#xBC31;&#xC744; &#xC720;&#xC9C0;&#xD558;&#xB824;&#xBA74; IFS &#xAC12;&#xC744; NUL &#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
