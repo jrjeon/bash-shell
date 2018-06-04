@@ -1292,8 +1292,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$AA&apos;</span> <span class="hljs-variable">$BB</span>
 <span class="hljs-variable">$AA</span> <span class="hljs-number">200</span>
 
-<span class="hljs-comment"># 1. eval &#xC77D;&#xC5B4; &#xB4E4;&#xC774;&#xB294; &#xB2E8;&#xACC4;&#xC5D0;&#xC11C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xD655;&#xC7A5;, &#xCE58;&#xD658;&#xC774; &#xB418;&#xACE0; quotes &#xC774; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;.</span>
-<span class="hljs-comment"># echo $AA 200</span>
+<span class="hljs-comment"># 1. eval &#xC77D;&#xC5B4; &#xB4E4;&#xC774;&#xB294; &#xB2E8;&#xACC4;&#xC5D0;&#xC11C; &#xC704;&#xC640; &#xAC19;&#xC774; &#xD655;&#xC7A5;, &#xCE58;&#xD658;&#xC774; &#xB418;&#xACE0; quotes &#xC774; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;.</span>
 <span class="hljs-comment"># 2. &#xC2E4;&#xD589;&#xB2E8;&#xACC4; &#xC5D0;&#xC11C;&#xB3C4; &#xD655;&#xC7A5;, &#xCE58;&#xD658;&#xC774; &#xC77C;&#xC5B4;&#xB098;&#xBBC0;&#xB85C; $AA &#xB294; 100 &#xC774;&#xB41C;&#xB2E4;.</span>
 $ <span class="hljs-built_in">eval</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$AA&apos;</span> <span class="hljs-variable">$BB</span>
 <span class="hljs-number">100</span> <span class="hljs-number">200</span>
@@ -1304,7 +1303,7 @@ $ <span class="hljs-built_in">eval</span> <span class="hljs-built_in">echo</span
 $ <span class="hljs-built_in">eval</span> <span class="hljs-built_in">echo</span> \<span class="hljs-string">&apos;&apos;</span><span class="hljs-variable">$AA</span><span class="hljs-string">&apos;\&apos;</span> <span class="hljs-variable">$BB</span>
 <span class="hljs-variable">$AA</span> <span class="hljs-number">200</span>
 </code></pre>
-<p>brace &#xD655;&#xC7A5;&#xC5D0;&#xC11C;&#xB294; range &#xAC12;&#xC73C;&#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB294;&#xB370; ( &#xBCC0;&#xC218;&#xD655;&#xC7A5;&#xC774; &#xB4A4;&#xC5D0; &#xC77C;&#xC5B4;&#xB098;&#xBBC0;&#xB85C; )  &#xC774;&#xC640;&#xAC19;&#xC740; eval &#xBA85;&#xB839;&#xC758; &#xD2B9;&#xC131;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; brace &#xD655;&#xC7A5;&#xC5D0;&#xC11C;&#xB3C4; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>brace &#xD655;&#xC7A5;&#xC5D0;&#xC11C;&#xB294; range &#xAC12;&#xC73C;&#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB294;&#xB370; ( &#xBCC0;&#xC218;&#xD655;&#xC7A5;&#xC774; &#xB4A4;&#xC5D0; &#xC77C;&#xC5B4;&#xB098;&#xBBC0;&#xB85C; )<br>eval &#xBA85;&#xB839;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; brace &#xD655;&#xC7A5;&#xC5D0;&#xC11C;&#xB3C4; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ a=<span class="hljs-number">1</span> b=<span class="hljs-number">5</span>
 
 <span class="hljs-comment"># 1. eval &#xBA85;&#xB839; read &#xB2E8;&#xACC4;&#xC5D0;&#xC11C; &#xBCC0;&#xC218;&#xD655;&#xC7A5;&#xC774; &#xC77C;&#xC5B4;&#xB09C;&#xB2E4;.</span>
@@ -1422,8 +1421,7 @@ $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;comman
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD30C;&#xC774;&#xD504;&#xB97C; escape &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">eval</span> <span class="hljs-built_in">command</span>1 ... \| <span class="hljs-built_in">command</span>2 ...
 
-<span class="hljs-comment"># &#xD30C;&#xC774;&#xD504;&#xB97C; escape &#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; &#xC8FC;&#xC758;&#xD560; &#xC810;&#xC740;</span>
-<span class="hljs-comment"># redirection &#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xBA74; &#xAC19;&#xC774; escape &#xD574;&#xC918;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xD30C;&#xC774;&#xD504;&#xB97C; escape &#xD560; &#xACBD;&#xC6B0; redirection &#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xBA74; &#xAC19;&#xC774; escape &#xD574;&#xC918;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">eval</span> <span class="hljs-built_in">command</span>1  ... <span class="hljs-string">&apos;2&gt;&amp;1 |&apos;</span> <span class="hljs-built_in">command</span>2 ...
 </code></pre>
 
