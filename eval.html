@@ -1249,6 +1249,40 @@ $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">100</span>
 </code></pre>
+<p>awk &#xB294; child process &#xB85C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xD604;&#xC7AC; shell &#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xB370;&#xC694;.
+&#xD558;&#xC9C0;&#xB9CC; eval &#xBA85;&#xB839;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; shell &#xBCC0;&#xC218;&#xB97C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC744; &#xC774;&#xC6A9;&#xD55C; &#xBCC0;&#xC218;&#xAC12; &#xC124;&#xC815;</span>
+<span class="hljs-keyword">for</span> tuple <span class="hljs-keyword">in</span> \
+    INTEL_FAM6_KABYLAKE_DESKTOP,<span class="hljs-number">0</span>x0B,<span class="hljs-number">0</span>x80  \
+    INTEL_FAM6_SKYLAKE_X,<span class="hljs-number">0</span>x03,<span class="hljs-number">0</span>x0100013e   \
+    INTEL_FAM6_BROADWELL_CORE,<span class="hljs-number">0</span>x04,<span class="hljs-number">0</span>x28    \
+    INTEL_FAM6_HASWELL_ULT,<span class="hljs-number">0</span>x01,<span class="hljs-number">0</span>x21       \
+    INTEL_FAM6_IVYBRIDGE_X,<span class="hljs-number">0</span>x04,<span class="hljs-number">0</span>x42a      \
+    INTEL_FAM6_SANDYBRIDGE_X,<span class="hljs-number">0</span>x07,<span class="hljs-number">0</span>x712
+<span class="hljs-keyword">do</span>
+    model=$(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$tuple</span> | cut <span class="hljs-operator">-d</span>, <span class="hljs-operator">-f</span>1)
+    stepping=$(( $(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$tuple</span> | cut <span class="hljs-operator">-d</span>, <span class="hljs-operator">-f</span>2) ))
+    ucode=$(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$tuple</span> | cut <span class="hljs-operator">-d</span>, <span class="hljs-operator">-f</span>3)
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$cpu_model</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$model</span>&quot;</span> ] &amp;&amp; [ <span class="hljs-string">&quot;<span class="hljs-variable">$cpu_stepping</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$stepping</span>&quot;</span> ]
+    <span class="hljs-keyword">then</span>
+        . . . .
+        . . . .
+<span class="hljs-keyword">done</span>
+-------------------------------------------------------------------------
+
+<span class="hljs-comment"># eval &#xACFC; awk &#xB97C; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; &#xAC04;&#xB2E8;&#xD788; &#xC791;&#xC131;</span>
+<span class="hljs-keyword">for</span> tuple <span class="hljs-keyword">in</span> \
+    . . .
+    . . .
+<span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$( echo &quot;$tuple&quot; | 
+    awk -v FS=, &apos;{ printf &quot;model=%s; stepping=%s; ucode=%s;&quot;,$1,strtonum($2)</span>,<span class="hljs-variable">$3</span> }&apos; )&quot;</span>
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$cpu_model</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$model</span>&quot;</span> ] &amp;&amp; [ <span class="hljs-string">&quot;<span class="hljs-variable">$cpu_stepping</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$stepping</span>&quot;</span> ]
+    <span class="hljs-keyword">then</span>
+        . . . .
+        . . . .
+<span class="hljs-keyword">done</span>
+</code></pre>
 <h3 id="eval-&#xBA85;&#xB839;&#xC758;-&#xC2E4;&#xD589;&#xB2E8;&#xACC4;">eval &#xBA85;&#xB839;&#xC758; &#xC2E4;&#xD589;&#xB2E8;&#xACC4;</h3>
 <p>eval &#xBA85;&#xB839;&#xC740; &#xC8FC;&#xC5B4;&#xC9C4; &#xC778;&#xC218;&#xB4E4;&#xC744; &#xC77D;&#xC5B4; &#xB4E4;&#xC778; &#xD6C4; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; &#xC8FC;&#xBAA9;&#xD574;&#xC57C; &#xB420; &#xC810;&#xC740; &#xB450; &#xB2E8;&#xACC4;&#xB97C; &#xAC70;&#xCCD0;&#xC11C; &#xC2E4;&#xD589;&#xC774; &#xB41C;&#xB2E4;&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;. &#xCCAB;&#xC9F8;. &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xB294; &#xB2E8;&#xACC4; , &#xB458;&#xC9F8;. &#xC2E4;&#xD589;&#xD558;&#xB294; &#xB2E8;&#xACC4;.  &#xADF8;&#xB798;&#xC11C; &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; &#xC778;&#xC218;&#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xD655;&#xC7A5;&#xACFC; &#xCE58;&#xD658;&#xC774; &#xB450;&#xBC88; &#xC77C;&#xC5B4;&#xB098;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C; &#xD55C;&#xBC88; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xD55C;&#xBC88;.</p>
 <pre><code class="lang-bash">$ AA=<span class="hljs-number">100</span> BB=<span class="hljs-number">200</span>
