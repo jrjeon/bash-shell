@@ -1361,12 +1361,18 @@ EOF
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xD30C;&#xC774;&#xD504;&#xB85C;-&#xC804;&#xB2EC;&#xD558;&#xAE30;">Here document &#xB97C; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xAE30;</h4>
 <pre><code class="lang-bash">$ sqlite3 mydatabase &lt;&lt;\END | awk -v FS=<span class="hljs-string">&apos;\t&apos;</span> \
-<span class="hljs-string">&apos;{ printf &quot;&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n&quot;, $1, $2 }&apos;</span>
+<span class="hljs-string">&apos;
+BEGIN { print &quot;&lt;table&gt;&quot; }
+{ printf &quot;&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n&quot;, $1, $2 }
+END { print &quot;&lt;/table&gt;&quot; }
+&apos;</span>
 .mode list
 .separator \t
 .header off
 SELECT name,phone FROM person;
 END
+
+&lt;table&gt;
 &lt;tr&gt;&lt;td&gt;Jennifer Whalen&lt;/td&gt;&lt;td&gt;<span class="hljs-number">010</span>-<span class="hljs-number">8129</span>-<span class="hljs-number">4728</span>&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;Donald OConnell&lt;/td&gt;&lt;td&gt;<span class="hljs-number">010</span>-<span class="hljs-number">3512</span>-<span class="hljs-number">4623</span>&lt;/td&gt;&lt;/tr&gt;
 . . . 
