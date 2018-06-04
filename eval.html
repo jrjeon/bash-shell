@@ -1283,6 +1283,18 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
         . . . .
 <span class="hljs-keyword">done</span>
 </code></pre>
+<p>&#xCC38;&#xACE0;&#xB85C; local, declare &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC;&#xB3C4; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>sh &#xC740; &#xD568;&#xC218; &#xB0B4;&#xC5D0;&#xC11C; local &#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-bash">$ <span class="hljs-function"><span class="hljs-title">f1</span></span>() {
+    <span class="hljs-built_in">local</span> $( awk <span class="hljs-string">&apos;BEGIN{ print &quot;AA=100 BB=*&quot;}&apos;</span> ) 
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span> : <span class="hljs-variable">$BB</span>&quot;</span>
+}
+
+$ f1
+<span class="hljs-number">100</span> : *
+</code></pre>
 <h3 id="eval-&#xBA85;&#xB839;&#xC758;-&#xC2E4;&#xD589;&#xB2E8;&#xACC4;">eval &#xBA85;&#xB839;&#xC758; &#xC2E4;&#xD589;&#xB2E8;&#xACC4;</h3>
 <p>eval &#xBA85;&#xB839;&#xC740; &#xC8FC;&#xC5B4;&#xC9C4; &#xC778;&#xC218;&#xB4E4;&#xC744; &#xC77D;&#xC5B4; &#xB4E4;&#xC778; &#xD6C4; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; &#xC8FC;&#xBAA9;&#xD574;&#xC57C; &#xB420; &#xC810;&#xC740; &#xB450; &#xB2E8;&#xACC4;&#xB97C; &#xAC70;&#xCCD0;&#xC11C; &#xC2E4;&#xD589;&#xC774; &#xB41C;&#xB2E4;&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;. &#xCCAB;&#xC9F8;. &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xB294; &#xB2E8;&#xACC4; , &#xB458;&#xC9F8;. &#xC2E4;&#xD589;&#xD558;&#xB294; &#xB2E8;&#xACC4;.  &#xADF8;&#xB798;&#xC11C; &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; &#xC778;&#xC218;&#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xD655;&#xC7A5;&#xACFC; &#xCE58;&#xD658;&#xC774; &#xB450;&#xBC88; &#xC77C;&#xC5B4;&#xB098;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C; &#xD55C;&#xBC88; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xD55C;&#xBC88;.</p>
 <pre><code class="lang-bash">$ AA=<span class="hljs-number">100</span> BB=<span class="hljs-number">200</span>
