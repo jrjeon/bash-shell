@@ -1794,8 +1794,8 @@ minor number &#xAC00; &#xBAA8;&#xB450; &#xB2E4;&#xB978; &#xAC83;&#xC744; &#xC54C
   <span class="hljs-string">&quot; Strace &#xBCC0;&#xACBD; &#xD6C4;
 </span>
     <span class="hljs-keyword">elseif</span> <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\([0-9]\+ \+\)\?\w\+(.\+\(= \(?\|-\?[x[:xdigit:]]\+\)\|\.\.\.&gt;$\)&apos;</span> 
-                \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^strace:.\+attached$&apos;</span>
-                \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\(\[pid \+[0-9]\+]\| \?\[[x[:xdigit:]]\+]\)\{,2\} *[[:alnum:]_@.]\+(&apos;</span>
+      \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^strace:.\+attached$&apos;</span>
+      \ || <span class="hljs-variable">s:line1</span> =~ <span class="hljs-string">&apos;^\(\[pid \+[0-9]\+]\| \?\[[x[:xdigit:]]\+]\)\{,2\} *[[:alnum:]_@.]\+(&apos;</span>
     <span class="hljs-keyword">set</span> ft=strace
 .............................................................
 
