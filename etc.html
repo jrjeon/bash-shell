@@ -1379,10 +1379,10 @@ $ find /dev -type b -exec ls <span class="hljs-operator">-l</span> {} \;
 $ find /dev -type c -exec ls <span class="hljs-operator">-l</span> {} \;
 </code></pre>
 <h4 id="character-device">Character device</h4>
-<p>character device &#xB294; &#xB370;&#xC774;&#xD130;&#xAC00; character by character &#xB85C; &#xC804;&#xB2EC;&#xB418;&#xACE0; random access &#xB97C; &#xD560; &#xC218; &#xC5C6;&#xB294; &#xC7A5;&#xCE58;&#xC785;&#xB2C8;&#xB2E4;.
-&#xB370;&#xC774;&#xD130;&#xAC00; &#xC804;&#xB2EC;&#xB420; &#xB54C; &#xCEE4;&#xB110;&#xC774; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC84;&#xD37C;&#xB97C; &#xAC70;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; &#xBC14;&#xB85C;
-&#xC7A5;&#xCE58;&#xC5D0; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4;. &#xD0A4;&#xBCF4;&#xB4DC;&#xD0A4;&#xB97C; &#xD558;&#xB098; &#xB204;&#xB974;&#xBA74; &#xBC14;&#xB85C; &#xBB38;&#xC790;&#xAC00; &#xD45C;&#xC2DC;&#xB418;&#xACE0;
-&#xB9C8;&#xC6B0;&#xC2A4;&#xB97C; &#xC6C0;&#xC9C1;&#xC774;&#xBA74; &#xBC14;&#xB85C; &#xD3EC;&#xC778;&#xD130;&#xAC00; &#xC6C0;&#xC9C1;&#xC774;&#xB294;&#xB370; &#xBAA8;&#xB450; character device &#xC785;&#xB2C8;&#xB2E4;.
+<p>character device &#xB294; &#xB370;&#xC774;&#xD130;&#xAC00; 1 byte &#xD06C;&#xAE30;&#xC758; character by character &#xB85C; &#xC804;&#xB2EC;&#xB418;&#xACE0;
+random access &#xB97C; &#xD560; &#xC218; &#xC5C6;&#xB294; &#xC7A5;&#xCE58;&#xC785;&#xB2C8;&#xB2E4;.
+&#xB370;&#xC774;&#xD130;&#xAC00; &#xC804;&#xB2EC;&#xB420; &#xB54C; &#xCEE4;&#xB110;&#xC774; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC84;&#xD37C;&#xB97C; &#xAC70;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; &#xBC14;&#xB85C; &#xC7A5;&#xCE58;&#xC5D0; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4;.
+&#xD0A4;&#xBCF4;&#xB4DC;&#xD0A4;&#xB97C; &#xD558;&#xB098; &#xB204;&#xB974;&#xBA74; &#xBC14;&#xB85C; &#xBB38;&#xC790;&#xAC00; &#xD45C;&#xC2DC;&#xB418;&#xACE0; &#xB9C8;&#xC6B0;&#xC2A4;&#xB97C; &#xC6C0;&#xC9C1;&#xC774;&#xBA74; &#xBC14;&#xB85C; &#xD3EC;&#xC778;&#xD130;&#xAC00; &#xC6C0;&#xC9C1;&#xC774;&#xB294;&#xB370; &#xBAA8;&#xB450; character device &#xC785;&#xB2C8;&#xB2E4;.
 &#xC0AC;&#xC2E4; &#xB514;&#xC2A4;&#xD06C;&#xC640; &#xAD00;&#xB828;&#xB41C; &#xC7A5;&#xCE58;&#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xC7A5;&#xCE58;&#xAC00; character device &#xC785;&#xB2C8;&#xB2E4;.</p>
 <ul>
 <li>&#xB9C8;&#xC6B0;&#xC2A4; : /dev/input/ </li>
@@ -1399,8 +1399,8 @@ standard stream &#xC774; &#xBAA8;&#xB450; redirect &#xB418;&#xC5B4;&#xC788;&#xB2
 <p>&#xD558;&#xB4DC;&#xB514;&#xC2A4;&#xD06C;, CD-ROM, USB &#xBA54;&#xBAA8;&#xB9AC; &#xAC19;&#xC774; random access &#xB97C; &#xD560; &#xC218; &#xC788;&#xB294; &#xC7A5;&#xCE58;&#xAC00; block device &#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;.
 block device &#xB294; &#xCEE4;&#xB110;&#xC774; &#xAD00;&#xB9AC;&#xD558;&#xB294; &#xBC84;&#xD37C;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xACE0; block &#xB2E8;&#xC704;&#xB85C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4;.
 character device &#xC640; block device &#xB294; &#xC11C;&#xB85C; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC774; &#xB2E4;&#xB974;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
-&#xD558;&#xB098;&#xC758; &#xBB3C;&#xB9AC; &#xC7A5;&#xCE58;&#xC5D0; &#xB450;&#xAC1C;&#xC758; &#xC7A5;&#xCE58;&#xD30C;&#xC77C;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;.
-&#xB610;&#xD55C; &#xBC84;&#xD37C; &#xCE90;&#xC2DC;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC2E4;&#xC81C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC7A5;&#xCE58;&#xC5D0; &#xC4F0;&#xC5EC;&#xC9C0;&#xB294; &#xC21C;&#xC11C;&#xB098; &#xAC00;&#xC2DC;&#xC131;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC904; &#xC218; &#xC788;&#xC5B4;
+&#xD558;&#xB098;&#xC758; &#xBB3C;&#xB9AC; &#xC7A5;&#xCE58;&#xC5D0; &#xB450; &#xC885;&#xB958;&#xC758; &#xC7A5;&#xCE58; &#xD30C;&#xC77C;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;.
+&#xB610;&#xD55C; &#xBC84;&#xD37C; &#xCE90;&#xC2DC;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC2E4;&#xC81C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC7A5;&#xCE58;&#xC5D0; &#xC4F0;&#xC5EC;&#xC9C0;&#xB294; &#xC21C;&#xC11C;&#xB098; &#xAC00;&#xC2DC;&#xC131;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC904; &#xC218; &#xC788;&#xB2E4;&#xACE0; &#xD558;&#xC5EC;
 &#xC544;&#xC608; character device &#xB9CC; &#xC81C;&#xACF5;&#xD558;&#xB294; <a href="https://www.freebsd.org/doc/en/books/arch-handbook/driverbasics-block.html" target="_blank">OS</a>
 &#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">/dev/sda[&#xBC88;&#xD638;]     <span class="hljs-comment"># &#xD558;&#xB4DC;&#xB514;&#xC2A4;&#xD06C;</span>
