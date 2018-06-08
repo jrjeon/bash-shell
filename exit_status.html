@@ -1332,7 +1332,7 @@ function &#xC774;&#xB098; source &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC77D;&#xC5B
 &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xCC38;, &#xAC70;&#xC9D3;&#xC758; &#xD310;&#xB2E8;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9; &#xBA85;&#xB839;&#xC778; test -z &#xC758; &#xC885;&#xB8CC;&#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xCC38;, &#xAC70;&#xC9D3; &#xD310;&#xB2E8;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C;&#xB2E4;.</span>
 until <span class="hljs-built_in">read</span> -r line
-    line=$(tr <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;\r\n&apos;</span> &lt;&lt;&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>)
+    line=$(<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> | tr <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;\r\n&apos;</span>)
     <span class="hljs-built_in">test</span> -z <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>
 <span class="hljs-keyword">do</span>
     ...
