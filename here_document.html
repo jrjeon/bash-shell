@@ -1373,7 +1373,7 @@ SELECT name,phone FROM person;
 @
 
 <span class="hljs-comment"># &#xB610;&#xB294;</span>
-$ sqlite3 mydatabase &lt;&lt;\@ | awk <span class="hljs-operator">-f</span> /dev/fd/<span class="hljs-number">3</span> <span class="hljs-number">3</span>&lt;&lt;\@@ -v FS=<span class="hljs-string">&apos;\t&apos;</span>
+$ sqlite3 mydatabase &lt;&lt;\@ | awk <span class="hljs-operator">-f</span> /dev/fd/<span class="hljs-number">3</span> <span class="hljs-number">3</span>&lt;&lt;\@@ -F <span class="hljs-string">&apos;\t&apos;</span>
 .mode list
 .separator \t
 .header off
