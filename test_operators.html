@@ -1494,6 +1494,7 @@ fi
 <p>test, expr &#xBA85;&#xB839;&#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xC815;&#xC218;&#xAC12;&#xB9CC; &#xB2E4;&#xB8E8;&#xB294;&#xB370;&#xC694;. &#xC258;&#xC5D0;&#xC11C; float &#xAC12;&#xC744; &#xBE44;&#xAD50;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash">$ val1=<span class="hljs-number">12.1</span> val2=<span class="hljs-number">5.28</span>
 
+<span class="hljs-comment"># bc &#xBA85;&#xB839;&#xC740; &#xD45C;&#xD604;&#xC2DD;&#xC774; &#xCC38;&#xC77C;&#xB54C; 1 &#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-keyword">if</span> [ <span class="hljs-number">1</span> = $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$val1</span> &gt; <span class="hljs-variable">$val2</span>&quot;</span> | bc ) ]; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Y&quot;</span>; <span class="hljs-keyword">fi</span>
 Y
 
