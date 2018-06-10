@@ -1360,7 +1360,7 @@ EOF
 &gt; END
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xD30C;&#xC774;&#xD504;&#xB85C;-&#xC804;&#xB2EC;&#xD558;&#xAE30;">Here document &#xB97C; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xAE30;</h4>
-<pre><code class="lang-bash">$ sqlite3 mydatabase &lt;&lt;\@ | awk -v FS=<span class="hljs-string">&apos;\t&apos;</span> \
+<pre><code class="lang-bash">$ sqlite3 mydatabase &lt;&lt;\@ | awk -F <span class="hljs-string">&apos;\t&apos;</span> \
 <span class="hljs-string">&apos;
 BEGIN { print &quot;&lt;table&gt;&quot; }
 { printf &quot;&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n&quot;, $1, $2 }

@@ -1276,7 +1276,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
     . . .
 <span class="hljs-keyword">do</span>
     <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$( echo &quot;$tuple&quot; | 
-    awk -v FS=, &apos;{ printf &quot;model=%s; stepping=%s; ucode=%s;&quot;,$1,strtonum($2)</span>,<span class="hljs-variable">$3</span> }&apos; )&quot;</span>
+    awk -F, &apos;{ printf &quot;model=%s; stepping=%s; ucode=%s;&quot;,$1,strtonum($2)</span>,<span class="hljs-variable">$3</span> }&apos; )&quot;</span>
     <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$cpu_model</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$model</span>&quot;</span> ] &amp;&amp; [ <span class="hljs-string">&quot;<span class="hljs-variable">$cpu_stepping</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$stepping</span>&quot;</span> ]
     <span class="hljs-keyword">then</span>
         . . . .
