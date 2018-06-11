@@ -1356,7 +1356,7 @@ $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">010</spa
 <span class="hljs-built_in">echo</span> $(( ~<span class="hljs-number">1</span> ))              <span class="hljs-comment"># ~ &apos;0000 0001&apos; = &apos;1111 1110&apos;  ( Ans : -2 )</span>
 </code></pre>
 <p>&#xC5F0;&#xC0B0;&#xC790; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB294; C &#xC5B8;&#xC5B4;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h5 id="-shift-&#xC5F0;&#xC0B0;----------and--xor--or----"><code>~</code> &gt; <code>shift &#xC5F0;&#xC0B0;</code> &gt; <code>&lt;, &lt;=, &gt;, &gt;=</code> &gt; <code>==, !=</code> &gt; <code>and</code> &gt; <code>xor</code> &gt; <code>or</code> &gt; <code>&amp;&amp;</code> &gt; <code>||</code></h5>
+<h5 id="-shift-&#xC5F0;&#xC0B0;------------------"><code>~</code> &gt; <code>shift &#xC5F0;&#xC0B0;</code> &gt; <code>&lt;, &lt;=, &gt;, &gt;=</code> &gt; <code>==, !=</code> &gt; <code>&amp;</code> &gt; <code>^</code> &gt; <code>|</code> &gt; <code>&amp;&amp;</code> &gt; <code>||</code></h5>
 <pre><code class="lang-bash"><span class="hljs-comment"># shift &#xC5F0;&#xC0B0;&#xC774; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC774;&#xAC83;&#xC740; 2 | ( 4 &gt;&gt; 1 ) &#xC640; &#xAC19;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">2</span> | <span class="hljs-number">4</span> &gt;&gt; <span class="hljs-number">1</span> ))
 <span class="hljs-number">2</span>
@@ -1364,8 +1364,9 @@ $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">2</span>
 $ <span class="hljs-built_in">echo</span> $(( ( <span class="hljs-number">2</span> | <span class="hljs-number">4</span> ) &gt;&gt; <span class="hljs-number">1</span> ))
 <span class="hljs-number">3</span>
 
-<span class="hljs-comment"># and, xor, or &#xC5F0;&#xC0B0;&#xC740; ==, != &#xB4F1;&#xD638; &#xBCF4;&#xB2E4;&#xB3C4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB0AE;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">2</span> | <span class="hljs-number">4</span> == <span class="hljs-number">3</span> ))          <span class="hljs-comment"># &#xC774;&#xAC83;&#xC740; 2 | ( 4 == 3 ) &#xC640; &#xAC19;&#xB2E4;.</span>
+<span class="hljs-comment"># &amp;, ^, | &#xC5F0;&#xC0B0;&#xC740; ==, != &#xB4F1;&#xD638; &#xBCF4;&#xB2E4;&#xB3C4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB0AE;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C; &#xC2DD;&#xC740; 2 | ( 4 == 3 ) &#xC640; &#xAC19;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">2</span> | <span class="hljs-number">4</span> == <span class="hljs-number">3</span> ))
 <span class="hljs-number">2</span>
 
 $ <span class="hljs-built_in">echo</span> $(( ( <span class="hljs-number">2</span> | <span class="hljs-number">4</span> ) == <span class="hljs-number">3</span> ))
