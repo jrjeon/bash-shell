@@ -1287,6 +1287,8 @@ index.html
 index.txt
 
 <span class="hljs-comment"># &quot;.&quot; &#xB85C; &#xC2DC;&#xC791;&#xD558;&#xB294; &#xD30C;&#xC77C;&#xB3C4; &#xB9E4;&#xCE6D;&#xC5D0; &#xD3EC;&#xD568;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ find -printf <span class="hljs-string">&apos;%P\n&apos;</span>
+<span class="hljs-comment"># &#xB610;&#xB294;</span>
 $ find * .[^.]*
 . . .
 . . .
@@ -1416,6 +1418,13 @@ $ find . \( -name .git -o -name dir_1 \) -prune -o -name <span class="hljs-strin
 ./dir_2/bar_1.html
 ./dir_2/dir_3/bar_2.html
 ./index.html
+
+<span class="hljs-comment"># -print0 &#xC561;&#xC158;&#xC744; &#xB450;&#xAC1C;&#xC758; -name &#xD14C;&#xC2A4;&#xD2B8;&#xC5D0; &#xBAA8;&#xB450; &#xC801;&#xC6A9;</span>
+$ find \( -name <span class="hljs-string">&apos;*.txt&apos;</span> -o -name <span class="hljs-string">&apos;*.html&apos;</span> \) -print0
+
+$ find \( -name <span class="hljs-string">&apos;*.txt&apos;</span> -o -name <span class="hljs-string">&apos;*.html&apos;</span> \) -printf <span class="hljs-string">&apos;%P\0&apos;</span>    <span class="hljs-comment"># \0 NUL &#xBB38;&#xC790;</span>
+
+$ find \( -name <span class="hljs-string">&apos;*.txt&apos;</span> -o -name <span class="hljs-string">&apos;*.html&apos;</span> \) -printf <span class="hljs-string">&apos;%P\n&apos;</span>    <span class="hljs-comment"># \n newline</span>
 </code></pre>
 <h4 id="time-&#xC635;&#xC158;&#xACFC;-n-n-n-&#xC22B;&#xC790;-&#xAC12;&#xC758;-&#xC0AC;&#xC6A9;">time &#xC635;&#xC158;&#xACFC; +n, -n, n &#xC22B;&#xC790; &#xAC12;&#xC758; &#xC0AC;&#xC6A9;</h4>
 <ul>
