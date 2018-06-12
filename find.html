@@ -1600,29 +1600,25 @@ $ find * -daystart -type f -mtime <span class="hljs-number">3</span> -ls
 </table>
 <h4 id="greater-than">greater than</h4>
 <pre><code class="lang-bash"><span class="hljs-comment"># greater than 1 Kibibytes</span>
-$ find /usr/bin -size +<span class="hljs-number">1</span>k -ls |
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -n | head -<span class="hljs-number">3</span>
-<span class="hljs-number">1030</span> /usr/bin/im-launch
-<span class="hljs-number">1040</span> /usr/bin/aptdcon
-<span class="hljs-number">1056</span> /usr/bin/dh_python2
+$ find /bin -size +<span class="hljs-number">1</span>k -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -n | head -<span class="hljs-number">3</span>
+<span class="hljs-number">1297</span> /bin/bzmore
+<span class="hljs-number">1659</span> /bin/cgroups-mount
+<span class="hljs-number">1777</span> /bin/zcmp
 
 <span class="hljs-comment"># greater than 2 Kibibytes</span>
-$ find /usr/bin -size +<span class="hljs-number">2</span>k -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -n | head -<span class="hljs-number">3</span>
-<span class="hljs-number">2051</span> /usr/bin/gdbus-codegen
-<span class="hljs-number">2052</span> /usr/bin/ssr-glinject
-<span class="hljs-number">2060</span> /usr/bin/editdiff
+$ find /bin -size +<span class="hljs-number">2</span>k -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -n | head -<span class="hljs-number">3</span>
+<span class="hljs-number">2131</span> /bin/zforce
+<span class="hljs-number">2140</span> /bin/bzdiff
+<span class="hljs-number">2301</span> /bin/gunzip
 
 <span class="hljs-comment"># greater than 1 Mebibytes</span>
-$ find /usr/bin -size +<span class="hljs-number">1</span>M -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -n | head -<span class="hljs-number">3</span>
+$ find /usr/bin -size +<span class="hljs-number">1</span>M -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -n | head -<span class="hljs-number">3</span>
 <span class="hljs-number">1052728</span> /usr/bin/pidgin
 <span class="hljs-number">1094560</span> /usr/bin/gnome-keyring-daemon
 <span class="hljs-number">1099184</span> /usr/bin/sqldiff
 
 <span class="hljs-comment"># greater than 2 Mebibytes</span>
-$ find /usr/bin -size +<span class="hljs-number">2</span>M -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -n | head -<span class="hljs-number">3</span>
+$ find /usr/bin -size +<span class="hljs-number">2</span>M -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -n | head -<span class="hljs-number">3</span>
 <span class="hljs-number">2248304</span> /usr/bin/hte
 <span class="hljs-number">2283472</span> /usr/bin/qemu-arm
 <span class="hljs-number">2291664</span> /usr/bin/qemu-armeb
@@ -1632,42 +1628,36 @@ $ find /usr/bin -size +<span class="hljs-number">2</span>M -ls |
 &#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; 1M &#xBCF4;&#xB2E4; &#xC791;&#xC740; &#xD06C;&#xAE30;&#xC758; &#xD30C;&#xC77C;&#xC740; -1M &#xAC00; &#xC544;&#xB2C8;&#xB77C; -2M &#xB85C; &#xC801;&#xC5B4;&#xC57C; &#xB418;&#xACE0;
 5k &#xBCF4;&#xB2E4; &#xC791;&#xC740; &#xD30C;&#xC77C;&#xC740; -5k &#xAC00; &#xC544;&#xB2C8;&#xB77C; -6k &#xB85C; &#xC801;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># less than 0 Kibibytes &#xC774; &#xB418;&#xBBC0;&#xB85C; &#xC544;&#xBB34;&#xAC83;&#xB3C4; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
-$ find /usr/bin -size -<span class="hljs-number">1</span>k -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -rn | head -<span class="hljs-number">3</span>
+$ find /bin -size -<span class="hljs-number">1</span>k -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -rn | head -<span class="hljs-number">3</span>
 $
 
 <span class="hljs-comment"># less than 1 Kibibytes</span>
-$ find /usr/bin -size -<span class="hljs-number">2</span>k -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -rn | head -<span class="hljs-number">3</span>
-<span class="hljs-number">1023</span> /usr/bin/dvipdf
-<span class="hljs-number">998</span> /usr/bin/preparetips5
-<span class="hljs-number">981</span> /usr/bin/pm-is-supported
+$ find /bin -size -<span class="hljs-number">2</span>k -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -rn | head -<span class="hljs-number">3</span> 
+<span class="hljs-number">946</span> /bin/<span class="hljs-built_in">which</span>
+<span class="hljs-number">435</span> /bin/cgroups-umount
+<span class="hljs-number">140</span> /bin/zfgrep
 
 <span class="hljs-comment"># less than 2 Kibibytes</span>
-$ find /usr/bin -size -<span class="hljs-number">3</span>k -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -rn | head -<span class="hljs-number">3</span>
-<span class="hljs-number">2044</span> /usr/bin/aspell-import
-<span class="hljs-number">2025</span> /usr/bin/symtree
-<span class="hljs-number">1993</span> /usr/bin/dh_installdirs
+$ find /bin -size -<span class="hljs-number">3</span>k -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -rn | head -<span class="hljs-number">3</span> 
+<span class="hljs-number">2037</span> /bin/zless
+<span class="hljs-number">1937</span> /bin/zcat
+<span class="hljs-number">1910</span> /bin/zmore
 
 <span class="hljs-comment"># less than 0 Mebibytes &#xC774; &#xB418;&#xBBC0;&#xB85C; &#xC544;&#xBB34;&#xAC83;&#xB3C4; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
-$ find /usr/bin -size -<span class="hljs-number">1</span>M -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -rn | head -<span class="hljs-number">3</span>
+$ find /bin -size -<span class="hljs-number">1</span>M -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -rn | head -<span class="hljs-number">3</span>
 $
 
 <span class="hljs-comment"># less than 1 Mebibytes</span>
-$ find /usr/bin -size -<span class="hljs-number">2</span>M -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -rn | head -<span class="hljs-number">3</span>
-<span class="hljs-number">1036480</span> /usr/bin/virt-login-shell
-<span class="hljs-number">1030368</span> /usr/bin/plasma-discover
-<span class="hljs-number">1021480</span> /usr/bin/gpg
+$ find /bin -size -<span class="hljs-number">2</span>M -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -rn | head -<span class="hljs-number">3</span>
+<span class="hljs-number">748968</span> /bin/brltty
+<span class="hljs-number">584072</span> /bin/udevadm
+<span class="hljs-number">554104</span> /bin/ip
 
 <span class="hljs-comment"># less than 2 Mebibytes</span>
-$ find /usr/bin -size -<span class="hljs-number">3</span>M -ls | 
-    awk <span class="hljs-string">&apos;{a[$7]=$11} END {for (i in a) print i, a[i]}&apos;</span> | sort -rn | head -<span class="hljs-number">3</span>
-<span class="hljs-number">2093624</span> /usr/bin/perl
-<span class="hljs-number">2052504</span> /usr/bin/Xvfb
-<span class="hljs-number">2025536</span> /usr/bin/qemu-i386
+$ find /bin -size -<span class="hljs-number">3</span>M -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&quot;%s %n&quot;</span> {} + | sort -rn | head -<span class="hljs-number">3</span>
+<span class="hljs-number">2022480</span> /bin/busybox
+<span class="hljs-number">1113504</span> /bin/bash
+<span class="hljs-number">748968</span> /bin/brltty
 </code></pre>
 <h4 id="exact">exact</h4>
 <p>suffix &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; default &#xB294; <code>b</code> &#xC774;&#xBBC0;&#xB85C; exact &#xC0AC;&#xC774;&#xC988;&#xB294; <code>c</code> suffix &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
