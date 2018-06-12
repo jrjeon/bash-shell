@@ -1310,10 +1310,10 @@ $ awk <span class="hljs-string">&apos;BEGINFILE { print FILENAME; nextfile }&apo
 <p>&#xD30C;&#xC77C;&#xC744; select &#xD560;&#xB54C; globbing &#xC744; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xB9CC;&#xC73C;&#xB85C;&#xB294; &#xBD80;&#xC871;&#xD55C; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.
 &#xC774;&#xB54C;&#xB294; find &#xAC19;&#xC740; &#xC804;&#xC6A9; &#xD234;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
 &#xC774;&#xB54C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xACBD;&#xC6B0; &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find * -name <span class="hljs-string">&apos;*.txt&apos;</span>) ...  <span class="hljs-comment"># Wrong!</span>
-<span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> `find * -name <span class="hljs-string">&apos;*.txt&apos;</span>` ...   <span class="hljs-comment"># Wrong!</span>
+<pre><code class="lang-bash"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find * -name <span class="hljs-string">&apos;*.txt&apos;</span>) ...  <span class="hljs-comment"># &#xC8FC;&#xC758;!</span>
+<span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> `find * -name <span class="hljs-string">&apos;*.txt&apos;</span>` ...   <span class="hljs-comment"># &#xC8FC;&#xC758;!</span>
 
-arr=( $(find * -name <span class="hljs-string">&apos;*.txt&apos;</span>) ) ...      <span class="hljs-comment"># Wrong!</span>
+arr=( $(find * -name <span class="hljs-string">&apos;*.txt&apos;</span>) ) ...      <span class="hljs-comment"># &#xC8FC;&#xC758;!</span>
 .................................................
 
 $ ls
@@ -1351,15 +1351,15 @@ logfile3ZZZ    &lt;--- ZZZ
 <p>c/c++ &#xC18C;&#xC2A4; &#xD30C;&#xC77C;&#xAC19;&#xC774; &#xD30C;&#xC77C;&#xBA85;&#xC5D0; &#xACF5;&#xBC31;&#xC774;&#xB098; glob &#xBB38;&#xC790;&#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74; &#xC704;&#xC640; &#xAC19;&#xC774; &#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.
 &#xD558;&#xC9C0;&#xB9CC; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;, globbing &#xC5D0;&#xB300;&#xD55C; &#xCC98;&#xB9AC;&#xB97C; &#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
-<span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find * -name <span class="hljs-string">&apos;*.txt&apos;</span>) ...  
+<span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find -name <span class="hljs-string">&apos;*.txt&apos;</span>) ...  
 <span class="hljs-built_in">set</span> +f; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>
 
 <span class="hljs-comment"># subshell &#xC744; &#xC774;&#xC6A9;</span>
 ( <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
-<span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find * -name <span class="hljs-string">&apos;*.txt&apos;</span>) ...  )
+<span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find -name <span class="hljs-string">&apos;*.txt&apos;</span>) ...  )
 
 <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
-arr=( $(find * -name <span class="hljs-string">&apos;*.txt&apos;</span>) ) ...  
+arr=( $(find -name <span class="hljs-string">&apos;*.txt&apos;</span>) ) ...  
 <span class="hljs-built_in">set</span> +f; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>
 </code></pre>
 <p>find &#xBA85;&#xB839;&#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD55C; &#xC904;&#xC5D0; &#xD558;&#xB098;&#xC529; &#xD30C;&#xC77C;&#xBA85;&#xC744; &#xCD9C;&#xB825;&#xD558;&#xB294;&#xB370;&#xC694;.
@@ -1411,7 +1411,7 @@ sh$ find * -name <span class="hljs-string">&apos;*.gif&apos;</span> -print0 |
     xargs -<span class="hljs-number">0</span> sh -c <span class="hljs-string">&apos;for file; do mv &quot;$file&quot; &quot;${file%.*}&quot;.png; done&apos;</span> X
 <span class="hljs-comment"># 1. sh -c &apos;...&apos;  X &quot;file1&quot; &quot;file2&quot; &quot;file3&quot;</span>
 </code></pre>
-<h2 id="glob-&#xBB38;&#xC790;&#xAC00;-&#xB4E4;&#xC5B4;&#xAC04;-&#xC2A4;&#xD2B8;&#xB9C1;&#xC740;-&#xC8FC;&#xC758;">Glob &#xBB38;&#xC790;&#xAC00; &#xB4E4;&#xC5B4;&#xAC04; &#xC2A4;&#xD2B8;&#xB9C1;&#xC740; &#xC8FC;&#xC758;!</h2>
+<h3 id="glob-&#xBB38;&#xC790;&#xAC00;-&#xB4E4;&#xC5B4;&#xAC04;-&#xC2A4;&#xD2B8;&#xB9C1;&#xC740;-&#xC8FC;&#xC758;">Glob &#xBB38;&#xC790;&#xAC00; &#xB4E4;&#xC5B4;&#xAC04; &#xC2A4;&#xD2B8;&#xB9C1;&#xC740; &#xC8FC;&#xC758;!</h3>
 <p>&#xBA85;&#xB839;&#xBB38;&#xC758; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xB294;&#xAC83;&#xC740; quote &#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC774;&#xC0C1; &#xBAA8;&#xB450; globbing &#xB300;&#xC0C1;&#xC785;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xC911;&#xC778; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xB9E4;&#xCE6D; &#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC788;&#xC744;&#xACBD;&#xC6B0; &#xC608;&#xC0C1;&#xCE58; &#xBABB;&#xD55C; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <p>&#xB2E4;&#xC74C;&#xC740; unset &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xB41C; <code>array[12]</code> &#xC774; globbing &#xC5D0;&#xC758;&#xD574; &#xD30C;&#xC77C; <code>array1</code> &#xACFC; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xC5B4; unset &#xC774; &#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-bash">$ array=( [<span class="hljs-number">10</span>]=<span class="hljs-number">100</span> [<span class="hljs-number">11</span>]=<span class="hljs-number">200</span> [<span class="hljs-number">12</span>]=<span class="hljs-number">300</span> )
@@ -1478,7 +1478,7 @@ $ find -name <span class="hljs-string">&apos;*.c&apos;</span>
 ...
 </code></pre>
 <p>&#xC704;&#xC758; &#xC608;&#xB97C; &#xD1B5;&#xD574;&#xC11C; &#xC54C; &#xC218; &#xC788;&#xB4EF;&#xC774; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0; glob &#xBB38;&#xC790;&#xAC00; &#xC788;&#xC744;&#xACBD;&#xC6B0; &#xD56D;&#xC0C1; quote &#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; escape &#xD574;&#xC57C; &#xD558;&#xBA70; &#xD544;&#xC694;&#xD560; &#xACBD;&#xC6B0; <code>set -o noglob</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xD30C;&#xC77C;-&#xC791;&#xC131;&#xC2DC;-globbing-&#xC744;-disable-&#xD558;&#xAE30;">&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC2DC; globbing &#xC744; disable &#xD558;&#xAE30;</h3>
+<h4 id="&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xD30C;&#xC77C;-&#xC791;&#xC131;&#xC2DC;-globbing-&#xC744;-disable-&#xD558;&#xAE30;">&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC2DC; globbing &#xC744; disable &#xD558;&#xAE30;</h4>
 <p>globbing &#xC740; &#xD30C;&#xC77C;&#xC744; select &#xD558;&#xAE30;&#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC73C;&#xB85C; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;, &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC2DC; &#xBAA8;&#xB450;
 default &#xB85C; enable &#xB429;&#xB2C8;&#xB2E4;. &#xC2E4;&#xC81C;&#xB85C; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;&#xB294; globbing &#xC744; &#xC885;&#xC885; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0;&#xB9CC;, &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC744;
 &#xC791;&#xC131;&#xD560; &#xB54C;&#xB294; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xB9CE;&#xC9C0; &#xC54A;&#xC740;&#xB370;&#xC694;.
