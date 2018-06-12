@@ -1477,14 +1477,10 @@ $ find -name <span class="hljs-string">&apos;*.c&apos;</span>
 ...
 </code></pre>
 <p>&#xC704;&#xC758; &#xC608;&#xB97C; &#xD1B5;&#xD574;&#xC11C; &#xC54C; &#xC218; &#xC788;&#xB4EF;&#xC774; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0; glob &#xBB38;&#xC790;&#xAC00; &#xC788;&#xC744;&#xACBD;&#xC6B0; &#xD56D;&#xC0C1; quote &#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; escape &#xD574;&#xC57C; &#xD558;&#xBA70; &#xD544;&#xC694;&#xD560; &#xACBD;&#xC6B0; <code>set -o noglob</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<h4 id="&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xD30C;&#xC77C;-&#xC791;&#xC131;&#xC2DC;-globbing-&#xC744;-disable-&#xD558;&#xAE30;">&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC2DC; globbing &#xC744; disable &#xD558;&#xAE30;</h4>
-<p>globbing &#xC740; &#xD30C;&#xC77C;&#xC744; select &#xD558;&#xAE30;&#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC73C;&#xB85C; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;, &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC2DC; &#xBAA8;&#xB450;
-default &#xB85C; enable &#xB429;&#xB2C8;&#xB2E4;. &#xC2E4;&#xC81C;&#xB85C; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;&#xB294; globbing &#xC744; &#xC885;&#xC885; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0;&#xB9CC;, &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC744;
-&#xC791;&#xC131;&#xD560; &#xB54C;&#xB294; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xB9CE;&#xC9C0; &#xC54A;&#xC740;&#xB370;&#xC694;.
-&#xC55E;&#xC11C; &#xC0B4;&#xD3B4;&#xBCF8; &#xBC14;&#xC640; &#xAC19;&#xC774; globbing &#xC774; enable &#xB418;&#xC5B4; &#xC788;&#xC744;&#xACBD;&#xC6B0; &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0; &#xC0C1;&#xD669;&#xC5D0;&#xC11C; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xC73C;&#xBBC0;&#xB85C;
-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC2DC; &#xBA3C;&#xC800; globbing &#xC744; disable &#xD574;&#xB193;&#xACE0; &#xD30C;&#xC77C;&#xC744; select &#xD560;&#xB54C;&#xB9CC; enable &#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xB3C4;
-&#xC624;&#xB958;&#xB97C; &#xC904;&#xC77C; &#xC218; &#xC788;&#xB294;  &#xBC29;&#xBC95;&#xC774; &#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p>&#xB2E4;&#xC74C;&#xC740; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC2DC; globbing &#xC744; disable &#xD558;&#xB294; &#xBC29;&#xBC95;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<h4 id="globbing-&#xC744;-on-off-&#xD558;&#xB294;-&#xBC29;&#xBC95;">globbing &#xC744; on, off &#xD558;&#xB294; &#xBC29;&#xBC95;</h4>
+<p>globbing &#xC740; &#xD30C;&#xC77C;&#xC744; select &#xD558;&#xAE30; &#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC73C;&#xB85C; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;, &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xBAA8;&#xB450;
+default &#xB85C; enable &#xB429;&#xB2C8;&#xB2E4;.
+&#xD544;&#xC694;&#xC5D0; &#xB530;&#xB77C; globbing &#xC744; on, off &#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># 1. shebang &#xB77C;&#xC778;&#xC5D0;&#xC11C;</span>
 
 <span class="hljs-comment">#!/bin/bash -f</span>
