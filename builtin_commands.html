@@ -1904,7 +1904,7 @@ session required pam_limits.so
         <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$#</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">2</span> &amp;&amp; <span class="hljs-variable">$1</span> = <span class="hljs-string">&quot;--&quot;</span> ]]; <span class="hljs-keyword">then</span>
             <span class="hljs-built_in">shift</span>
         <span class="hljs-keyword">else</span> 
-            <span class="hljs-keyword">if</span> ! { [ <span class="hljs-variable">$#</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">1</span> ] &amp;&amp; [[ <span class="hljs-variable">$1</span> =~ ^(-[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]|-|--|[^-].*)$ ]] ;}
+            <span class="hljs-keyword">if</span> ! { [ <span class="hljs-variable">$#</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">1</span> ] &amp;&amp; [[ <span class="hljs-variable">$1</span> =~ ^(-[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]{,<span class="hljs-number">2</span>}|-|--|[^-].*)$ ]] ;}
             <span class="hljs-keyword">then</span>
                 <span class="hljs-built_in">builtin</span> <span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
                 <span class="hljs-built_in">return</span>
@@ -1921,7 +1921,7 @@ session required pam_limits.so
     [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ] &amp;&amp; new_dir=<span class="hljs-variable">$HOME</span>
 
     <span class="hljs-comment"># &#xC778;&#xC218;&#xAC00; &apos;-&#xC22B;&#xC790;&apos; or &apos;-&apos; &#xD615;&#xD0DC;&#xC77C; &#xACBD;&#xC6B0;</span>
-    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$new_dir</span>&quot;</span> =~ ^(-[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]|-)$ ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$new_dir</span>&quot;</span> =~ ^(-[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]{,<span class="hljs-number">2</span>}|-)$ ]]; <span class="hljs-keyword">then</span>
         index=<span class="hljs-variable">${new_dir:1}</span>
         [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$index</span>&quot;</span> ] &amp;&amp; index=<span class="hljs-number">1</span>
         adir=$(<span class="hljs-built_in">dirs</span> +<span class="hljs-variable">$index</span>)
