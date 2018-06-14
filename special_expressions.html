@@ -1540,6 +1540,32 @@ logdest --release | debug-- [destinations...] log-flags
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$word</span>&quot;</span>
 <span class="hljs-keyword">done</span> | sort -u
 </code></pre>
+<h1 id="quiz">Quiz</h1>
+<p>&#xB2E4;&#xC74C; &#xD14C;&#xC2A4;&#xD2B8;&#xBB38;&#xC740; &#xC5B4;&#xB514;&#xAC00; &#xC798;&#xBABB;&#xB418;&#xC5C8;&#xC744;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-bash">$ AA=y
+
+$ [ <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span> = [Yy] ] &amp;&amp; yes
+$
+</code></pre>
+<p><code>[</code> &#xB294; &#xD2B9;&#xC218; &#xD45C;&#xD604;&#xC2DD;&#xC774; &#xC544;&#xB2C8;&#xACE0; &#xBA85;&#xB839;&#xC774;&#xBBC0;&#xB85C; <code>[Yy]</code> &#xB294; <code>[</code> &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB418;&#xACE0; globbing &#xB300;&#xC0C1;&#xC785;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xD30C;&#xC77C; &quot;y&quot; &#xAC00; &#xC874;&#xC7AC;&#xD55C;&#xB2E4;&#xBA74; &#xC544;&#xB798;&#xC758; &#xCCAB; &#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xBB38;&#xACFC; &#xAC19;&#xAC8C;&#xB418;&#xACA0;&#xC9C0;&#xB9CC;
+&#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0;&#xB294; &#xB450; &#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xBB38;&#xACFC; &#xAC19;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ [ <span class="hljs-string">&quot;y&quot;</span> = <span class="hljs-string">&quot;y&quot;</span> ] &amp;&amp; yes
+yes
+
+$ [ <span class="hljs-string">&quot;y&quot;</span> = <span class="hljs-string">&quot;[Yy]&quot;</span> ] &amp;&amp; yes
+$
+</code></pre>
+<p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; <code>[[ ]]</code> &#xD45C;&#xD604;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ AA=y
+
+$ expr <span class="hljs-string">&quot;x<span class="hljs-variable">${AA}</span>&quot;</span> : <span class="hljs-string">&quot;x[Yy]$&quot;</span> &gt; /dev/null &amp;&amp; <span class="hljs-built_in">echo</span> yes
+yes
+..................................................
+
+$ [ <span class="hljs-string">&quot;<span class="hljs-variable">$(echo &quot;$AA&quot; | grep &apos;^[Yy]$&apos;)</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">echo</span> yes
+yes
+</code></pre>
 
                     
                     </section>
