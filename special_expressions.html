@@ -1454,7 +1454,7 @@ $ AA=<span class="hljs-string">&quot;delete|unset &lt;uuid|vmname&gt;&quot;</spa
 $ [[ <span class="hljs-variable">$AA</span> =~ delete[^\ ]*\ \&lt;uuid\|vmname\&gt; ]]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
-<span class="hljs-comment"># &#xB610;&#xB294; regexp &#xBB38;&#xC790;&#xB97C; quotes &#xC5D0;&#xC11C; &#xC81C;&#xC678;</span>
+<span class="hljs-comment"># regexp &#xBB38;&#xC790;&#xB97C; quotes &#xC5D0;&#xC11C; &#xC81C;&#xC678;</span>
 $ [[ <span class="hljs-variable">$AA</span> =~ delete[^\ ]*<span class="hljs-string">&quot; &lt;uuid|vmname&gt;&quot;</span> ]]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
@@ -1519,7 +1519,7 @@ aabbxcc matches
   capture[<span class="hljs-number">2</span>]: x
 </code></pre>
 <h4 id="&#xC0AC;&#xC6A9;&#xC608;-">&#xC0AC;&#xC6A9;&#xC608; )</h4>
-<p>&#xBCF5;&#xD569; &#xBA85;&#xB839; &#xAD6C;&#xC131;&#xC744; &#xD560;&#xC218;&#xC788;&#xB294; shell keyword &#xC640; [[  ]], IFS &#xBCC0;&#xC218;, read &#xBA85;&#xB839;, BASH_REMATCH &#xB9CC; &#xC788;&#xC73C;&#xBA74; regexp &#xAD00;&#xB828;&#xD574;&#xC11C;&#xB294; &#xAC70;&#xC758; shell &#xC5D0;&#xC11C; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBCF5;&#xD569; &#xBA85;&#xB839; &#xAD6C;&#xC131;&#xC744; &#xD560;&#xC218;&#xC788;&#xB294; shell keyword &#xC640; <code>[[  ]]</code>, IFS &#xBCC0;&#xC218;, read &#xBA85;&#xB839;, BASH_REMATCH &#xB9CC; &#xC788;&#xC73C;&#xBA74; regexp &#xAD00;&#xB828;&#xD574;&#xC11C;&#xB294; &#xAC70;&#xC758; shell &#xC5D0;&#xC11C; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">[[ ! <span class="hljs-variable">$COLOR</span> =~ BLUE|RED|GREEN ]] &amp;&amp; {
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Incorrect options provided&quot;</span>
     <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
@@ -1535,9 +1535,9 @@ logdest --release | debug-- [destinations...] log-flags
 [--lines=lines] | pattern&apos;</span>
 
 <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> $( <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$raw_string</span>&quot;</span> | tr <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;|&apos;</span> ); <span class="hljs-keyword">do</span>
-        [[ <span class="hljs-variable">$word</span> =~ ^[[:alnum:]-]+{<span class="hljs-number">3</span>,}$ ]] \
-        &amp;&amp; [[ ! <span class="hljs-variable">$word</span> =~ ^-|-$ ]] \
-        &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$word</span>&quot;</span>
+        [[ <span class="hljs-variable">$word</span> =~ ^[[:alnum:]-]+{<span class="hljs-number">3</span>,}$ ]] &amp;&amp;
+        [[ ! <span class="hljs-variable">$word</span> =~ ^-|-$ ]] &amp;&amp;
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$word</span>&quot;</span>
 <span class="hljs-keyword">done</span> | sort -u
 </code></pre>
 

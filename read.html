@@ -1404,7 +1404,6 @@ END
 <span class="hljs-comment"># &#xC911;&#xAC04;&#xC5D0; &#xB77C;&#xC778;&#xAD6C;&#xBD84;&#xC790; newline &#xC744; &#xB9CC;&#xB098;&#xBBC0;&#xB85C; 5 &#xAE4C;&#xC9C0;&#xB9CC; &#xD45C;&#xC2DC;&#xB429;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v1</span>&quot;</span>
 <span class="hljs-number">12345</span>
-
 --------------------
 
 $ <span class="hljs-built_in">read</span> -N <span class="hljs-number">8</span> v1 &lt;&lt;END
@@ -1416,19 +1415,18 @@ END
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v1</span>&quot;</span>
 <span class="hljs-number">12345</span>
 <span class="hljs-number">67</span>
-
 -----------------------------------------
 
 <span class="hljs-function"><span class="hljs-title">asksure</span></span>() {
     <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;Are you sure (Y/N)? &quot;</span>
     <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -n <span class="hljs-number">1</span> answer; <span class="hljs-keyword">do</span>
+        <span class="hljs-built_in">echo</span>
         <span class="hljs-keyword">case</span> <span class="hljs-variable">$answer</span> <span class="hljs-keyword">in</span>
             [Yy]) <span class="hljs-built_in">return</span> <span class="hljs-number">0</span> ;;
             [Nn]) <span class="hljs-built_in">return</span> <span class="hljs-number">1</span> ;;
         <span class="hljs-keyword">esac</span>
     <span class="hljs-keyword">done</span>
 }
-
 -----------------------------------------
 
 <span class="hljs-function"><span class="hljs-title">pause</span></span>() {
