@@ -1334,6 +1334,12 @@ $ cat &lt;&lt;<span class="hljs-string">&apos;END&apos;</span>   <span class="hl
 
 here <span class="hljs-variable">$AA</span>
 document $(date +%D)
+
+<span class="hljs-comment"># &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;</span>
+$ cat &gt; /mnt/boot/grub/device.map &lt;&lt;EOF
+(hd0)   /dev/loop0
+(hd0,<span class="hljs-number">1</span>) /dev/loop1
+EOF
 </code></pre>
 <p>awk, sed &#xBA85;&#xB839; &#xC0AC;&#xC6A9;&#xC608;</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># heredoc &#xC740; stdin &#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xBBC0;&#xB85C; &apos;-f -&apos;  &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9; (&apos;-&apos; &#xB294; stdin &#xC744; &#xB098;&#xD0C0;&#xB0C4;)</span>
