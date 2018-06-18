@@ -1346,11 +1346,11 @@ $ [ <span class="hljs-literal">false</span> ]; <span class="hljs-built_in">echo<
 <span class="hljs-number">0</span>
 
 <span class="hljs-comment"># if &#xBB38;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; true, false &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
-$ <span class="hljs-keyword">if</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">fi</span>
+$ isSet=<span class="hljs-literal">false</span>
+$ <span class="hljs-keyword">if</span> <span class="hljs-variable">$isSet</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">fi</span>
 <span class="hljs-literal">false</span>
 
 $ isSet=<span class="hljs-literal">true</span>
-
 $ <span class="hljs-keyword">if</span> <span class="hljs-variable">$isSet</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">fi</span>
 <span class="hljs-literal">true</span>
 </code></pre>
