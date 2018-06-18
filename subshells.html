@@ -1378,15 +1378,15 @@ $ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<sp
 
 <span class="hljs-comment">##################################################</span>
 
-$ <span class="hljs-built_in">test</span> -o <span class="hljs-built_in">noglob</span>; <span class="hljs-built_in">echo</span> $?
+$ <span class="hljs-built_in">test</span> -o pipefail; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">1</span>
 
 <span class="hljs-comment"># subshell &#xC5D0;&#xC11C; &#xC258;&#xC635;&#xC158;&#xC744; &#xBCC0;&#xACBD;&#xD558;&#xC5EC; &#xC0AC;&#xC6A9;.</span>
-$ ( <span class="hljs-built_in">set</span> -o <span class="hljs-built_in">noglob</span>; <span class="hljs-built_in">test</span> -o <span class="hljs-built_in">noglob</span>; <span class="hljs-built_in">echo</span> $? )
+$ ( <span class="hljs-built_in">set</span> -o pipefail; <span class="hljs-built_in">test</span> -o pipefail; <span class="hljs-built_in">echo</span> $? )
 <span class="hljs-number">0</span>
 
 <span class="hljs-comment"># subshell &#xC774; &#xC885;&#xB8CC;&#xD6C4;&#xC5D4; &#xC774;&#xC804;&#xC0C1;&#xD0DC;&#xB85C; &#xBCF5;&#xADC0;&#xB418;&#xC5C8;&#xB2E4;.</span>
-$ <span class="hljs-built_in">test</span> -o <span class="hljs-built_in">noglob</span>; <span class="hljs-built_in">echo</span> $?
+$ <span class="hljs-built_in">test</span> -o pipefail; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">1</span>
 
 <span class="hljs-comment">##################################################</span>

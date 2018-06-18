@@ -1353,6 +1353,27 @@ until <span class="hljs-built_in">read</span> -r line
     ...
 <span class="hljs-keyword">done</span>
 </code></pre>
+<h3 id="pipe-&#xB85C;-&#xC5F0;&#xACB0;&#xB41C;-&#xBA85;&#xB839;&#xC758;-&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;">pipe &#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</h3>
+<p>pipe &#xB85C; &#xC5EC;&#xB7EC; &#xBA85;&#xB839;&#xC774; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xB294; &#xB9C8;&#xC9C0;&#xB9C9; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C; <code>foo()</code> &#xD568;&#xC218;&#xB294; &#xD56D;&#xC0C1; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C; <code>0</code> &#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.
+&#xC65C;&#xB0D0;&#xD558;&#xBA74; command1 &#xC758; &#xC2E4;&#xD328;&#xC5D0; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; sed &#xBA85;&#xB839;&#xC740; &#xD56D;&#xC0C1; &#xCC38;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.
+command1 &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD328;&#xD558;&#xC600;&#xC744; &#xB54C; &#xBE44;&#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xBC18;&#xD658;&#xB418;&#xB824;&#xBA74;
+&#xB450; &#xBC88;&#xC9F8;&#xC640; &#xAC19;&#xC774; pipefail &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;
+pipefail &#xC635;&#xC158;&#xC740; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xB4E4; &#xC911;&#xC5D0; &#xD558;&#xB098;&#xB77C;&#xB3C4; &#xC2E4;&#xD328;&#xAC00; &#xC0DD;&#xAE38; &#xACBD;&#xC6B0;
+&#xBE44;&#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">foo</span></span> () 
+{
+    <span class="hljs-built_in">command</span>1 <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> <span class="hljs-variable">$3</span> | sed -n <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span>
+}
+.................................................
+
+<span class="hljs-comment"># &#xC635;&#xC158; &#xC124;&#xC815;&#xC774; &#xD604;&#xC7AC; shell &#xC5D0; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xB3C4;&#xB85D; &#xD568;&#xC218; &#xC815;&#xC758;&#xC2DC; { } &#xB300;&#xC2E0;&#xC5D0; ( ) &#xB97C; &#xC0AC;&#xC6A9;.</span>
+foo () 
+(
+    <span class="hljs-built_in">set</span> -o pipefail
+    <span class="hljs-built_in">command</span>1 <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> <span class="hljs-variable">$3</span> | sed -rn <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span>
+)
+</code></pre>
 <h3 id="&#xB300;&#xC785;-&#xC5F0;&#xC0B0;&#xC758;-&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;&#xC740;">&#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740;?</h3>
 <p><code>=</code> , <code>+=</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xC2DD;&#xC740; &#xBA85;&#xB839;&#xBB38;&#xC774; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; <code>;</code> &#xB85C; &#xAD6C;&#xBD84;&#xC5C6;&#xC774; &#xD55C;&#xC904;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xB97C; &#xC4F8; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD56D;&#xC0C1; <code>0</code> &#xC774;&#xC9C0;&#xB9CC; &#xBA85;&#xB839;&#xCE58;&#xD658;&#xACFC; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;&#xB294; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xB300;&#xC785;&#xC5F0;&#xC0B0;&#xC740; &#xBA85;&#xB839;&#xBB38;&#xC774; &#xC544;&#xB2C8;&#xBBC0;&#xB85C; &#xD55C;&#xC904;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xB97C; &#xC4F8;&#xC218;&#xB3C4; &#xC788;&#xB2E4;.</span>
