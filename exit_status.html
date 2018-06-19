@@ -1371,7 +1371,7 @@ pipefail &#xC635;&#xC158;&#xC740; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xAC
 foo () 
 (
     <span class="hljs-built_in">set</span> -o pipefail
-    <span class="hljs-built_in">command</span>1 <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> <span class="hljs-variable">$3</span> | sed -rn <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span>
+    <span class="hljs-built_in">command</span>1 <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> <span class="hljs-variable">$3</span> | sed -n <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span>
 )
 </code></pre>
 <h3 id="null-&#xAC12;&#xC778;-&#xBCC0;&#xC218;&#xB294;-&#xCC38;&#xC77C;&#xAE4C;-&#xAC70;&#xC9D3;&#xC77C;&#xAE4C;">null &#xAC12;&#xC778; &#xBCC0;&#xC218;&#xB294; &#xCC38;&#xC77C;&#xAE4C; &#xAC70;&#xC9D3;&#xC77C;&#xAE4C;?</h3>
