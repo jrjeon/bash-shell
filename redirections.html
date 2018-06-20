@@ -1405,7 +1405,7 @@ l-wx------ 1 mug896 mug896 64 07.06.2015 15:33 2 -&gt; /home/mug896/tmp/outfile
 </code></pre><blockquote>
 <p>bash &#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD3B8;&#xB9AC;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xB2E8;&#xCD95;&#xD615; &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.<br><code>mycomm &gt; outfile 2&gt;&amp;1</code>  &#xC744; &#xC904;&#xC5EC;&#xC11C; <code>mycomm &amp;&gt; outfile</code><br><code>mycomm &gt;&gt; outfile 2&gt;&amp;1</code> &#xC744; &#xC904;&#xC5EC;&#xC11C; <code>mycomm &amp;&gt;&gt; outfile</code><br><code>mycomm1 2&gt;&amp;1 | mycomm2</code> &#xC744; &#xC904;&#xC5EC;&#xC11C; <code>mycomm1 |&amp; mycomm2</code>  </p>
 </blockquote>
-<h4 id="-exec-3-out-21-13-date---1-err">$ ( exec 3&gt; out 2&gt;&amp;1 1&gt;&amp;3 date -@ ) 1&gt; err</h4>
+<h4 id="-3-out-21-13-date---1-err">$ ( 3&gt; out 2&gt;&amp;1 1&gt;&amp;3 date -@ ) 1&gt; err</h4>
 <p>&#xB2E4;&#xC74C;&#xC740; <code>date -@</code> &#xBA85;&#xB839;&#xC758; &#xC624;&#xB958; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; <code>2&gt; err</code> &#xB85C; &#xBC1B;&#xC9C0; &#xC54A;&#xACE0; <code>1&gt; err</code> &#xB85C; &#xBC1B;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xC880; &#xBCF5;&#xC7A1;&#xD574; &#xBCF4;&#xC77C; &#xC218; &#xC788;&#xB294;&#xB370; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xB530;&#xB77C;&#xAC00; &#xBCF4;&#xBA74; &#xC5B4;&#xB835;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.  </p>
 <blockquote>
 <p>3&gt; out &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ( FD 1 : stdout, FD 2 : stderr, FD 3 : out )</p>
@@ -1626,7 +1626,7 @@ cat: x: No such file or directory
 
 <span class="hljs-comment"># 1. &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560;&#xB54C; { ;} &#xB300;&#xC2E0;&#xC5D0; ( ) subshell &#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xAC83;&#xC740; </span>
 <span class="hljs-comment">#    pipefail &#xC635;&#xC158;&#xC124;&#xC815;&#xC744; &#xD568;&#xC218;&#xC5D0; &#xAD6D;&#xD55C;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC785;&#xB2C8;&#xB2E4;.</span>
-<span class="hljs-comment"># 2. &quot;$@&quot; &#xB294; color &#xD568;&#xC218;&#xBA85; &#xB4A4;&#xC5D0; &#xC624;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xBA85;&#xB839;&#xBB38;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 2. &quot;$@&quot; &#xB294; color &#xD568;&#xC218;&#xBA85; &#xB4A4;&#xC5D0; &#xC624;&#xB294; &#xC778;&#xC218;&#xB4E4;&#xC744; &#xBA85;&#xB839;&#xBB38;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># 3. &quot;$@&quot; &#xBA85;&#xB839;&#xC740; &apos;|&apos; &#xD30C;&#xC774;&#xD504; &#xC67C;&#xCABD;&#xC5D0; &#xC704;&#xCE58;&#xD558;&#xBBC0;&#xB85C; stdout &#xC774; &#xD30C;&#xC774;&#xD504;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment">#    2&gt;&amp;1 : stderr &#xB97C; stdout (&#xD30C;&#xC774;&#xD504;) &#xB85C; redirect &#xD588;&#xC73C;&#xBBC0;&#xB85C; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; sed &#xC785;&#xB825;&#xC73C;&#xB85C; &#xB4E4;&#xC5B4;&#xAC11;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment">#    1&gt;&amp;3 : &#xD604;&#xC7AC; &#xC5F0;&#xACB0;&#xC774; &#xD30C;&#xC774;&#xD504;&#xC778; stdout &#xC744; fd 3&#xBC88; ( &#xD568;&#xC218;&#xBC16;&#xC5D0;&#xC11C; &#xC81C;&#xC77C;&#xBA3C;&#xC800; &#xD130;&#xBBF8;&#xB110;(stdout)&#xB85C; &#xC5F0;&#xACB0;&#xD588;&#xC8E0; )</span>
@@ -1769,6 +1769,54 @@ $ ( <span class="hljs-number">3</span>&gt;&amp;<span class="hljs-number">1</span
 $ cat out
 date: invalid option -- <span class="hljs-string">&apos;@&apos;</span>
 Try <span class="hljs-string">&apos;date --help&apos;</span> <span class="hljs-keyword">for</span> more information.
+</code></pre>
+<p><a name="quiz2"></a></p>
+<h1 id="2">2.</h1>
+<p>&#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC740; &#xB9C8;&#xC9C0;&#xB9C9; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C; <code>set -o pipefile</code> &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xB4E4; &#xC911;&#xC5D0;&#xC11C; &#xD558;&#xB098;&#xB77C;&#xB3C4;
+&#xC2E4;&#xD328;&#xAC00; &#xC0DD;&#xAE38; &#xACBD;&#xC6B0; &#xBE44;&#xC815;&#xC0C1; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xB294;&#xB370;&#xC694;.
+&#xD558;&#xC9C0;&#xB9CC; pipefail &#xC635;&#xC158;&#xC740; <code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+<code>sh</code> &#xC5D0;&#xC11C; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xAD6C;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh
+</span>
+<span class="hljs-comment"># 1. &quot;date&quot; &#xBA85;&#xB839;&#xC740; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xCD9C;&#xB825;&#xC774; sed &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 2. &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; echo $? &gt;&amp;4 &#xC5D0; &#xC758;&#xD574; FD 4 &#xB85C; &#xC804;&#xB2EC;&#xB418;&#xACE0; </span>
+<span class="hljs-comment"># 3. FD 4 &#xBC88;&#xC740; exec 4&gt;&amp;1 &#xC5D0;&#xC758;&#xD574; stdout &#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC73C;&#xBBC0;&#xB85C; status &#xBCC0;&#xC218;&#xB85C; &#xC785;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 4. sed &#xBA85;&#xB839;&#xC758; stdout &#xCD9C;&#xB825;&#xC740; exec &gt;&amp;3 &#xC5D0;&#xC758;&#xD574; FD 3 &#xBC88;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xACE0; </span>
+<span class="hljs-comment"># 5. &#xB2E4;&#xC2DC; FD 3 &#xBC88;&#xC740; exec 3&gt;&amp;1 &#xC5D0;&#xC758;&#xD574; stdout &#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+
+<span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;<span class="hljs-number">1</span>
+status=$( <span class="hljs-built_in">exec</span> <span class="hljs-number">4</span>&gt;&amp;<span class="hljs-number">1</span> &gt;&amp;<span class="hljs-number">3</span>
+    { date; <span class="hljs-built_in">echo</span> $? &gt;&amp;<span class="hljs-number">4</span> ;} | sed <span class="hljs-string">&apos;s/.*/XXX&amp;XXX/&apos;</span>
+)
+<span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;-
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;YYY <span class="hljs-variable">${status}</span> ZZZ&quot;</span>
+------------------------------------------------
+
+<span class="hljs-comment"># date &#xBA85;&#xB839;&#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0;</span>
+$ ./test.sh 
+XXXWed Jun <span class="hljs-number">20</span> <span class="hljs-number">22</span>:<span class="hljs-number">04</span>:<span class="hljs-number">08</span> KST <span class="hljs-number">2018</span>XXX        <span class="hljs-comment"># sed &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825;</span>
+YYY <span class="hljs-number">0</span> ZZZ                                 <span class="hljs-comment"># date &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</span>
+
+<span class="hljs-comment"># &#xC624;&#xB958;&#xB97C; &#xC704;&#xD574; date &#xBA85;&#xB839;&#xC744; &quot;date -@&quot; &#xB85C; &#xBCC0;&#xACBD;&#xD558;&#xC5EC; &#xC2E4;&#xD589;</span>
+$ ./test.sh 
+date: invalid option -- <span class="hljs-string">&apos;@&apos;</span>
+Try <span class="hljs-string">&apos;date --help&apos;</span> <span class="hljs-keyword">for</span> more information.
+YYY <span class="hljs-number">1</span> ZZZ                                 <span class="hljs-comment"># date &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</span>
+</code></pre>
+<p>&#xB9CC;&#xC57D;&#xC5D0; FD 3 &#xBC88; &#xCC98;&#xB9AC; &#xBD80;&#xBD84;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xBA74; sed &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825;&#xB3C4; &#xBAA8;&#xB450; status &#xBCC0;&#xC218;&#xB85C; &#xC785;&#xB825;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh
+</span>
+status=$( <span class="hljs-built_in">exec</span> <span class="hljs-number">4</span>&gt;&amp;<span class="hljs-number">1</span>
+    { date; <span class="hljs-built_in">echo</span> $? &gt;&amp;<span class="hljs-number">4</span> ;} | sed <span class="hljs-string">&apos;s/.*/XXX&amp;XXX/&apos;</span>
+)
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;YYY <span class="hljs-variable">${status}</span> ZZZ&quot;</span>
+
+$ ./test.sh
+YYY <span class="hljs-number">0</span>
+XXXWed Jun <span class="hljs-number">20</span> <span class="hljs-number">22</span>:<span class="hljs-number">16</span>:<span class="hljs-number">05</span> KST <span class="hljs-number">2018</span>XXX ZZZ
 </code></pre>
 
                     

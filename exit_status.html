@@ -1353,6 +1353,7 @@ until <span class="hljs-built_in">read</span> -r line
     ...
 <span class="hljs-keyword">done</span>
 </code></pre>
+<p><a name="pipe"></a></p>
 <h3 id="pipe-&#xB85C;-&#xC5F0;&#xACB0;&#xB41C;-&#xBA85;&#xB839;&#xC758;-&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;">pipe &#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</h3>
 <p>pipe &#xB85C; &#xC5EC;&#xB7EC; &#xBA85;&#xB839;&#xC774; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xB294; &#xB9C8;&#xC9C0;&#xB9C9; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
 &#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C; &#xCCAB;&#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xBB38;&#xC740; &#xD56D;&#xC0C1; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C; <code>0</code> &#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.
@@ -1372,6 +1373,10 @@ pipefail &#xC635;&#xC158;&#xC740; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xAC
     <span class="hljs-built_in">command</span>1 arg1 arg2 | sed -n <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span>
 )
 </code></pre>
+<blockquote>
+<p><code>sh</code> &#xC758; &#xACBD;&#xC6B0;&#xB294; pipefail &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; <a href="redirections.html#quiz2">&#xB2E4;&#xC74C;</a>&#xACFC; &#xAC19;&#xC740;
+&#xBC29;&#xBC95;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
 <h3 id="null-&#xAC12;&#xC778;-&#xBCC0;&#xC218;&#xB294;-&#xCC38;&#xC77C;&#xAE4C;-&#xAC70;&#xC9D3;&#xC77C;&#xAE4C;">null &#xAC12;&#xC778; &#xBCC0;&#xC218;&#xB294; &#xCC38;&#xC77C;&#xAE4C; &#xAC70;&#xC9D3;&#xC77C;&#xAE4C;?</h3>
 <p>&#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xBCC0;&#xC218;&#xB098; null &#xAC12;&#xC778; &#xBCC0;&#xC218;&#xB294; quote &#xD558;&#xC9C0; &#xC54A;&#xC744;&#xACBD;&#xC6B0; &#xCC38;&#xC774; &#xB418;&#xBBC0;&#xB85C; &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ asdf=<span class="hljs-string">&quot;&quot;</span>
