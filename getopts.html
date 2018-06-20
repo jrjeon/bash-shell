@@ -1670,6 +1670,136 @@ option : -c
 $1 : &apos;</span>hello<span class="hljs-string">&apos;
 $2 : &apos;</span>world<span class="hljs-string">&apos;
 </span></code></pre>
+<h1 id="quiz">Quiz</h1>
+<p>objdump &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; disassemble &#xC744; &#xD574;&#xBCF4;&#xB824;&#xBA74; &#xBA3C;&#xC800; &#xCEF4;&#xD30C;&#xC77C; &#xACFC;&#xC815;&#xC744; &#xAC70;&#xCCD0;&#xC11C;
+object &#xD30C;&#xC77C;&#xC774;&#xB098; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4;&#xC57C; &#xB418;&#xB294;&#xB370;&#xC694;.
+&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574; C &#xC18C;&#xC2A4; &#xD30C;&#xC77C;&#xC744; &#xC9C1;&#xC811; objdump &#xD569;&#xB2C8;&#xB2E4;.
+&#xCD94;&#xAC00;&#xB85C; gcc-arm-linux-gnueabi, gcc-mips-linux-gnu, gcc-powerpc-linux-gnu ...
+&#xD328;&#xD0A4;&#xC9C0;&#xB3C4; &#xC124;&#xCE58;&#xD574;&#xC11C; &#xC5EC;&#xB7EC; &#xC544;&#xD0A4;&#xD14D;&#xCCD0; &#xBCC4;&#xB85C;&#xB3C4; &#xC870;&#xD68C;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB514;&#xD3F4;&#xD2B8; &#xC544;&#xD0A4;&#xD14D;&#xCCD0;&#xB294; x86 &#xC774;&#xACE0; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>$ objdump.sh hello.c</p>
+</blockquote>
+<p>&#xB9C1;&#xD06C;&#xB294; &#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xCEF4;&#xD30C;&#xC77C;&#xB9CC; &#xD574;&#xC11C; &#xC624;&#xBE0C;&#xC81D;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>$ objdump.sh <code>-c</code> hello.c</p>
+</blockquote>
+<p>main &#xD568;&#xC218; &#xBD80;&#xBD84;&#xB9CC; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>$ objdump.sh <code>-f main</code> hello.c</p>
+</blockquote>
+<p>arm cpu &#xC6A9;&#xC73C;&#xB85C; &#xCEF4;&#xD30C;&#xC77C;&#xD574;&#xC11C; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>$ objdump.sh <code>-a arm</code> -f main hello.c</p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh
+</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exit&apos;</span> HUP INT QUIT TERM
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f $tmp&apos;</span> EXIT
+
+<span class="hljs-function"><span class="hljs-title">usage</span></span>() {
+
+    cat &lt;&lt;END 
+
+Usage: $(basename <span class="hljs-variable">$0</span>) [<span class="hljs-operator">-a</span> arch] [<span class="hljs-operator">-f</span> func] [-c] file
+-------------------------------------------------------
+arch: x86 arm armhf arm64 mips mips64 sparc64 ppc ppc64
+-------------------------------------------------------
+END
+
+    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+
+} &gt;&amp;<span class="hljs-number">2</span>
+
+
+<span class="hljs-built_in">test</span> <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> &amp;&amp; usage
+
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">getopts</span> <span class="hljs-string">&quot;:a:f:c&quot;</span> opt; <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
+    a)
+        arch=<span class="hljs-variable">$OPTARG</span>
+        ;;
+    f)
+        func=<span class="hljs-variable">$OPTARG</span>
+        ;;
+    c)
+        comp=<span class="hljs-string">&quot;-c&quot;</span>
+        ;;
+    \?) 
+        <span class="hljs-built_in">echo</span>
+        <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;ERROR: Invalid option: -<span class="hljs-variable">$OPTARG</span>&quot;</span>
+        usage
+  <span class="hljs-keyword">esac</span>
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-built_in">shift</span> $(( OPTIND - <span class="hljs-number">1</span> ))
+file=<span class="hljs-variable">$1</span>
+<span class="hljs-built_in">shift</span>
+
+<span class="hljs-built_in">test</span> -z <span class="hljs-string">&quot;<span class="hljs-variable">$arch</span>&quot;</span> &amp;&amp; arch=x86
+
+<span class="hljs-keyword">case</span> <span class="hljs-variable">$arch</span> <span class="hljs-keyword">in</span>
+    x86)
+        gcc=gcc
+        objdump=objdump
+        ;;
+
+    arm64)
+        gcc=aarch64-linux-gnu-gcc
+        objdump=aarch64-linux-gnu-objdump
+        ;;
+
+    arm)
+        gcc=arm-linux-gnueabi-gcc
+        objdump=arm-linux-gnueabi-objdump
+        ;;
+
+    armhf)
+        gcc=arm-linux-gnueabihf-gcc
+        objdump=arm-linux-gnueabihf-objdump
+        ;;
+
+    mips64)
+        gcc=mips64-linux-gnuabi64-gcc
+        objdump=mips64-linux-gnuabi64-objdump
+        ;;
+
+    mips)
+        gcc=mips-linux-gnu-gcc
+        objdump=mips-linux-gnu-objdump
+        ;;
+
+    sparc64)
+        gcc=sparc64-linux-gnu-gcc
+        objdump=sparc64-linux-gnu-objdump
+        ;;
+
+    ppc64)
+        gcc=powerpc64-linux-gnu-gcc
+        objdump=powerpc64-linux-gnu-objdump
+        ;;
+
+    ppc)
+        gcc=powerpc-linux-gnu-gcc
+        objdump=powerpc-linux-gnu-objdump
+        ;;
+
+    *)
+        <span class="hljs-built_in">echo</span>
+        <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> ERROR: unknown architecture
+        usage
+
+<span class="hljs-keyword">esac</span>
+
+tmp=`mktemp -u -p .`
+
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span>; <span class="hljs-keyword">then</span>
+    <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp; 
+        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | sed -n <span class="hljs-string">&apos;/&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span><span class="hljs-string">&apos;&gt;:/,/^$/p&apos;</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp; <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span>
+<span class="hljs-keyword">fi</span>
+</code></pre>
 
                     
                     </section>
