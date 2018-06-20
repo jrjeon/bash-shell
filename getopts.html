@@ -1370,13 +1370,13 @@ c, , <span class="hljs-number">5</span>
 <span class="hljs-keyword">while</span> <span class="hljs-built_in">getopts</span> <span class="hljs-string">&quot;a:bc&quot;</span> opt; <span class="hljs-keyword">do</span>
   <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
     a)
-      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-a was triggered!, OPTARG: <span class="hljs-variable">$OPTARG</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+      <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;-a was triggered!, OPTARG: <span class="hljs-variable">$OPTARG</span>&quot;</span>
       ;;
     b)
-      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-b was triggered!&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+      <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;-b was triggered!&quot;</span>
       ;;
     c)
-      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-c was triggered!&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+      <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;-c was triggered!&quot;</span>
       ;;
   <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span>
@@ -1437,14 +1437,14 @@ silent mode &#xB97C; &#xC124;&#xC815;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#
 <span class="hljs-keyword">while</span> <span class="hljs-built_in">getopts</span> <span class="hljs-string">&quot;:a:&quot;</span> opt; <span class="hljs-keyword">do</span>
   <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
     a)
-      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;MSG: -a was triggered, Parameter: <span class="hljs-variable">$OPTARG</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+      <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;MSG: -a was triggered, Parameter: <span class="hljs-variable">$OPTARG</span>&quot;</span>
       ;;
     \?)   <span class="hljs-comment"># \? &#xB294; escape &#xD588;&#xC73C;&#xBBC0;&#xB85C; glob &#xBB38;&#xC790;&#xAC00; &#xC544;&#xB2D8;.</span>
-      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ERR: Invalid option: -<span class="hljs-variable">$OPTARG</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+      <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;ERR: Invalid option: -<span class="hljs-variable">$OPTARG</span>&quot;</span>
       <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
       ;;
     :)
-      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ERR: Option -<span class="hljs-variable">$OPTARG</span> requires an argument.&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+      <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;ERR: Option -<span class="hljs-variable">$OPTARG</span> requires an argument.&quot;</span>
       <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
       ;;
   <span class="hljs-keyword">esac</span>
