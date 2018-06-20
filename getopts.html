@@ -1697,6 +1697,8 @@ object &#xD30C;&#xC77C;&#xC774;&#xB098; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744;
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;exit&apos;</span> HUP INT QUIT TERM
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f $tmp&apos;</span> EXIT
 
+<span class="hljs-function"><span class="hljs-title">err</span></span>() { <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> ;} &gt;&amp;<span class="hljs-number">2</span>
+
 <span class="hljs-function"><span class="hljs-title">usage</span></span>() {
 
     cat &lt;&lt;END 
@@ -1710,7 +1712,6 @@ END
     <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 
 } &gt;&amp;<span class="hljs-number">2</span>
-
 
 <span class="hljs-built_in">test</span> <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> &amp;&amp; usage
 
@@ -1726,8 +1727,8 @@ END
         comp=<span class="hljs-string">&quot;-c&quot;</span>
         ;;
     \?) 
-        <span class="hljs-built_in">echo</span>
-        <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;ERROR: Invalid option: -<span class="hljs-variable">$OPTARG</span>&quot;</span>
+        err
+        err <span class="hljs-string">&quot;ERROR: Invalid option: -<span class="hljs-variable">$OPTARG</span>&quot;</span>
         usage
   <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span>
@@ -1785,8 +1786,8 @@ file=<span class="hljs-variable">$1</span>
         ;;
 
     *)
-        <span class="hljs-built_in">echo</span>
-        <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> ERROR: unknown architecture
+        err
+        err <span class="hljs-string">&quot;ERROR: unknown architecture&quot;</span>
         usage
 
 <span class="hljs-keyword">esac</span>
