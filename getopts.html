@@ -1792,7 +1792,7 @@ file=<span class="hljs-variable">$1</span>
 
 <span class="hljs-keyword">esac</span>
 
-tmp=`mktemp -u -p .`
+tmp=`mktemp -u`
 
 <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span>; <span class="hljs-keyword">then</span>
     <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp; 
