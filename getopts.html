@@ -1282,15 +1282,15 @@ optstring &#xAC12;&#xC740; <code>abc</code> &#xAC00; &#xB429;&#xB2C8;&#xB2E4;. a
 <p>&#xB2E4;&#xC74C; &#xC608;&#xC81C;&#xB97C; &#xD1B5;&#xD574;&#xC11C; getopts &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; optstring, varname &#xACFC; $OPTIND &#xC5D0; &#xB300;&#xD574; &#xC54C;&#xC544;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.
 shell &#xC774; &#xCC98;&#xC74C; &#xC2E4;&#xD589;&#xB418;&#xBA74; $OPTIND &#xAC12;&#xC740; 1 &#xC744; &#xAC00;&#xB9AC;&#xD0A4;&#xACE0; getopts &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xB9C8;&#xB2E4; &#xB2E4;&#xC74C; &#xC635;&#xC158;&#xC758; index &#xAC12;&#xC744;
 &#xAC00;&#xB9AC;&#xD0A4;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># shell &#xC774; &#xCC98;&#xC74C; &#xC2E4;&#xD589;&#xB418;&#xBA74; $OPTIND &#xAC12;&#xC740; 1 &#xC785;&#xB2C8;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$OPTIND</span>
-<span class="hljs-number">1</span>
-
-<span class="hljs-comment"># &#xB2E4;&#xC74C; set &#xBA85;&#xB839;&#xC740; &#xC2E4;&#xC81C; &quot;command -a -bc hello world&quot; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD588;&#xC744; &#xB54C;&#xC640; &#xAC19;&#xC774;</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xB2E4;&#xC74C; set &#xBA85;&#xB839;&#xC740; &#xC2E4;&#xC81C; &quot;command -a -bc hello world&quot; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD588;&#xC744; &#xB54C;&#xC640; &#xAC19;&#xC774;</span>
 <span class="hljs-comment"># positional parameters &#xB97C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">set</span> -- <span class="hljs-operator">-a</span> -bc hello world
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
 <span class="hljs-operator">-a</span> -bc hello world
+
+<span class="hljs-comment"># &#xCC98;&#xC74C; $OPTIND &#xAC12;&#xC740; 1 &#xB85C; -a &#xB97C; &#xAC00;&#xB9AC;&#xD0B5;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$OPTIND</span>
+<span class="hljs-number">1</span>
 
 $ <span class="hljs-built_in">getopts</span> abc opt <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>            <span class="hljs-comment"># getopts &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C;&#xB9C8;&#xB2E4; opt &#xBCC0;&#xC218;&#xAC12;&#xACFC;</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$opt</span>, <span class="hljs-variable">$OPTIND</span>              <span class="hljs-comment"># OPTIND &#xAC12;&#xC774; &#xBCC0;&#xACBD;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
@@ -1298,18 +1298,51 @@ a, <span class="hljs-number">2</span>                              <span class="
 
 $ <span class="hljs-built_in">getopts</span> abc opt <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>            <span class="hljs-comment"># &#xB2E4;&#xC74C; &#xC635;&#xC158; &quot;c&quot; &#xB294; &quot;b&quot; &#xC640; &#xBD99;&#xC5EC; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xC5EC; &#xAC19;&#xC740;</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$opt</span>, <span class="hljs-variable">$OPTIND</span>              <span class="hljs-comment"># OPTIND &#xAC12;&#xC744; &#xAC00;&#xC9D1;&#xB2C8;&#xB2E4;.</span>
-b, <span class="hljs-number">2</span>
+b, <span class="hljs-number">2</span>                              <span class="hljs-comment"># ( sh &#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; b, 3 &#xAC00; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;. )</span>
 
 $ <span class="hljs-built_in">getopts</span> abc opt                 <span class="hljs-comment"># args &#xBD80;&#xBD84;&#xC744; &#xC0DD;&#xB7B5;&#xD558;&#xBA74; default &#xAC12;&#xC740; &quot;$@&quot; &#xC785;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$opt</span>, <span class="hljs-variable">$OPTIND</span>
 c, <span class="hljs-number">3</span>
 
+<span class="hljs-comment"># &#xC635;&#xC158; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xACE0; &#xB09C;&#xD6C4; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; shift &#xB97C; &#xD558;&#xBA74; &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839; &#xC778;&#xC218;&#xB9CC; &#xB0A8;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
 <span class="hljs-operator">-a</span> -bc hello world
 
-<span class="hljs-comment"># &#xC635;&#xC158; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xACE0; &#xB09C;&#xD6C4; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; shift &#xB97C; &#xD558;&#xBA74; &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839; &#xC778;&#xC218;&#xB9CC; &#xB0A8;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">shift</span> $(( OPTIND - <span class="hljs-number">1</span> ))
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+hello world
+</code></pre>
+<p>&#xC635;&#xC158;&#xC744; &#xBD99;&#xC5EC;&#xC4F0;&#xAE30; &#xD560; &#xACBD;&#xC6B0; <code>sh</code> &#xACFC; <code>bash</code> &#xAC00; <code>$OPTIND</code> &#xAC12;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC774; &#xC57D;&#xAC04; &#xB2E4;&#xB985;&#xB2C8;&#xB2E4;.<br>&#xD558;&#xC9C0;&#xB9CC; &#xCD5C;&#xC885;&#xC801;&#xC73C;&#xB85C; <code>shift $(( OPTIND - 1 ))</code> &#xD55C; &#xAC12;&#xC740; &#xB458; &#xB2E4; &#xAC19;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">set</span> -- -abc hello world
+
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$OPTIND</span>
+
+<span class="hljs-built_in">getopts</span> abc opt 
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$opt</span>, <span class="hljs-variable">$OPTIND</span> 
+
+<span class="hljs-built_in">getopts</span> abc opt 
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$opt</span>, <span class="hljs-variable">$OPTIND</span>
+
+<span class="hljs-built_in">getopts</span> abc opt  
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$opt</span>, <span class="hljs-variable">$OPTIND</span>
+
+<span class="hljs-built_in">shift</span> $(( OPTIND - <span class="hljs-number">1</span> ))
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+---------------------------
+
+<span class="hljs-comment">#!/bin/bash &#xC758; &#xACBD;&#xC6B0;</span>
+<span class="hljs-number">1</span>           <span class="hljs-comment"># index 1 &#xC740; -abc &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
+a, <span class="hljs-number">1</span>        <span class="hljs-comment"># index 1 &#xC740; -abc &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
+b, <span class="hljs-number">1</span>        <span class="hljs-comment"># index 1 &#xC740; -abc &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
+c, <span class="hljs-number">2</span>        <span class="hljs-comment"># index 2 &#xB294; hello &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
+hello world
+
+<span class="hljs-comment">#!/bin/sh &#xC758; &#xACBD;&#xC6B0;</span>
+<span class="hljs-number">1</span>           <span class="hljs-comment"># index 1 &#xC740; -abc &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
+a, <span class="hljs-number">2</span>        <span class="hljs-comment"># index 2 &#xB294; hello &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
+b, <span class="hljs-number">2</span>        <span class="hljs-comment"># index 2 &#xB294; hello &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
+c, <span class="hljs-number">2</span>        <span class="hljs-comment"># index 2 &#xB294; hello &#xB97C; &#xAC00;&#xB9AC;&#xD0B4;</span>
 hello world
 </code></pre>
 <h3 id="option-argument">Option argument</h3>
