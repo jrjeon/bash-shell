@@ -1789,6 +1789,11 @@ file=<span class="hljs-variable">$1</span>
         objdump=powerpc-linux-gnu-objdump
         ;;
 
+    riscv64)
+        gcc=riscv64-linux-gnu-gcc
+        objdump=riscv64-linux-gnu-objdump
+        ;;
+
     *)
         err
         err <span class="hljs-string">&quot;ERROR: unknown architecture&quot;</span>
