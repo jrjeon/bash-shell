@@ -1414,10 +1414,13 @@ case &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; pattern &#xB4E4;&#xC740; 
 <p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBE44;&#xAD50;&#xD560; &#xB54C; test &#xBA85;&#xB839;&#xC758; &#xACBD;&#xC6B0; &#xBB38;&#xC790; &#xADF8;&#xB300;&#xB85C; &#xC2A4;&#xD2B8;&#xB9C1; &#xB9E4;&#xCE6D;&#xC744; &#xD558;&#xBBC0;&#xB85C;
 &#xD328;&#xD134; &#xB9E4;&#xCE6D;&#xC744; &#xD560; &#xC218;&#xAC00; &#xC5C6;&#xB294;&#xB370;&#xC694;.
 case &#xBB38;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">sh$ AA=y
+<pre><code class="lang-bash">sh$ AA=y                               <span class="hljs-comment"># if then ... &#xC5D0; &#xD574;&#xB2F9;</span>
+sh$ <span class="hljs-keyword">case</span> <span class="hljs-variable">$AA</span> <span class="hljs-keyword">in</span> ([Yy]) <span class="hljs-built_in">echo</span> YES; <span class="hljs-keyword">esac</span>
+YES
 
-sh$ <span class="hljs-keyword">case</span> <span class="hljs-variable">$AA</span> <span class="hljs-keyword">in</span> ([Yy]) <span class="hljs-built_in">echo</span> yes ; <span class="hljs-keyword">esac</span>
-yes
+sh$ AA=z                               <span class="hljs-comment"># if then ... else ... &#xC5D0; &#xD574;&#xB2F9;</span>
+sh$ <span class="hljs-keyword">case</span> <span class="hljs-variable">$AA</span> <span class="hljs-keyword">in</span> ([Yy]) <span class="hljs-built_in">echo</span> YES;; (*) <span class="hljs-built_in">echo</span> NO; <span class="hljs-keyword">esac</span>
+NO
 </code></pre>
 <p>bash &#xC758; &#xACBD;&#xC6B0; pattern) &#xC885;&#xB8CC; &#xBB38;&#xC790;&#xB85C; <code>;;</code> &#xB300;&#xC2E0;&#xC5D0; <code>;&amp;</code>( fall-through ) &#xC640; <code>;;&amp;</code>( next-matching )
 &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
