@@ -1559,6 +1559,10 @@ $
 <p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; <code>[[ ]]</code> &#xD45C;&#xD604;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ AA=y
 
+$ <span class="hljs-keyword">case</span> <span class="hljs-variable">$AA</span> <span class="hljs-keyword">in</span> ([Yy]) <span class="hljs-built_in">echo</span> yes; <span class="hljs-keyword">esac</span>
+yes
+......................................
+
 $ expr <span class="hljs-string">&quot;x<span class="hljs-variable">${AA}</span>&quot;</span> : <span class="hljs-string">&quot;x[Yy]$&quot;</span> &gt; /dev/null &amp;&amp; <span class="hljs-built_in">echo</span> yes
 yes
 ..................................................
