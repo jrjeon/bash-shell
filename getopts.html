@@ -1824,6 +1824,12 @@ BuildID[sha1]=e7812c02f905df8295fda9b5695b85a9ff16b2d3, not stripped
 <span class="hljs-comment"># &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744; -static &#xC73C;&#xB85C; &#xBE4C;&#xB4DC;&#xD558;&#xBA74; -L ... &#xC635;&#xC158;&#xC740; &#xD544;&#xC694;&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ qemu-arm -L /usr/arm-linux-gnueabi hello.arm  
 hello world
+
+<span class="hljs-comment"># strace</span>
+$ qemu-arm -L /usr/arm-linux-gnueabi -strace hello.a  
+<span class="hljs-number">24255</span> brk(NULL) = <span class="hljs-number">0</span>x00022000
+<span class="hljs-number">24255</span> uname(<span class="hljs-number">0</span>xfffed5f8) = <span class="hljs-number">0</span>
+. . .
 ------------------------------------------------------
 
 <span class="hljs-comment"># terminal 1</span>
