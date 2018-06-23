@@ -1810,9 +1810,46 @@ tmp=`mktemp -u`
     <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp; <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
-<blockquote>
-<p>qemu &#xC720;&#xC800; &#xBAA8;&#xB4DC; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC2E4;&#xD589;&#xACFC; &#xB514;&#xBC84;&#xAE45;&#xB3C4; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.<br>$ sudo apt install qemu-user gdb-multiarch<br>$ qemu-arm -L /usr/arm-linux-gnueabi hello.arm<br>hello world</p>
-</blockquote>
+<p>qemu &#xC758; &#xC720;&#xC800; &#xBAA8;&#xB4DC; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xC2E4;&#xD589;&#xACFC; &#xB514;&#xBC84;&#xAE45;&#xB3C4; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.
+&#xC720;&#xC800; &#xBAA8;&#xB4DC; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xC740; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xB514;&#xBC14;&#xC774;&#xC2A4;&#xB294; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xD558;&#xC9C0; &#xC54A;&#xACE0; cpu instruction &#xACFC; system call &#xC744; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ sudo apt install qemu-user gdb-multiarch  
+
+$ arm-linux-gnueabi-gcc -g -o hello.arm hello.c
+
+$ file hello.arm
+hello.arm: ELF <span class="hljs-number">32</span>-bit LSB executable, ARM, EABI5 version <span class="hljs-number">1</span> (SYSV), dynamically linked,
+interpreter /lib/ld-linux.so.<span class="hljs-number">3</span>, <span class="hljs-keyword">for</span> GNU/Linux <span class="hljs-number">3.2</span>.<span class="hljs-number">0</span>,
+BuildID[sha1]=e7812c02f905df8295fda9b5695b85a9ff16b2d3, not stripped
+
+<span class="hljs-comment"># &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744; -static &#xC73C;&#xB85C; &#xBE4C;&#xB4DC;&#xD558;&#xBA74; -L ... &#xC635;&#xC158;&#xC740; &#xD544;&#xC694;&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ qemu-arm -L /usr/arm-linux-gnueabi hello.arm  
+hello world
+------------------------------------------------------
+
+<span class="hljs-comment"># terminal 1</span>
+$ qemu-arm -L /usr/arm-linux-gnueabi -g <span class="hljs-number">1234</span> hello.arm  
+
+<span class="hljs-comment"># terminal 2</span>
+$ gdb-multiarch hello.arm
+. . . .
+. . . .
+(gdb) <span class="hljs-built_in">set</span> sysroot /usr/arm-linux-gnueabi
+(gdb) target remote :<span class="hljs-number">1234</span>
+Remote debugging using :<span class="hljs-number">1234</span>
+Reading symbols from /usr/arm-linux-gnueabi/lib/ld-linux.so.<span class="hljs-number">3</span>...
+(no debugging symbols found)...done.
+<span class="hljs-number">0</span>xff7bdc70 <span class="hljs-keyword">in</span> ?? () from /usr/arm-linux-gnueabi/lib/ld-linux.so.<span class="hljs-number">3</span>
+(gdb) b main
+Breakpoint <span class="hljs-number">1</span> at <span class="hljs-number">0</span>x1046c: file hello.c, line <span class="hljs-number">11</span>.
+(gdb) c
+Continuing.
+
+Breakpoint <span class="hljs-number">1</span>, main () at hello.c:<span class="hljs-number">11</span>
+<span class="hljs-number">11</span>          int var1 = <span class="hljs-number">100</span>;
+(gdb) 
+
+<span class="hljs-comment"># &#xB514;&#xBC84;&#xAE45;&#xC774; &#xC548;&#xB418;&#xBA74; -static &#xC73C;&#xB85C; &#xBE4C;&#xB4DC;&#xD574; &#xBCF4;&#xC138;&#xC694;</span>
+</code></pre>
 
                     
                     </section>
