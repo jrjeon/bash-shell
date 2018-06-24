@@ -1307,6 +1307,8 @@ $ sleep <span class="hljs-number">11</span> &amp;&amp; sleep <span class="hljs-n
 $ sleep <span class="hljs-number">11</span> | sleep <span class="hljs-number">12</span> &amp;&amp; sleep <span class="hljs-number">13</span>
 </code></pre>
 <h3 id="&#xD30C;&#xC774;&#xD504;-&#xBCF4;&#xB2E4;&#xB294;-redirection-&#xC774;-&#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00;-&#xB192;&#xB2E4;">&#xD30C;&#xC774;&#xD504; &#xBCF4;&#xB2E4;&#xB294; redirection &#xC774; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xB2E4;.</h3>
+<p>&#xD30C;&#xC774;&#xD504; &#xBCF4;&#xB2E4; redirection &#xC774; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xC73C;&#xBBC0;&#xB85C; 
+redirection &#xC740; <code>&amp;&amp;</code>, <code>||</code> &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xACA0;&#xC8E0;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> hello | cat
 hello
 
@@ -1331,7 +1333,7 @@ $
 <span class="hljs-comment"># &apos;!&apos; &#xD0A4;&#xC6CC;&#xB4DC;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBA85;&#xB839; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xB2E4;&#xC591;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-keyword">if</span> ! { ! [ ... ] || ! [ ... ] ;} <span class="hljs-keyword">then</span> ...
 </code></pre>
-<p>&#xD30C;&#xC774;&#xD504;&#xB294; &#xADF8;&#xB8F9;&#xC73C;&#xB85C; &#xD558;&#xB098;&#xC758; &#xBA85;&#xB839;&#xCC98;&#xB7FC; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; <code>!</code> &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD30C;&#xC774;&#xD504;&#xB294; &#xADF8;&#xB8F9;&#xC73C;&#xB85C; &#xD558;&#xB098;&#xC758; &#xBA85;&#xB839;&#xCC98;&#xB7FC; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; <code>!</code> &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xC2B5;&#xB2C8;&#xB2E4;.<br>( redirection &#xB3C4; <code>!</code> &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xACA0;&#xC8E0; )</p>
 <pre><code class="lang-bash">$ <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> | <span class="hljs-literal">false</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> YES; <span class="hljs-keyword">fi</span>       <span class="hljs-comment"># true | false  &#xB294; &#xACB0;&#xACFC;&#xAC00; false &#xC774;&#xBBC0;&#xB85C;</span>
 $
 
@@ -1339,6 +1341,8 @@ $ <span class="hljs-keyword">if</span> ! <span class="hljs-literal">true</span> 
 YES
 </code></pre>
 <h3 id="redirection-&#xC6B0;&#xC120;&#xC21C;&#xC704;">Redirection &#xC6B0;&#xC120;&#xC21C;&#xC704;</h3>
+<p>&#xC704;&#xC5D0;&#xC11C; &#xC0B4;&#xD3B4;&#xBCF8; &#xBC14;&#xC640; &#xAC19;&#xC774; redirection &#xC740; &#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xC81C;&#xC77C; &#xB192;&#xC2B5;&#xB2C8;&#xB2E4;.
+redirection &#xB07C;&#xB9AC;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC21C;&#xC11C;&#xB85C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <ul>
 <li>&#xC88C;&#xC5D0;&#xC11C; &#xC6B0; &#xB85C; &#xC2E4;&#xD589; &#xB429;&#xB2C8;&#xB2E4;.</li>
 </ul>
