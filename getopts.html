@@ -1855,7 +1855,7 @@ END
 
 <span class="hljs-built_in">test</span> <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> &amp;&amp; usage
 
-! options=$(getopt -o a:f:c -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>) &amp;&amp; usage
+options=$(getopt -o a:f:c -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>) || usage
 <span class="hljs-built_in">eval</span> <span class="hljs-built_in">set</span> -- <span class="hljs-string">&quot;<span class="hljs-variable">$options</span>&quot;</span>
 
 <span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span>
