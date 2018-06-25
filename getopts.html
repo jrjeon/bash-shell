@@ -1746,12 +1746,12 @@ getopt &#xBA85;&#xB839;&#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC62C;&#xBC14;&#xB974
 -c was triggered!
 hello.c
 
-<span class="hljs-comment"># &#xC635;&#xC158;&#xB4E4; &#xC911;&#xAC04;&#xC5D0; &#xD30C;&#xC77C;&#xBA85;&#xC774; &#xC704;&#xCE58;&#xD558;&#xC5EC; &#xC774;&#xD6C4; -bc &#xC635;&#xC158;&#xC740; &#xC635;&#xC158;&#xC73C;&#xB85C; &#xC778;&#xC2DD;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xC635;&#xC158;&#xB4E4; &#xC911;&#xAC04;&#xC5D0; &#xD30C;&#xC77C;&#xBA85;&#xC774; &#xC704;&#xCE58;&#xD558;&#xC5EC; &#xC774;&#xD6C4; -bc &#xB294; &#xC635;&#xC158;&#xC73C;&#xB85C; &#xC778;&#xC2DD;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 $ ./test.sh <span class="hljs-operator">-a</span> <span class="hljs-number">123</span> hello.c -bc
 <span class="hljs-operator">-a</span> was triggered!, OPTARG: <span class="hljs-number">123</span>
 hello.c -bc
 </code></pre>
-<p>getopt &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC758; &#xACBD;&#xC6B0; &#xC815;&#xD655;&#xD788; &#xD30C;&#xC77C;&#xBA85;&#xC744; &#xBD84;&#xB9AC;&#xD574; <code>--</code> &#xB4A4;&#xB85C; &#xC815;&#xB82C;&#xD574; &#xC90D;&#xB2C8;&#xB2E4;.</p>
+<p>getopt &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC758; &#xACBD;&#xC6B0; &#xC635;&#xC158;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xC9C0; &#xC54A;&#xB294; hello.c &#xB97C; <code>--</code> &#xB4A4;&#xB85C; &#xC815;&#xB82C;&#xD574; &#xC90D;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
 options=$(getopt -o a:bc -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>)
