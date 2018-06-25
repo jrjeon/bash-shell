@@ -1703,12 +1703,14 @@ options=$( getopt -o a:bc <span class="hljs-operator">-l</span> <span class="hlj
 
 <span class="hljs-comment"># 1. -a123 &#xC635;&#xC158;&#xC774; -a &apos;123&apos; &#xB85C; &#xBD84;&#xB9AC;.</span>
 <span class="hljs-comment"># 2. -bc &#xC635;&#xC158;&#xC774; -b -c &#xB85C; &#xBD84;&#xB9AC;.</span>
+<span class="hljs-comment"># 3. &#xC635;&#xC158;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xC9C0; &#xC54A;&#xB294; hello.c &#xB294; &apos;--&apos; &#xB4A4;&#xB85C; &#xC774;&#xB3D9;</span>
 $ ./test.sh <span class="hljs-operator">-a</span>123 -bc hello.c
 <span class="hljs-operator">-a</span> <span class="hljs-string">&apos;123&apos;</span> -b -c -- <span class="hljs-string">&apos;hello.c&apos;</span>
 
 <span class="hljs-comment"># --path=/usr/bin &#xC635;&#xC158;&#xC774; --path &apos;/usr/bin&apos; &#xB85C; &#xBD84;&#xB9AC;</span>
+<span class="hljs-comment"># &apos;--&apos; &#xB294; &#xD56D;&#xC0C1; &#xB05D;&#xBD80;&#xBD84;&#xC5D0; &#xBD99;&#xB294;&#xB2E4;.</span>
 $ ./test.sh --name foo --path=/usr/bin
---name <span class="hljs-string">&apos;foo&apos;</span> --path <span class="hljs-string">&apos;/usr/bin&apos;</span> -- <span class="hljs-string">&apos;hello.c&apos;</span>
+--name <span class="hljs-string">&apos;foo&apos;</span> --path <span class="hljs-string">&apos;/usr/bin&apos;</span> --
 
 <span class="hljs-comment"># &apos;--&apos; ( end of options ) &#xCC98;&#xB9AC;&#xB3C4; &#xD574;&#xC90D;&#xB2C8;&#xB2E4;.</span>
 $ ./test.sh <span class="hljs-operator">-a</span>123 -bc hello.c -- -x --yyy
