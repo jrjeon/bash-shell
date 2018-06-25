@@ -1865,7 +1865,7 @@ options=$(getopt -o a:f:c -- <span class="hljs-string">&quot;<span class="hljs-v
     <span class="hljs-operator">-f</span>)
         func=<span class="hljs-variable">$2</span>; <span class="hljs-built_in">shift</span> <span class="hljs-number">2</span> ;;
     -c)
-        comp=<span class="hljs-string">&quot;-c&quot;</span>; <span class="hljs-built_in">shift</span> ;;
+        comp=<span class="hljs-variable">$1</span>; <span class="hljs-built_in">shift</span> ;;
     --) 
         <span class="hljs-built_in">shift</span>; <span class="hljs-built_in">break</span> 
   <span class="hljs-keyword">esac</span>
