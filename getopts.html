@@ -1798,10 +1798,10 @@ $ ./test.sh <span class="hljs-operator">-a</span> <span class="hljs-number">123<
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
 --------------------------------------------
 
-$ ./test.sh <span class="hljs-operator">-a</span> hello.c -p /usr/bin --name=foo --aaa --bbb
+$ ./test.sh <span class="hljs-operator">-a</span> hello.c -p /usr/bin --name=<span class="hljs-string">&apos;foo bar&apos;</span> --aaa --bbb
 <span class="hljs-operator">-a</span> was triggered!
 -p was triggered!, OPTARG: /usr/bin
---name was triggered!, OPTARG: foo
+--name was triggered!, OPTARG: foo bar
 --aaa was triggered!
 --bbb was triggered!
 hello.c
