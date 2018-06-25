@@ -1431,6 +1431,11 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-comment"># &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; if &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xB2E4;.</span>
 <span class="hljs-keyword">if</span> AA=$( readlink <span class="hljs-operator">-e</span> test.sh ); <span class="hljs-keyword">then</span> ...
 
+<span class="hljs-keyword">if</span> ! options=$(getopt -o a:f:c -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>); <span class="hljs-keyword">then</span>
+    usage
+    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">fi</span>
+
 <span class="hljs-comment"># &#xB2E8; local, declare &#xC640; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;&#xB294; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ AA=$( readlink <span class="hljs-operator">-e</span> asdfg ); <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">1</span>
