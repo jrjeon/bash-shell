@@ -1764,7 +1764,7 @@ $ ./test.sh <span class="hljs-operator">-a</span> <span class="hljs-number">123<
 <h3 id="&#xC608;&#xC81C;-">&#xC608;&#xC81C; )</h3>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
-<span class="hljs-keyword">if</span> ! options=$(getopt -o ap:n: <span class="hljs-operator">-l</span> path:,name:,aaa,bbb -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>)
+<span class="hljs-keyword">if</span> ! options=$(getopt -o hp:n: <span class="hljs-operator">-l</span> <span class="hljs-built_in">help</span>,path:,name:,aaa -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>)
 <span class="hljs-keyword">then</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ERROR: print usage&quot;</span>
     <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
@@ -1774,7 +1774,7 @@ $ ./test.sh <span class="hljs-operator">-a</span> <span class="hljs-number">123<
 
 <span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span>
     <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-keyword">in</span>
-        <span class="hljs-operator">-a</span>) 
+        -h|--help) 
             <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span> was triggered!&quot;</span>
             <span class="hljs-built_in">shift</span> ;;
         -p|--path)    
@@ -1786,9 +1786,6 @@ $ ./test.sh <span class="hljs-operator">-a</span> <span class="hljs-number">123<
         --aaa)     
             <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span> was triggered!&quot;</span>
             <span class="hljs-built_in">shift</span> ;;
-        --bbb)     
-            <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span> was triggered!&quot;</span>
-            <span class="hljs-built_in">shift</span> ;;
         --)           
             <span class="hljs-built_in">shift</span> 
             <span class="hljs-built_in">break</span>
@@ -1796,15 +1793,14 @@ $ ./test.sh <span class="hljs-operator">-a</span> <span class="hljs-number">123<
 <span class="hljs-keyword">done</span>
 
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
---------------------------------------------
+-----------------------------------------------------------------
 
-$ ./test.sh <span class="hljs-operator">-a</span> hello.c -p /usr/bin --name=<span class="hljs-string">&apos;foo bar&apos;</span> --aaa --bbb
-<span class="hljs-operator">-a</span> was triggered!
+$ ./test.sh -h hello.c -p /usr/bin --name=<span class="hljs-string">&apos;foo bar&apos;</span> --aaa -- --bbb
+-h was triggered!
 -p was triggered!, OPTARG: /usr/bin
 --name was triggered!, OPTARG: foo bar
 --aaa was triggered!
---bbb was triggered!
-hello.c
+hello.c --bbb
 </code></pre>
 <h1 id="quiz">Quiz</h1>
 <p>objdump &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; disassemble &#xC744; &#xD574;&#xBCF4;&#xB824;&#xBA74; &#xBA3C;&#xC800; &#xCEF4;&#xD30C;&#xC77C; &#xACFC;&#xC815;&#xC744; &#xAC70;&#xCCD0;&#xC11C;
@@ -1843,7 +1839,7 @@ object &#xD30C;&#xC77C;&#xC774;&#xB098; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744;
 
     cat &lt;&lt;END 
 
-Usage: $(basename <span class="hljs-variable">$0</span>) [<span class="hljs-operator">-a</span> arch] [<span class="hljs-operator">-f</span> func] [-c] file
+Usage: $(basename <span class="hljs-variable">$0</span>) [<span class="hljs-operator">-a</span> arch] [<span class="hljs-operator">-f</span> func] [-c] [-h] file
 -----------------------------------------------------------
 arch: arm armhf arm64 mips mips64 ppc ppc64 sparc64 riscv64
 -----------------------------------------------------------
@@ -1855,7 +1851,7 @@ END
 
 <span class="hljs-built_in">test</span> <span class="hljs-variable">$#</span> = <span class="hljs-number">0</span> &amp;&amp; usage
 
-options=$(getopt -o a:f:c -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>) || usage
+options=$(getopt -o a:f:ch -- <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>) || usage
 <span class="hljs-built_in">eval</span> <span class="hljs-built_in">set</span> -- <span class="hljs-string">&quot;<span class="hljs-variable">$options</span>&quot;</span>
 
 <span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span>
@@ -1866,8 +1862,10 @@ options=$(getopt -o a:f:c -- <span class="hljs-string">&quot;<span class="hljs-v
         func=<span class="hljs-variable">$2</span>; <span class="hljs-built_in">shift</span> <span class="hljs-number">2</span> ;;
     -c)
         comp=<span class="hljs-variable">$1</span>; <span class="hljs-built_in">shift</span> ;;
+    -h)
+        usage ;;
     --) 
-        <span class="hljs-built_in">shift</span>; <span class="hljs-built_in">break</span> 
+        <span class="hljs-built_in">shift</span>; <span class="hljs-built_in">break</span>
   <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span>
 
