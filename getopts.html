@@ -1882,51 +1882,61 @@ options=$(getopt -o a:f:ch -- <span class="hljs-string">&quot;<span class="hljs-
     x86)
         gcc=gcc
         objdump=objdump
+        ccfilt=c++filt
         ;;
 
     arm64)
         gcc=aarch64-linux-gnu-gcc
         objdump=aarch64-linux-gnu-objdump
+        ccfilt=aarch64-linux-gnu-c++filt
         ;;
 
     arm)
         gcc=arm-linux-gnueabi-gcc
         objdump=arm-linux-gnueabi-objdump
+        ccfilt=arm-linux-gnueabi-c++filt
         ;;
 
     armhf)
         gcc=arm-linux-gnueabihf-gcc
         objdump=arm-linux-gnueabihf-objdump
+        ccfilt=arm-linux-gnueabihf-c++filt
         ;;
 
     mips64)
         gcc=mips64-linux-gnuabi64-gcc
         objdump=mips64-linux-gnuabi64-objdump
+        ccfilt=mips64-linux-gnuabi64-c++filt
         ;;
 
     mips)
         gcc=mips-linux-gnu-gcc
         objdump=mips-linux-gnu-objdump
+        ccfilt=mips-linux-gnu-c++filt
         ;;
 
     sparc64)
         gcc=sparc64-linux-gnu-gcc
         objdump=sparc64-linux-gnu-objdump
+        ccfilt=sparc64-linux-gnu-c++filt
         ;;
 
     ppc64)
         gcc=powerpc64-linux-gnu-gcc
         objdump=powerpc64-linux-gnu-objdump
+        ccfilt=powerpc64-linux-gnu-c++filt
         ;;
 
     ppc)
         gcc=powerpc-linux-gnu-gcc
         objdump=powerpc-linux-gnu-objdump
+        ccfilt=powerpc-linux-gnu-c++filt
         ;;
 
     riscv64)
         gcc=riscv64-linux-gnu-gcc
         objdump=riscv64-linux-gnu-objdump
+        ccfilt=riscv64-linux-gnu-c++filt
         ;;
 
     *)
@@ -1943,14 +1953,14 @@ tmp=`mktemp -u`
     <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">${file##*.}</span>&quot;</span> = c; <span class="hljs-keyword">then</span>
         <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | sed -n <span class="hljs-string">&apos;/&lt;\.\?&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span><span class="hljs-string">&apos;&gt;:/,/^$/p&apos;</span>
     <span class="hljs-keyword">else</span>
-        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | c++filt | sed -n <span class="hljs-string">&apos;/&lt;\.\?&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span><span class="hljs-string">&apos;&gt;:/,/^$/p&apos;</span>
+        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | <span class="hljs-variable">$ccfilt</span> | sed -n <span class="hljs-string">&apos;/&lt;\.\?&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span><span class="hljs-string">&apos;&gt;:/,/^$/p&apos;</span>
     <span class="hljs-keyword">fi</span>
 <span class="hljs-keyword">else</span>
     <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp;
     <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">${file##*.}</span>&quot;</span> = c; <span class="hljs-keyword">then</span>
         <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span>
     <span class="hljs-keyword">else</span>
-        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | c++filt
+        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | <span class="hljs-variable">$ccfilt</span>
     <span class="hljs-keyword">fi</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
