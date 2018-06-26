@@ -1512,24 +1512,37 @@ $ args.sh <span class="hljs-number">1</span> <span class="hljs-number">2</span> 
 <span class="hljs-variable">$3</span> :        <span class="hljs-comment"># null &#xAC12; &#xC778;&#xC218;</span>
 <span class="hljs-variable">$4</span> : <span class="hljs-number">3</span>
 </code></pre>
-<p>&#xC774;&#xAC83;&#xC740; &#xB610;&#xD55C; redirection &#xC774;&#xB098; &#xD2B9;&#xC815; &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB85C; &#xBCC0;&#xC218;&#xAC00; &#xC0AC;&#xC6A9;&#xB420; &#xB54C;
-&#xC5D0;&#xB7EC; &#xBA54;&#xC2DC;&#xC9C0; &#xCD9C;&#xB825;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC90D;&#xB2C8;&#xB2E4;.
-&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xBA85;&#xB839;&#xBB38;&#xC744; &#xC791;&#xC131;&#xD560; &#xB54C; &#xAC00;&#xB2A5;&#xD558;&#xBA74; &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBCC0;&#xC218;&#xB294; quote &#xC744; &#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xAC00;&#xB839; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; <code>$comp</code> &#xBCC0;&#xC218;&#xAC12;&#xC774; <code>-c</code> &#xC77C; &#xACBD;&#xC6B0;&#xB294; 
+tmpfile &#xC774; &#xCEF4;&#xD30C;&#xC77C;&#xB41C; &#xC624;&#xBE0C;&#xC81D;&#xD2B8; &#xD30C;&#xC77C;&#xC774; &#xB418;&#xACE0;
+<code>$comp</code> &#xBCC0;&#xC218;&#xAC12;&#xC774; null &#xC77C; &#xACBD;&#xC6B0;&#xB294; &#xB9C1;&#xD06C;&#xAC00; &#xC644;&#xB8CC;&#xB41C; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xACE0;&#xC790; &#xD55C;&#xB2E4;&#xBA74;
+<code>$comp</code> &#xBCC0;&#xC218;&#xB97C; quote &#xD558;&#xBA74; &#xC548;&#xB418;&#xACA0;&#xC8E0;.
+&#xC65C;&#xB0D0;&#xD558;&#xBA74; quote &#xC5D0;&#xC758;&#xD574; null &#xAC12;&#xC774; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xC5B4;
+&#xB450; &#xBC88;&#xC9F8;&#xC640; &#xAC19;&#xC774; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">gcc <span class="hljs-variable">$comp</span> -o tmpfile hello.c
+........................................
+
+gcc <span class="hljs-string">&quot;&quot;</span> -o tmpfile hello.c
+gcc: error: : No such file or directory
+</code></pre>
+<p>&#xBCC0;&#xC218;&#xB97C; quote &#xD558;&#xB294; &#xAC83;&#xC740; &#xC624;&#xB958; &#xBA54;&#xC2DC;&#xC9C0; &#xCD9C;&#xB825;&#xC5D0;&#xB3C4; &#xC601;&#xD5A5;&#xC744; &#xC90D;&#xB2C8;&#xB2E4;.
+&#xBCC0;&#xC218;&#xB97C; quote &#xD558;&#xBA74; &#xC880; &#xB354; &#xBA85;&#xD655;&#xD55C; &#xC624;&#xB958;&#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xBA85;&#xB839;&#xBB38;&#xC744; &#xC791;&#xC131;&#xD560; &#xB54C; &#xC704;&#xC640; &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xAC00; &#xC544;&#xB2C8;&#xB77C;&#xBA74;
+&#xBCC0;&#xC218;&#xB97C; quote &#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ AA=<span class="hljs-string">&quot;&quot;</span>
 
-$ <span class="hljs-built_in">echo</span> hello &gt; <span class="hljs-variable">$AA</span>
+$ <span class="hljs-built_in">echo</span> hello <span class="hljs-number">2</span>&gt;&amp; <span class="hljs-variable">$AA</span>           <span class="hljs-comment"># echo hello 2&gt;&amp; </span>
 bash: <span class="hljs-variable">$AA</span>: ambiguous redirect
 
-<span class="hljs-comment"># quote &#xC744; &#xD560; &#xACBD;&#xC6B0; &#xC880; &#xB354; &#xBA85;&#xD655;&#xD55C; &#xC624;&#xB958;&#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> hello &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>
-bash: : No such file or directory
-.......................................................
-
-$ <span class="hljs-built_in">echo</span> hello <span class="hljs-number">2</span>&gt;&amp; <span class="hljs-variable">$AA</span>
-bash: <span class="hljs-variable">$AA</span>: ambiguous redirect
-
-$ <span class="hljs-built_in">echo</span> hello <span class="hljs-number">2</span>&gt;&amp; <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>
+<span class="hljs-comment"># quote &#xC744; &#xD558;&#xBA74; &#xC880; &#xB354; &#xBA85;&#xD655;&#xD55C; &#xC624;&#xB958;&#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> hello <span class="hljs-number">2</span>&gt;&amp; <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>         <span class="hljs-comment"># echo hello 2&gt;&amp; &quot;&quot;</span>
 bash: <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>: Bad file descriptor
+....................................
+
+$ <span class="hljs-built_in">echo</span> hello &gt; <span class="hljs-variable">$AA</span>             <span class="hljs-comment"># echo hello &gt;</span>
+bash: <span class="hljs-variable">$AA</span>: ambiguous redirect
+
+$ <span class="hljs-built_in">echo</span> hello &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>           <span class="hljs-comment"># echo hello &gt; &quot;&quot;</span>
+bash: : No such file or directory
 </code></pre>
 <h2 id="single-quotes----">Single quotes ( &apos; &apos; )</h2>
 <p>&#xBCC4;&#xB2E4;&#xB978; &#xAE30;&#xB2A5; &#xC5C6;&#xC774; &#xBAA8;&#xB4E0; &#xBB38;&#xC790;&#xB97C; &#xC788;&#xB294; &#xADF8;&#xB300;&#xB85C; &#xD45C;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;. escape &#xB3C4; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xC548;&#xC5D0;&#xC11C; single quotes &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xBA74; &#xB4A4;&#xC5D0; &#xC774;&#xC5B4;&#xC9C0;&#xB294; <code>$&apos; &apos;</code> &#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
