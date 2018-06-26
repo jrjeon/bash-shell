@@ -1940,9 +1940,18 @@ tmp=`mktemp -u`
 
 <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span>; <span class="hljs-keyword">then</span>
     <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp; 
-    <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | sed -n <span class="hljs-string">&apos;/&lt;\.\?&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span><span class="hljs-string">&apos;&gt;:/,/^$/p&apos;</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">${file##*.}</span>&quot;</span> = c; <span class="hljs-keyword">then</span>
+        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | sed -n <span class="hljs-string">&apos;/&lt;\.\?&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span><span class="hljs-string">&apos;&gt;:/,/^$/p&apos;</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | c++filt | sed -n <span class="hljs-string">&apos;/&lt;\.\?&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">$func</span>&quot;</span><span class="hljs-string">&apos;&gt;:/,/^$/p&apos;</span>
+    <span class="hljs-keyword">fi</span>
 <span class="hljs-keyword">else</span>
-    <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp; <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span>
+    <span class="hljs-variable">$gcc</span> <span class="hljs-variable">$comp</span> -o <span class="hljs-variable">$tmp</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> &amp;&amp;
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">${file##*.}</span>&quot;</span> = c; <span class="hljs-keyword">then</span>
+        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-variable">$objdump</span> <span class="hljs-operator">-d</span> <span class="hljs-variable">$tmp</span> | c++filt
+    <span class="hljs-keyword">fi</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <hr>
