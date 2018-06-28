@@ -1376,6 +1376,52 @@ var=<span class="hljs-number">1</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${line//bananna/banana}</span>&quot;</span>
 <span class="hljs-keyword">done</span> &lt; infile &gt; outfile
 </code></pre>
+<h4 id="&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;">&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</h4>
+<p>compound command &#xB294; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xD1B5;&#xACFC;&#xD558;&#xC5EC; &#xC9C4;&#xC785;&#xD558;&#xC9C0; &#xBABB;&#xD588;&#xC744; &#xACBD;&#xC6B0; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C;
+&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xBAA8;&#xB450; <code>0</code> &#xC785;&#xB2C8;&#xB2E4;.
+&#xADF8; &#xC678;&#xB294; &#xAC01; &#xD574;&#xB2F9; &#xBE14;&#xB85D;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB41C; &#xB9C8;&#xC9C0;&#xB9C9; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xD1B5;&#xACFC;&#xD558;&#xC5EC; &#xC9C4;&#xC785;&#xD558;&#xC9C0; &#xBABB;&#xD588;&#xC744; &#xB54C;&#xB294; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &apos;0&apos; &#xC774;&#xB2E4; </span>
+
+$ <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-number">1</span> = <span class="hljs-number">0</span>; <span class="hljs-keyword">then</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">fi</span>    
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">test</span> <span class="hljs-number">1</span> = <span class="hljs-number">0</span>; <span class="hljs-keyword">do</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">done</span>
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
+$ <span class="hljs-built_in">set</span> --
+$ <span class="hljs-keyword">for</span> i; <span class="hljs-keyword">do</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">done</span>
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
+$ AA=<span class="hljs-number">100</span>
+$ <span class="hljs-keyword">case</span> <span class="hljs-variable">$AA</span> <span class="hljs-keyword">in</span> (<span class="hljs-number">200</span>) <span class="hljs-literal">false</span>; <span class="hljs-keyword">esac</span>
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+--------------------------------
+
+<span class="hljs-comment"># &#xC9C4;&#xC785;&#xC5D0; &#xC131;&#xACF5;&#xD558;&#xC600;&#xC744; &#xACBD;&#xC6B0;&#xB294; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xC2E4;&#xD589;&#xB41C; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xC0AC;&#xC6A9;&#xB41C;&#xB2E4;.</span>
+
+$ <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-number">1</span> = <span class="hljs-number">1</span>; <span class="hljs-keyword">then</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">fi</span> 
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+
+$ AA=<span class="hljs-number">100</span>
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">test</span> <span class="hljs-variable">$AA</span> = <span class="hljs-number">100</span>; <span class="hljs-keyword">do</span> AA=<span class="hljs-number">200</span>; <span class="hljs-literal">false</span>; <span class="hljs-keyword">done</span>
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+
+$ <span class="hljs-built_in">set</span> -- <span class="hljs-number">100</span>
+$ <span class="hljs-keyword">for</span> AA; <span class="hljs-keyword">do</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">done</span>
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+
+$ AA=<span class="hljs-number">200</span>
+$ <span class="hljs-keyword">case</span> <span class="hljs-variable">$AA</span> <span class="hljs-keyword">in</span> (<span class="hljs-number">200</span>) <span class="hljs-literal">false</span>; <span class="hljs-keyword">esac</span>
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+</code></pre>
 <h2 id="conditional-constructs">Conditional Constructs</h2>
 <h3 id="if">if</h3>
 <blockquote>
@@ -1413,7 +1459,6 @@ case &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; pattern &#xB4E4;&#xC740; 
 <li>word, pattern &#xC5D0; &#xACF5;&#xBC31;&#xC744; &#xD3EC;&#xD568;&#xD558;&#xB824;&#xBA74; quote &#xC744; &#xD558;&#xAC70;&#xB098; <code>foo\ bar</code> &#xC640;&#xAC19;&#xC774; escape &#xD569;&#xB2C8;&#xB2E4;.</li>
 <li>word, pattern &#xC5D0;&#xC11C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; <code>[[ ]]</code> &#xC5D0;&#xC11C; &#xCC98;&#xB7FC; globbing, &#xB2E8;&#xC5B4;&#xBD84;&#xB9AC;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBBC0;&#xB85C; quote &#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</li>
 <li><code>*)</code> &#xB294; &#xBAA8;&#xB4E0; &#xB9E4;&#xCE6D;&#xC744; &#xB73B;&#xD558;&#xBBC0;&#xB85C; default &#xAC12;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
-<li>case &#xBB38;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC5C6;&#xC744;&#xB54C;&#xB294; 0 &#xC744;, &#xADF8;&#xC678;&#xB294; &#xD574;&#xB2F9; case &#xC758; &#xB9C8;&#xC9C0;&#xB9C9; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</li>
 <li><code>shopt -s nocasematch</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB300;, &#xC18C;&#xBB38;&#xC790; &#xAD6C;&#xBD84;&#xC5C6;&#xC774; &#xB9E4;&#xCE6D;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
 </ul>
 <pre><code class="lang-bash"><span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Enter the name of an animal: &quot;</span> ANIMAL
@@ -1521,7 +1566,6 @@ select ANIMAL <span class="hljs-keyword">in</span> <span class="hljs-string">&qu
         *) 
             <span class="hljs-built_in">echo</span> Not available
             <span class="hljs-built_in">break</span> 
-            ;;
     <span class="hljs-keyword">esac</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;You picked number <span class="hljs-variable">$REPLY</span>&quot;</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;The <span class="hljs-variable">$ANIMAL</span> has <span class="hljs-variable">$number_of_legs</span> legs.&quot;</span>
@@ -1563,7 +1607,6 @@ $ ls <span class="hljs-operator">-l</span> x1 x2
 <ul>
 <li>while &#xBB38;&#xC740; <code>while</code>, <code>do</code>, <code>done</code> &#xD0A4;&#xC6CC;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</li>
 <li>&#xD14C;&#xC2A4;&#xD2B8;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC774; &#xC815;&#xC0C1; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xACC4;&#xC18D;&#xD574;&#xC11C; &#xBC18;&#xBCF5;&#xD569;&#xB2C8;&#xB2E4;.</li>
-<li>&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xC2E4;&#xD589;&#xB41C; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</li>
 </ul>
 <p>while &#xACFC; read &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C;&#xB54C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xD30C;&#xC77C;&#xC744; read &#xBA85;&#xB839;&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xBA74; &#xC548;&#xB429;&#xB2C8;&#xB2E4;. &#xC65C;&#xB0D0;&#xD558;&#xBA74; <code>read -r line &lt; infile</code> &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xB098;&#xBA74; infile &#xACFC; &#xC5F0;&#xACB0;&#xC774; close &#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; &#xB2E4;&#xC74C; &#xBC18;&#xBCF5;&#xB54C; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xB2E4;&#xC2DC; &#xD30C;&#xC77C;&#xC744; open &#xD574;&#xC11C; &#xC77D;&#xC5B4; &#xB4E4;&#xC774;&#xBBC0;&#xB85C; &#xACC4;&#xC18D;&#xD574;&#xC11C; &#xCCAB;&#xB77C;&#xC778;&#xB9CC; &#xD45C;&#xC2DC;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line &lt; infile
@@ -1601,13 +1644,9 @@ Fred:apples:<span class="hljs-number">20</span>:June:<span class="hljs-number">4
 </blockquote>
 <ul>
 <li>until &#xBB38;&#xC740; <code>until</code>, <code>do</code>, <code>done</code> &#xD0A4;&#xC6CC;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</li>
-<li>&#xD14C;&#xC2A4;&#xD2B8;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xACC4;&#xC18D;&#xD574;&#xC11C; &#xBC18;&#xBCF5;&#xD569;&#xB2C8;&#xB2E4;.</li>
-<li>&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xC2E4;&#xD589;&#xB41C; &#xBA85;&#xB839;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</li>
+<li>&#xD14C;&#xC2A4;&#xD2B8;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xACC4;&#xC18D;&#xD574;&#xC11C; &#xBC18;&#xBCF5;&#xD569;&#xB2C8;&#xB2E4;.<br>( <code>until ...</code> &#xC740; <code>while ! ...</code> &#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;. )</li>
 </ul>
-<pre><code class="lang-bash"><span class="hljs-comment"># until ...; do ...; done &#xC740; </span>
-<span class="hljs-comment"># while ! ...; do ...; done &#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-
-<span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Enter Hostname: &quot;</span> hostname
+<pre><code class="lang-bash"><span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Enter Hostname: &quot;</span> hostname
 until ping -c <span class="hljs-number">1</span> <span class="hljs-string">&quot;<span class="hljs-variable">$hostname</span>&quot;</span> &gt; /dev/null
 <span class="hljs-keyword">do</span>
         sleep <span class="hljs-number">60</span>;
